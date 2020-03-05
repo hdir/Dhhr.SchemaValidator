@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generated on 11-18-2018  21:04:34 at NPR -->
+<!-- Avdeling helsergistres meldinger -->
+<!-- Modul pak  -->
+<!-- Skjema for Innrapportering av hendelser i forløp  -->
+<!-- XML-Schema level supported is specified by W3C -->
+<!-- http://www.w3.org/2001/XMLSchema -->
+<schema 
+       xmlns="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
+    xmlns:kith="http://www.kith.no/xmlstds" 
+    xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" 
+    xmlns:npr = "http://www.npr.no/xmlstds/53_1_3_pak"
+    targetNamespace = "http://www.npr.no/xmlstds/53_1_3_pak"
+    elementFormDefault = "qualified"
+    attributeFormDefault="unqualified">
+   <import namespace="http://www.npr.no/xmlstds/53_1_3" schemaLocation="NPR.xsd"/>
+
+
+
+<!-- LEVEL 1 -->
+
+<!-- Class: Melding -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Melding' --> 
+<simpleType name="meldingstype">
+   <restriction base="string"/>  <!-- Kodeverk: 7371 Meldingstype -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Melding' --> 
+<annotation>
+   <appinfo>
+      <class name="Melding"/> 
+      <attribute name="meldingstype"/> 
+      <codingScheme name="Meldingstype"/> 
+      <codingScheme OID="7371"/> 
+      <simpleT name="meldingstype"/> 
+         <code value="E" text="Endringsmelding" comment=""/>
+         <code value="B" text="Satsvis melding" comment=""/>
+   </appinfo>
+</annotation>
+
+
+<!-- LEVEL 2 -->
+
+<!-- Class: Kontaktperson -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Kontaktperson' --> 
+<simpleType name="kontaktperson_type">
+   <restriction base="string"/>  <!-- Kodeverk: 8471 Kontaktperson type -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Kontaktperson' --> 
+<annotation>
+   <appinfo>
+      <class name="Kontaktperson"/> 
+      <attribute name="typeKontaktperson"/> 
+      <codingScheme name="Kontaktperson type"/> 
+      <codingScheme OID="8471"/> 
+      <simpleT name="kontaktperson_type"/> 
+         <code value="1" text="Teknisk produksjon" comment=""/>
+         <code value="2" text="Somatisk spesialisthelsetjeneste" comment=""/>
+         <code value="3" text="Psykisk helsevern voksne" comment=""/>
+         <code value="4" text="Barne og ungdomspsykiatri" comment=""/>
+         <code value="5" text="Tverrfaglig spesialisert rusbehandling" comment=""/>
+         <code value="6" text="Personskadestatistikk" comment=""/>
+         <code value="7" text="Ventelistestatistikk" comment=""/>
+         <code value="8" text="Ident-meldingen" comment=""/>
+         <code value="9" text="RESH" comment=""/>
+         <code value="10" text="Radiologi" comment="Unntatt stråleterapi"/>
+         <code value="11" text="Stråleterapi" comment=""/>
+         <code value="12" text="Pakkeforløp kreft" comment=""/>
+         <code value="13" text="Vedtak etter psykisk helsevernloven" comment=""/>
+         <code value="14" text="Organisasjonsoppsett i EPJ" comment=""/>
+         <code value="15" text="EPJ-leverandør, meldingsvalidering" comment=""/>
+         <code value="16" text="IPLOS kontaktperson" comment=""/>
+         <code value="17" text="IPLOS innsendingsansvarlig" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Helseinstitusjon -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+<!-- LEVEL 3 -->
+
+<!-- Class: Enhet -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Enhet' --> 
+<simpleType name="ja_nei">
+   <restriction base="string"/>  <!-- Kodeverk: 1101 Ja, nei -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Enhet' --> 
+<annotation>
+   <appinfo>
+      <class name="Enhet"/> 
+      <attribute name="isfRefusjon"/> 
+      <codingScheme name="Ja, nei"/> 
+      <codingScheme OID="1101"/> 
+      <simpleT name="ja_nei"/> 
+         <code value="1" text="Ja" comment=""/>
+         <code value="2" text="Nei" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Slett -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Slett' --> 
+<simpleType name="objekttype">
+   <restriction base="string"/>  <!-- Kodeverk: 7372 Objekttype -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Slett' --> 
+<annotation>
+   <appinfo>
+      <class name="Slett"/> 
+      <attribute name="objekttype"/> 
+      <codingScheme name="Objekttype"/> 
+      <codingScheme OID="7372"/> 
+      <simpleT name="objekttype"/> 
+         <code value="P" text="Pasient" comment=""/>
+         <code value="H" text="Henvisningsperiode" comment=""/>
+         <code value="E" text="Episode" comment=""/>
+         <code value="B" text="Behandlerkrav" comment=""/>
+         <code value="A" text="Prehospital/AMK" comment=""/>
+         <code value="R" text="Russituasjon" comment=""/>
+         <code value="S" text="Personskade" comment=""/>
+         <code value="M" text="Medisinsk stråling" comment=""/>
+         <code value="L" text="Pleie og omsorg" comment=""/>
+         <code value="V" text="Vedtak i psykisk helsevern" comment=""/>
+         <code value="F" text="Forløp" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Objektholder -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+<!-- LEVEL 4 -->
+
+<!-- Class: Forløp -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Forløp' --> 
+<simpleType name="overordnet_type_forlop">
+   <restriction base="string"/>  <!-- Kodeverk: 9172 Overordnet type forløp -->
+
+</simpleType>
+<simpleType name="oid_9173_9321">
+   <union memberTypes= "   npr:pakkeforlop_kreft_type_forlop    npr:pakkeforlop_for_psykisk_helse_og_rus"/>
+</simpleType><simpleType name="pakkeforlop_kreft_type_forlop">
+   <restriction base="string"/>  <!-- Kodeverk: 9173 Pakkeforløp kreft type forløp -->
+
+</simpleType>
+<simpleType name="pakkeforlop_for_psykisk_helse_og_rus">
+   <restriction base="string"/>  <!-- Kodeverk: 9321 Pakkeforløp for psykisk helse og rus -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Forløp' --> 
+<annotation>
+   <appinfo>
+      <class name="Forløp"/> 
+      <attribute name="forlopType"/> 
+      <codingScheme name="Overordnet type forløp"/> 
+      <codingScheme OID="9172"/> 
+      <simpleT name="overordnet_type_forlop"/> 
+         <code value="1" text="Pakkeforløp for kreft" comment=""/>
+         <code value="2" text="Pakkeforløp for psykisk helse og rus" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Forløp"/> 
+      <attribute name="forlopKode"/> 
+      <codingScheme name="Pakkeforløp kreft type forløp"/> 
+      <codingScheme OID="9173"/> 
+      <simpleT name="pakkeforlop_kreft_type_forlop"/> 
+         <code value="A01" text="Brystkreft" comment=""/>
+         <code value="A02" text="Hode- halskreft" comment=""/>
+         <code value="A03" text="Kronisk lymfatisk leukemi" comment=""/>
+         <code value="A04" text="Myelomatose" comment=""/>
+         <code value="A05" text="Akutt leukemi" comment=""/>
+         <code value="A06" text="Lymfom" comment=""/>
+         <code value="A07" text="Bukspyttkjertelkreft" comment=""/>
+         <code value="A12" text="Tykk- og endetarmskreft" comment=""/>
+         <code value="A14" text="Blærekreft" comment=""/>
+         <code value="A15" text="Nyrekreft" comment=""/>
+         <code value="A16" text="Prostatakreft" comment=""/>
+         <code value="A17" text="Peniskreft" comment=""/>
+         <code value="A18" text="Testikkelkreft" comment=""/>
+         <code value="A20" text="Livmorkreft" comment=""/>
+         <code value="A21" text="Eggstokkreft" comment=""/>
+         <code value="A22" text="Livmorhalskreft" comment=""/>
+         <code value="A23" text="Hjernekreft" comment=""/>
+         <code value="A26" text="Lungekreft" comment=""/>
+         <code value="A30" text="Kreft hos barn" comment=""/>
+         <code value="A32" text="Kreft i spiserør og magesekk" comment=""/>
+         <code value="A34" text="Primær leverkreft" comment=""/>
+         <code value="A36" text="Sarkom" comment=""/>
+         <code value="A37" text="Skjoldbruskkjertelkreft" comment=""/>
+         <code value="A38" text="Føflekkreft" comment=""/>
+         <code value="A39" text="Nevroendokrine svulster" comment=""/>
+         <code value="A40" text="Galleveiskreft" comment=""/>
+         <code value="B01" text="Metastaser med ukjent utgangspunkt" comment=""/>
+         <code value="C01" text="Diagnostisk pakkeforløp" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Forløp"/> 
+      <attribute name="forlopKode"/> 
+      <codingScheme name="Pakkeforløp for psykisk helse og rus"/> 
+      <codingScheme OID="9321"/> 
+      <simpleT name="pakkeforlop_for_psykisk_helse_og_rus"/> 
+         <code value="D01" text="Tverrfaglig spesialisert rusbehandling (TSB)" comment=""/>
+         <code value="D06" text="Psykoseutvikling og psykoselidelser" comment=""/>
+         <code value="D07" text="Utredning og behandling av tvangslidelse (OCD)" comment=""/>
+         <code value="D08" text="Spiseforstyrrelser hos barn og unge" comment=""/>
+         <code value="D09" text="Gravide som bruker/har brukt rusmidler - kvinne" comment=""/>
+         <code value="D10" text="Gravide som bruker/har brukt rusmidler - nyfødt barn" comment=""/>
+         <code value="D11" text="Utredning og behandling i psykisk helsevern, voksne" comment=""/>
+         <code value="D12" text="Utredning og behandling i psykisk helsevern, barn og unge" comment=""/>
+   </appinfo>
+</annotation>
+
+
+<!-- LEVEL 5 -->
+
+<!-- Class: Hendelse i forløp -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Hendelse i forløp' --> 
+<simpleType name="gruppering_av_typer_hendelser">
+   <restriction base="string"/>  <!-- Kodeverk: 9189 Gruppering av typer hendelser -->
+
+</simpleType>
+<simpleType name="oid_9174_9322">
+   <union memberTypes= "   npr:tidspunkter_pakkeforlop_kreft    npr:type_hendelser_pakkeforlop_psykisk_helse_og_rus"/>
+</simpleType><simpleType name="tidspunkter_pakkeforlop_kreft">
+   <restriction base="string"/>  <!-- Kodeverk: 9174 Tidspunkter pakkeforløp kreft -->
+
+</simpleType>
+<simpleType name="type_hendelser_pakkeforlop_psykisk_helse_og_rus">
+   <restriction base="string"/>  <!-- Kodeverk: 9322 Type hendelser pakkeforløp psykisk helse og rus -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Hendelse i forløp' --> 
+<annotation>
+   <appinfo>
+      <class name="Hendelse i forløp"/> 
+      <attribute name="forlopTypeHendelse"/> 
+      <codingScheme name="Gruppering av typer hendelser"/> 
+      <codingScheme OID="9189"/> 
+      <simpleT name="gruppering_av_typer_hendelser"/> 
+         <code value="1" text="Hendelser knyttet til pakkeforløp kreft" comment=""/>
+         <code value="2" text="Hendelser knyttet til pakkeforløp for psykisk helse og rus" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Hendelse i forløp"/> 
+      <attribute name="typeHendelse"/> 
+      <codingScheme name="Tidspunkter pakkeforløp kreft"/> 
+      <codingScheme OID="9174"/> 
+      <simpleT name="tidspunkter_pakkeforlop_kreft"/> 
+         <code value="A" text="Dato for start pakkeforløp/mottat henvisning" comment="Start pakkeforløp"/>
+         <code value="S" text="Dato for start utredning" comment="Start utredning"/>
+         <code value="C" text="Dato for klinisk beslutning om eventuell behandling" comment="Klin beslutning"/>
+         <code value="F" text="Dato for start initial behandling" comment="Init behandling"/>
+         <code value="X" text="Dato for avslutning av pakkeforløp" comment="Avslutning"/>
+         <code value="B" text="Dato for biopsi" comment="Biopsi"/>
+         <code value="O" text="Dato overføring til annet helseforetak/sykehus" comment="Overføring"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Hendelse i forløp"/> 
+      <attribute name="typeHendelse"/> 
+      <codingScheme name="Type hendelser pakkeforløp psykisk helse og rus"/> 
+      <codingScheme OID="9322"/> 
+      <simpleT name="type_hendelser_pakkeforlop_psykisk_helse_og_rus"/> 
+         <code value="A" text="Pakkeforløp start" comment=""/>
+         <code value="M" text="Første fremmøte i pakkeforløpet" comment=""/>
+         <code value="C" text="Klinisk beslutning" comment=""/>
+         <code value="P" text="Start på symptomer på psykose" comment=""/>
+         <code value="D" text="Avrusning døgn avsluttet" comment=""/>
+         <code value="T" text="OCD-behandling avsluttet" comment=""/>
+         <code value="E" text="Evalueringspunkt" comment=""/>
+         <code value="F" text="Tilbakemelding til henviser og fastlege sendt underveis i pakkeforløpet" comment=""/>
+         <code value="S" text="Samarbeidsmøte med relevante instanser" comment=""/>
+         <code value="U" text="Utført aktivitet" comment=""/>
+         <code value="X" text="Avslutning av pakkeforløp" comment=""/>
+   </appinfo>
+</annotation>
+
+
+<!-- LEVEL 6 -->
+
+<!-- Class: Utfall -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Utfall' --> 
+<simpleType name="typer_utfall_av_hendelser">
+   <restriction base="string"/>  <!-- Kodeverk: 9177 Typer utfall av hendelser -->
+
+</simpleType>
+<simpleType name="oid_9175_9176_9323_9324_9325_9326">
+   <union memberTypes= "   npr:kliniske_beslutning_pakkeforlop_kreft    npr:initiell_behandling    npr:pakkeforlop_PHR_utfall_klinisk_beslutning    npr:pakkeforlop_PHR_utfall_samarbeidsmote    npr:pakkeforlop_PHR_utfall_utforte_aktiviteter    npr:pakkeforlop_PHR_utfall_avslutning"/>
+</simpleType><simpleType name="kliniske_beslutning_pakkeforlop_kreft">
+   <restriction base="string"/>  <!-- Kodeverk: 9175 Kliniske beslutning pakkeforløp kreft -->
+
+</simpleType>
+<simpleType name="initiell_behandling">
+   <restriction base="string"/>  <!-- Kodeverk: 9176 Initiell behandling -->
+
+</simpleType>
+<simpleType name="pakkeforlop_PHR_utfall_klinisk_beslutning">
+   <restriction base="string"/>  <!-- Kodeverk: 9323 Pakkeforløp PHR utfall klinisk beslutning -->
+
+</simpleType>
+<simpleType name="pakkeforlop_PHR_utfall_samarbeidsmote">
+   <restriction base="string"/>  <!-- Kodeverk: 9324 Pakkeforløp PHR utfall samarbeidsmøte -->
+
+</simpleType>
+<simpleType name="pakkeforlop_PHR_utfall_utforte_aktiviteter">
+   <restriction base="string"/>  <!-- Kodeverk: 9325 Pakkeforløp PHR utfall utførte aktiviteter -->
+
+</simpleType>
+<simpleType name="pakkeforlop_PHR_utfall_avslutning">
+   <restriction base="string"/>  <!-- Kodeverk: 9326 Pakkeforløp PHR utfall avslutning -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Utfall' --> 
+<annotation>
+   <appinfo>
+      <class name="Utfall"/> 
+      <attribute name="typeUtfall"/> 
+      <codingScheme name="Typer utfall av hendelser"/> 
+      <codingScheme OID="9177"/> 
+      <simpleT name="typer_utfall_av_hendelser"/> 
+         <code value="1" text="Klinisk beslutning pakkeforløp kreft" comment=""/>
+         <code value="2" text="Initiell behandling pakkeforløp kreft" comment=""/>
+         <code value="3" text="Pakkeforløp PHR - Utfall - Klinisk beslutning" comment=""/>
+         <code value="4" text="Pakkeforløp PHR - Utfall - Samarbeidsmøte" comment=""/>
+         <code value="5" text="Pakkeforløp PHR - Utfall - Utførte aktiviteter" comment=""/>
+         <code value="6" text="Pakkeforløp PHR - Utfall - Avslutning" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Utfall"/> 
+      <attribute name="utfallKode"/> 
+      <codingScheme name="Kliniske beslutning pakkeforløp kreft"/> 
+      <codingScheme OID="9175"/> 
+      <simpleT name="kliniske_beslutning_pakkeforlop_kreft"/> 
+         <code value="K" text="Påvist kreft organspesifikt" comment="Organspesifikt"/>
+         <code value="M" text="Mistanke om annen kreftsykdom (for Axx )" comment="Mistanke kreft"/>
+         <code value="D" text="Mistanke om kreftsykdom (ny utredning) (for Bxx og Cxx)" comment="Mistanke kreftsykdom"/>
+         <code value="A" text="Påvist annen sykdom enn kreft" comment="Annen sykdom"/>
+         <code value="I" text="Ingen sykdom" comment="Ingen sykdom"/>
+         <code value="U" text="Metastase uten kjent utgangspunkt" comment="Metastase"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Utfall"/> 
+      <attribute name="utfallKode"/> 
+      <codingScheme name="Initiell behandling"/> 
+      <codingScheme OID="9176"/> 
+      <simpleT name="initiell_behandling"/> 
+         <code value="O" text="Overvåking uten behandling" comment="Overvåking"/>
+         <code value="I" text="Ingen behandling" comment="Ingen behandling"/>
+         <code value="K" text="Kirurgisk behandling" comment="Kirurgisk"/>
+         <code value="M" text="Medikamentell behandling" comment="Medikamentell"/>
+         <code value="S" text="Strålebehandling" comment="Stråle"/>
+         <code value="L" text="Symptomlindrende behandling" comment="Symptomlindrende"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Utfall"/> 
+      <attribute name="utfallKode"/> 
+      <codingScheme name="Pakkeforløp PHR utfall klinisk beslutning"/> 
+      <codingScheme OID="9323"/> 
+      <simpleT name="pakkeforlop_PHR_utfall_klinisk_beslutning"/> 
+         <code value="U" text="Behov for utvidet utredning" comment=""/>
+         <code value="P" text="Behov for behandling innen psykisk helsevern" comment=""/>
+         <code value="T" text="Behov for behandling innen TSB" comment=""/>
+         <code value="S" text="Behov for behandling fra annen spesialisthelsetjeneste (ikke Psykisk helsevern eller TSB)" comment=""/>
+         <code value="K" text="Behov for behandling og/eller oppfølging fra fastlege, kommunal helse- og omsorgstjeneste" comment=""/>
+         <code value="A" text="Behov for oppfølging fra andre instanser som NAV, PPT, arbeidsgiver, skole, barnevern mm." comment=""/>
+         <code value="I" text="Ikke behov for videre behandling og/eller oppfølging" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Utfall"/> 
+      <attribute name="utfallKode"/> 
+      <codingScheme name="Pakkeforløp PHR utfall samarbeidsmøte"/> 
+      <codingScheme OID="9324"/> 
+      <simpleT name="pakkeforlop_PHR_utfall_samarbeidsmote"/> 
+         <code value="M" text="Gjennomført møte" comment=""/>
+         <code value="I" text="Vurdert ikke behov for møte" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Utfall"/> 
+      <attribute name="utfallKode"/> 
+      <codingScheme name="Pakkeforløp PHR utfall utførte aktiviteter"/> 
+      <codingScheme OID="9325"/> 
+      <simpleT name="pakkeforlop_PHR_utfall_utforte_aktiviteter"/> 
+         <code value="F" text="Brukt feedbackverktøy" comment=""/>
+         <code value="S" text="Familiebasert behandling spesifikt for spiseforstyrrelser" comment=""/>
+         <code value="E" text="Eksponeringsterapi for tvangslidelse" comment=""/>
+         <code value="M" text="Legemiddelbehandling for tvangslidelse" comment=""/>
+         <code value="V" text="Brukt standardisert verktøy for måling av symptom og/eller funksjon" comment=""/>
+         <code value="U" text="Pasient og/eller foreldre og eventuelt pårørende er involvert i utarbeidelse av utredningsplan og/eller behandlingsplan" comment="For barn og unge: koden skal brukes når pasienten og/eller foreldre har vært involvert i utarbeidelse av plan. For voksne: koden skal brukes når pasient alene eller sammen med pårørende har vært involvert i utarbeidelse av plan."/>
+         <code value="B" text="Pasient og/eller foreldre og eventuelt pårørende er informert om de ulike behandlingsformer enheten tilbyr for aktuell lidelse" comment="For barn og unge: koden skal brukes når pasient og/eller foreldre har blitt informert om behandlingsforme. For voksne: koden skal brukes når pasient alene eller sammen med pårørende har blitt informert."/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Utfall"/> 
+      <attribute name="utfallKode"/> 
+      <codingScheme name="Pakkeforløp PHR utfall avslutning"/> 
+      <codingScheme OID="9326"/> 
+      <simpleT name="pakkeforlop_PHR_utfall_avslutning"/> 
+         <code value="M" text="Avbrudd fordi pasienten ikke har møtt" comment=""/>
+         <code value="P" text="Avbrudd etter pasientens/foresattes eget ønske" comment=""/>
+         <code value="G" text="Avslutning av gjennomført pakkeforløp" comment=""/>
+         <code value="A" text="Avslutning av andre årsaker" comment=""/>
+         <code value="R" text="Rett til helsehjelp ikke innvilget" comment=""/>
+         <code value="L" text="Skal ikke i pakkeforløp" comment=""/>
+         <code value="N" text="Overført til annet pakkeforløp innen psykisk helse eller rus" comment="Ved eget eller annet helseforetak/privat behandlingssted"/>
+         <code value="O" text="Overført til annet helseforetak/ privat behandlingssted for videreføring av pågående pakkeforløp" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Referanse til enhet -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Referanse til enhet' --> 
+<simpleType name="type_enhet">
+   <restriction base="string"/>  <!-- Kodeverk: 8476 Type enhet -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Referanse til enhet' --> 
+<annotation>
+   <appinfo>
+      <class name="Referanse til enhet"/> 
+      <attribute name="typeEnhet"/> 
+      <codingScheme name="Type enhet"/> 
+      <codingScheme OID="8476"/> 
+      <simpleT name="type_enhet"/> 
+         <code value="1" text="Behandlingssted" comment=""/>
+         <code value="2" text="Fagenhet" comment=""/>
+         <code value="3" text="Tjenesteenhet" comment=""/>
+         <code value="4" text="Klinikk" comment=""/>
+         <code value="5" text="Poliklinikk" comment=""/>
+         <code value="6" text="Post" comment=""/>
+         <code value="7" text="Avdeling" comment=""/>
+   </appinfo>
+</annotation>
+   <!-- dataType 'Kodet' -->
+   <simpleType name='Kodet' >
+      <restriction base= 'string'> 
+      </restriction> 
+   </simpleType>
+</schema>

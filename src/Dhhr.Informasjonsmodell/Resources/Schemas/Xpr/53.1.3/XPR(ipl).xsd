@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generated on 11-18-2018  22:19:31 at NPR -->
+<!-- Avdeling helsergistres meldinger -->
+<!-- Modul ipl  -->
+<!-- Skjema for Kravspesifikasjon - IPLOS i KPR  -->
+<!-- XML-Schema level supported is specified by W3C -->
+<!-- http://www.w3.org/2001/XMLSchema -->
+<schema 
+       xmlns="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
+    xmlns:kith="http://www.kith.no/xmlstds" 
+    xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" 
+    xmlns:npr = "http://www.npr.no/xmlstds/53_1_3_ipl"
+    targetNamespace = "http://www.npr.no/xmlstds/53_1_3_ipl"
+    elementFormDefault = "qualified"
+    attributeFormDefault="unqualified">
+   <import namespace="http://www.npr.no/xmlstds/53_1_3" schemaLocation="NPR.xsd"/>
+
+<include schemaLocation="XPR(ipl)_CodingSchemes.xsd"/>
+
+
+<!-- LEVEL 1 -->
+
+<!-- Class: Melding -->
+<element name = "Melding">
+   <annotation>
+       <documentation>
+         Opplysninger som leverandører av helsetjenester i kommuner, helsevirksomheter eller helsepersonell etter bestemmelser i lov eller i medhold av lov i gitte situasjoner er pliktig til å rapportere.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Kontaktperson" minOccurs = "1" maxOccurs = "unbounded" />
+         <element ref = "npr:Kommune" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "versjon" type = "string"  use = "required" fixed = "53.1.3" />
+      <attribute name = "meldingstype" type = "npr:meldingstype"  use = "required" />
+      <attribute name = "fraDatoPeriode" type = "date"  use = "required" />
+      <attribute name = "uttakDato" type = "date"  use = "required" />
+      <attribute name = "leverandor" type = "string"  use = "required" />
+      <attribute name = "navnEPJ" type = "string"  use = "required" />
+      <attribute name = "versjonEPJ" type = "string"  use = "required" />
+      <attribute name = "versjonUt" type = "string"  use = "required" />
+      <attribute name = "lopenr" type = "string"  use = "required" />
+      <attribute name = "tilDatoPeriode" type = "date"  use = "required" />
+      <attribute name = "lokalident" type = "string"  use = "optional" />
+   </complexType>
+      <unique name= "KommuneP_ID">
+         <selector xpath = "npr:Kommune"/>
+         <field xpath = "@virksomhetID"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 2 -->
+
+<!-- Class: Kontaktperson -->
+<element name = "Kontaktperson">
+   <annotation>
+       <documentation>
+         Kontaktpersoner for dialog mellom kommune/helseinstitusjon og Helsedirektoratet.  NB: Det kan registreres flere kontaktpersoner per Type kontaktperson.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "kontPerson" type = "string"  use = "required" />
+      <attribute name = "meldTelefon" type = "string"  use = "optional" />
+      <attribute name = "meldEpost1" type = "string"  use = "required" />
+      <attribute name = "meldEpost2" type = "string"  use = "optional" />
+      <attribute name = "typeKontaktperson" type = "npr:kontaktperson_type"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Kommunale helse- og omsorgstjenester -->
+<element name = "Kommune">
+   <annotation>
+       <documentation>
+         Helse- og omsorgstjenester definert i helse- og omsorgstjenesteloven § 3-2 første ledd nr. 4, nr. 5 og nr. 6 og § 3-6 og § 3-8. Se også kodeverket for tjenestetyper.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Objektholder" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "virksomhetID" type = "string"  use = "required" />
+   </complexType>
+      <unique name= "ObjektholderP_ID">
+         <selector xpath = "npr:Objektholder"/>
+         <field xpath = "@pasientNr"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 3 -->
+
+<!-- Class: Objektholder -->
+<element name = "Objektholder">
+   <annotation>
+       <documentation>
+         Er en container som holder objekter fra lavere nivå. Hver av objektene på lavere nivå skal identifiseres ved hjelp av GUID eller annen unik identifikasjon slik at alle objekter kan identifiseres på tvers av meldinger.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+      <!-- Dette skal skrives ut som et sequence element -->
+         <element ref = "npr:Bruker" minOccurs = "0" maxOccurs = "1" />
+         <element ref = "npr:IplosSak" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "pasientGUID" type = "nprx:guid"  use = "optional" />
+      <attribute name = "pasientNr" type = "string"  use = "required" />
+   </complexType>
+      <unique name= "IplosSakP_ID">
+         <selector xpath = "npr:IplosSak"/>
+         <field xpath = "@sakID"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 4 -->
+
+<!-- Class: Bruker/pasient -->
+<element name = "Bruker">
+   <annotation>
+       <documentation>
+         En person som søker om, eller mottar kommunale helse- og omsorgstjenester.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Ernaring" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:BistandSamfunnsdeltakelse" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:PrivatHjelp" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Boforhold" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Funksjonsvurdering" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:IndividuellPlan" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Koordinator" minOccurs = "0" maxOccurs = "1" />
+         <element ref = "npr:DiagnosePLO" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Legemiddelgjennomgang" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Tvang_O" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "pasientGUID" type = "nprx:guid"  use = "optional" />
+      <attribute name = "brukerNr" type = "string"  use = "required" />
+      <attribute name = "kjonn" type = "npr:kjonn"  use = "required" />
+      <attribute name = "fodselsar" type = "gYear"  use = "required" />
+      <attribute name = "komNrHjem" type = "nprx:kommNr"  use = "required" />
+      <attribute name = "bydel" type = "nprx:bydelNr"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: IPLOS sak -->
+<element name = "IplosSak">
+   <complexType >
+      <sequence>
+         <element ref = "npr:HenvendelseBehov" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:VedtakBeslutningTjeneste" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:KlageVedtakPLO" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Iverksatt" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "sakID" type = "string"  use = "required" />
+   </complexType>
+      <unique name= "HenvendelseBehovP_ID">
+         <selector xpath = "npr:HenvendelseBehov"/>
+         <field xpath = "@behovID"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 5 -->
+
+<!-- Class: Ernæring -->
+<element name = "Ernaring">
+   <annotation>
+       <documentation>
+         Ulike typer kartlegginger og vurderinger av risiko for underernæring.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "kartleggingID" type = "string"  use = "required" />
+      <attribute name = "typeKartlegging" type = "npr:vurderinger_kartlegginger_og_hendelser"  use = "required" />
+      <attribute name = "resultat" type = "npr:ja_nei"  use = "required" />
+      <attribute name = "kartleggingDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Bistand til samfunnsdeltakelse -->
+<element name = "BistandSamfunnsdeltakelse">
+   <annotation>
+       <documentation>
+         Beskrivelse kommer senere.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "refSoknadID" type = "string"  use = "optional" />
+      <attribute name = "typeBistand" type = "npr:type_bistand"  use = "required" />
+      <attribute name = "statusBistand" type = "npr:status_for_gitt_bistand"  use = "required" />
+      <attribute name = "registrertDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Mottar privat ikke-betalt hjelp -->
+<element name = "PrivatHjelp">
+   <annotation>
+       <documentation>
+         Om bruker mottar privat ikke-betalt hjelp til daglige gjøremål.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "privatHjelp" type = "npr:grad_av_mottatt_privat_hjelp"  use = "optional" />
+      <attribute name = "statusgjennomgangDato" type = "date"  use = "required" />
+      <attribute name = "personopplysningerDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Opplysninger om boforhold -->
+<element name = "Boforhold">
+   <annotation>
+       <documentation>
+         Klassen skal rapporteres en gang for hver opplysning som har ulike dato for statusgjennomgang eller observasjon.  
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "personopplysningerID" type = "string"  use = "required" />
+      <attribute name = "husstand" type = "npr:bosituasjon"  use = "optional" />
+      <attribute name = "omsorgForBarn" type = "npr:ja_nei"  use = "optional" />
+      <attribute name = "egnetBolig" type = "npr:ja_nei"  use = "optional" />
+      <attribute name = "statusgjennomgangDato" type = "date"  use = "required" />
+      <attribute name = "personopplysningerDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Funksjonsvurdering -->
+<element name = "Funksjonsvurdering">
+   <annotation>
+       <documentation>
+         Inneholder informasjon som beskriver vurdering av funksjonsevne.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "funksjonID" type = "string"  use = "required" />
+      <attribute name = "funksjonstype" type = "npr:iPLOS_funksjonsvariabel"  use = "required" />
+      <attribute name = "funksjonsverdi" type = "npr:oid_9165_9166_9167"  use = "required" />
+      <attribute name = "funksjonVurdertDato" type = "date"  use = "required" />
+      <attribute name = "funksjonRegistrertDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Individuell plan -->
+<element name = "IndividuellPlan">
+   <annotation>
+       <documentation>
+         Lovfestet rett for bruker/pasient med behov for langvarige og koordinerte omsorgstjenester til å få utarbeidet en individuell plan. Planen skal sikre pasienten et helhetlig, koordinert og individuelt tilpasset tjenestetilbud og ivareta brukerens medvirkning.  Jf. Forskrift om habilitering og rehabilitering, individuell plan og koordinator.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "individuellPlan" type = "npr:individuell_plan_foreligger"  use = "required" />
+      <attribute name = "rolleIP" type = "npr:rolle_i_arbeidet_med_individuell_plan"  use = "prohibited" />
+      <attribute name = "individuellPlanDato" type = "date"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Koordinator -->
+<element name = "Koordinator">
+   <complexType >
+      <attribute name = "koordinatorIP" type = "npr:koordinator_individuell_plan"  use = "required" />
+      <attribute name = "koordinatorDato" type = "date"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Diagnose -->
+<element name = "DiagnosePLO">
+   <annotation>
+       <documentation>
+         Inneholder informasjon som beskriver diagnoser. Dersom det foreligger opplysninger er klassen obligatorisk.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Kode" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "fastsattDato" type = "date"  use = "required" />
+      <attribute name = "registrertDato" type = "date"  use = "optional" />
+   </complexType>
+      <unique name= "KodeP_ID">
+         <selector xpath = "npr:Kode"/>
+         <field xpath = "@kodeNr"/>
+      </unique>
+</element>
+
+<!-- Class: Legemiddelgjennomgang -->
+<element name = "Legemiddelgjennomgang">
+   <complexType >
+      <attribute name = "legemiddelgjennomgangID" type = "string"  use = "required" />
+      <attribute name = "resultatKartlegging" type = "npr:legemiddelgjennomgang_gjennomfort"  use = "optional" />
+      <attribute name = "legemiddelgjennomgangDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Bruk av tvang i omsorgstjenesten -->
+<element name = "Tvang_O">
+   <annotation>
+       <documentation>
+         Bruk av tvang i helse- og omsorg.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "refVedtakID" type = "string"  use = "optional" />
+      <attribute name = "brukAvTvangID" type = "string"  use = "required" />
+      <attribute name = "typeTvang" type = "npr:type_tvang"  use = "required" />
+      <attribute name = "startTvangDato" type = "date"  use = "required" />
+      <attribute name = "stoppTvangDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Henvendelse om behov/behov oppdaget -->
+<element name = "HenvendelseBehov">
+   <annotation>
+       <documentation>
+         Tekst kommer senere.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:BehovTjeneste" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "behovID" type = "string"  use = "required" />
+      <attribute name = "kilde" type = "string"  use = "optional" />
+      <attribute name = "behovMottattDato" type = "date"  use = "required" />
+   </complexType>
+      <unique name= "BehovTjenesteP_ID">
+         <selector xpath = "npr:BehovTjeneste"/>
+         <field xpath = "@tjenesteID"/>
+      </unique>
+</element>
+
+<!-- Class: Vedtak/beslutning om tjeneste -->
+<element name = "VedtakBeslutningTjeneste">
+   <annotation>
+       <documentation>
+         Formuleres senere.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:VedtakTjeneste" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "vedtakID" type = "string"  use = "required" />
+      <attribute name = "refBehovID" type = "string"  use = "optional" />
+      <attribute name = "beslutning" type = "npr:vedtak"  use = "optional" />
+      <attribute name = "ventelistePa" type = "npr:ja_nei"  use = "optional" />
+      <attribute name = "vedtakDato" type = "date"  use = "required" />
+   </complexType>
+      <unique name= "VedtakTjenesteP_ID">
+         <selector xpath = "npr:VedtakTjeneste"/>
+         <field xpath = "@tjenesteID"/>
+      </unique>
+</element>
+
+<!-- Class: Klage på vedtak om tjeneste -->
+<element name = "KlageVedtakPLO">
+   <annotation>
+       <documentation>
+         Klage på vedtak om tjenesteleveranse.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "refVedtakID" type = "string"  use = "required" />
+      <attribute name = "klageMottatdato" type = "date"  use = "required" />
+      <attribute name = "klageBesvartDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Iverksatt -->
+<element name = "Iverksatt">
+   <annotation>
+       <documentation>
+         Beskrivelse kommer senere.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:IverksattTjeneste" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "refVedtakID" type = "string"  use = "optional" />
+      <attribute name = "startDato" type = "date"  use = "optional" />
+      <attribute name = "sluttDato" type = "date"  use = "optional" />
+      <attribute name = "ventelisteAv" type = "date"  use = "optional" />
+      <attribute name = "heldognstilbud" type = "npr:ja_nei"  use = "optional" />
+   </complexType>
+      <unique name= "IverksattTjenesteP_ID">
+         <selector xpath = "npr:IverksattTjeneste"/>
+         <field xpath = "@tjenesteID"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 6 -->
+
+<!-- Class: Kode -->
+<element name = "Kode">
+   <annotation>
+       <documentation>
+         En bokstav- og/eller tallkombinasjon, eventuelt med skilletegn i form av f. eks. punktum eller mellomrom, som utvetydig representerer en kategori i et medisinsk kodeverk.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "kodeNr" type = "integer"  use = "required" />
+      <attribute name = "Kodeverk" type = "npr:medisinske_kodeverk"  use = "required" />
+      <attribute name = "kodeVersjon" type = "string"  use = "required" />
+      <attribute name = "kodeVerdi" type = "string"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Behov for tjeneste -->
+<element name = "BehovTjeneste">
+   <annotation>
+       <documentation>
+         Spesielt ved behov for institusjonstjenester skal tjeneste rapporteres.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "tjenesteID" type = "string"  use = "required" />
+      <attribute name = "tjenestetype" type = "npr:iPLOS_tjenestetype"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Vedtak tjeneste -->
+<element name = "VedtakTjeneste">
+   <complexType >
+      <attribute name = "tjenesteID" type = "string"  use = "required" />
+      <attribute name = "tjenestetype" type = "npr:iPLOS_tjenestetype"  use = "required" />
+      <attribute name = "direkteTid" type = "double"  use = "optional" />
+      <attribute name = "vedtak" type = "npr:vedtak"  use = "optional" />
+      <attribute name = "ressursinnsats" type = "double"  use = "optional" />
+      <attribute name = "rullerende" type = "npr:ja_nei_ukjent"  use = "optional" />
+      <attribute name = "vedtakStartDato" type = "date"  use = "required" />
+      <attribute name = "vedtakSluttDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Iverksatt tjeneste -->
+<element name = "IverksattTjeneste">
+   <annotation>
+       <documentation>
+         Beskrivelse av den tjenesten som er igangsatt.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:UtfortAv" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "tjenesteID" type = "string"  use = "required" />
+      <attribute name = "tjenestetype" type = "npr:iPLOS_tjenestetype"  use = "required" />
+      <attribute name = "orgUtforer" type = "string"  use = "optional" />
+      <attribute name = "faktiskStartDato" type = "date"  use = "optional" />
+      <attribute name = "faktiskSluttDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+
+
+<!-- LEVEL 7 -->
+
+<!-- Class: Tiltak utført av -->
+<element name = "UtfortAv">
+   <complexType >
+      <attribute name = "tiltakbeskrivelse" type = "string"  use = "optional" />
+      <attribute name = "orgUtforer" type = "string"  use = "optional" />
+      <attribute name = "omfang" type = "double"  use = "optional" />
+      <attribute name = "faktiskStartDato" type = "date"  use = "optional" />
+      <attribute name = "faktiskSluttDato" type = "date"  use = "optional" />
+   </complexType>
+</element>
+</schema>

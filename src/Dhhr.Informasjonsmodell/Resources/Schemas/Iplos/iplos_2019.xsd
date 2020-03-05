@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--	IPLOS - Dataeksport for innrapportering - Revisjon 3.7							-->
+<!--	Meldingen skal benyttes i 2020 for innrapportering av omsorgsdata fra 2019		-->
+<!-- 	Revidert av Jan Sigurd Dragsjø, Avdeling helseregistre, Helsedirektoratet		-->
+<!--	Revidert med XMLSpy v2019 rel.3 (x64) (http://www.altova.com)					-->
+<!-- ================================================================================== -->
+<!--	Endringslogg rev 3.7:															-->
+<!--  1 INNHINFO:			Endret kardinalitet på iiKontakt fra 3..3 til 2..*			-->
+<!--  2 PERSON:				Endret kardinalitet på peAlder, peKjonn, peKomnr,			-->
+<!--		peBydelsnr, peFraDato, peEndrDato fra 1..1 til 0..1							-->
+<!--  3 PERSONOPPL:			Fjernet restriksjon på lengde og format for attributtene	-->
+<!--		poVurdTann og poVurdLege slik at de når er av ren tekst-type (string)		-->
+<!--  4 PERSONOPPL:			Fjernet elementet poHeldgDato som ble innført i rev 3.5		-->
+<!--  5 TJENESTE:			Fjernet obligatorisk krav på attributtene tjVeID, tjVeNrID	--> 
+<!--  6 TJENESTE:			Fjernet tjTjenUndertype, da den ikke lenger er i bruk		-->
+<!--  7 TJENESTE:			Endret kardinalitet på tjVedtDato fra 1..1 til 0..1			-->
+<!--  8 TJENESTE:			Fjernet restriksjon på lengde for attributtet tjInstOrgnr	-->
+<!--  9 DOGNTILBUD:			Endret kardinalitet på dgInstOrgnr, dgFraDato, dgTilDato	-->
+<!--		fra 1..1 til 0..1, samt fjernet restriksjoner på lengde for dgInstOrgnr		-->
+<!--	For nærmere beskrivelse av endringene se teknisk kravspesifikasjon v3.7.0		-->
+<!-- ================================================================================== -->
+<!--	Endringslogg rev 3.6:															-->
+<!--  1 Alle:				Fjernet kodeverkene (enumerations)							-->
+<!--  2 Alle:				Endret datatypen for ID attributt fra int til long			-->
+<!--  3 INNHINFO:			Endret datatype for elementet iiLopenr fra string til int	-->
+<!--	For nærmere beskrivelse av endringene se teknisk kravspesifikasjon v3.6.0		-->
+<!-- =================================================================================	-->
+<!--	Endringslogg rev 3.5:															-->
+<!--  1 Endret namespace																-->
+<!--  2 IPLOS:				Endret versjon til 3.5										-->
+<!--  3 PERSONOPPL: 		Nye element: poVenteliste, poVentelisteDato, poHeldg,		-->
+<!--		poHeldgDato, poHab, poHabDato												-->
+<!--  4 PERSONOPPL:			Endret gyldige kodeverdier for attributtene poIndPlan, 		-->
+<!--		poHarKoordinator, poLegeMiddGj, poErnKartlagt, poErnRisiko, poErnPlan		-->
+<!--	For nærmere beskrivelse av endringene se teknisk kravspesifikasjon v3.5.0		-->
+<!-- =================================================================================	-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ipl="http://www.npr.no/xmlstds/iplos/2019" targetNamespace="http://www.npr.no/xmlstds/iplos/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.7" id="Iplos">
+	<xs:element name="IPLOS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="INNHINFO" type="ipl:InnhInfoType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="PERSON" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType mixed="false">
+						<xs:complexContent>
+							<xs:extension base="ipl:PersonType">
+								<xs:attribute name="pePeID" type="xs:long" use="required"/>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="versjon" type="xs:string" use="required" fixed="3.7"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="InnhInfoType">
+		<xs:sequence>
+			<xs:element name="iiInnhType" type="xs:string" fixed="P" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="iiKomnr" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="4"/>
+						<xs:maxLength value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="iiBydelsnr" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2"/>
+						<xs:minLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="iiKontakt" type="ipl:KontaktType" minOccurs="2" maxOccurs="unbounded"/>
+			<xs:element name="iiFraDato" type="ipl:DatoType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="iiTilDato" type="ipl:DatoType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="iiLagetDato" type="ipl:DatoType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="iiSysID" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="iiSysVersjon" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="iiLopenr" type="xs:int" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonType">
+		<xs:sequence>
+			<!-- <xs:element name="peFnr" type="xs:string" minOccurs="1" maxOccurs="1"/> -->
+			<xs:element name="peAlder" type="xs:short" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="peKjonn" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="peKomnr" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="4"/>
+						<xs:maxLength value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="peBydelsnr" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<!--
+			<xs:element name="peDiagReserv" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element> -->
+			<xs:element name="peFraDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="peDodDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="peEndrDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PERSONOPPL" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType mixed="false">
+					<xs:complexContent>
+						<xs:extension base="ipl:PersonOpplType">
+							<xs:attribute name="poPeID" type="xs:long" use="required"/>
+							<xs:attribute name="poPoID" type="xs:long" use="required"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FUNKSJON" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType mixed="false">
+					<xs:complexContent>
+						<xs:extension base="ipl:FunksjonType">
+							<xs:attribute name="fnPeID" type="xs:long" use="required"/>
+							<xs:attribute name="fnFnID" type="xs:long" use="required"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TJENESTE" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType mixed="false">
+					<xs:complexContent>
+						<xs:extension base="ipl:TjenesteType">
+							<xs:attribute name="tjPeID" type="xs:long" use="required"/>
+							<xs:attribute name="tjTjID" type="xs:long" use="required"/>
+							<xs:attribute name="tjVeID" type="xs:long" use="optional"/>
+							<xs:attribute name="tjVeNrID" type="xs:long" use="optional"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DIAGNOSE" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType mixed="false">
+					<xs:complexContent>
+						<xs:extension base="ipl:DiagnoseType">
+							<xs:attribute name="diPeID" type="xs:long" use="required"/>
+							<xs:attribute name="diDiID" type="xs:long" use="required"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DOGNTILBUD" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType mixed="false">
+					<xs:complexContent>
+						<xs:extension base="ipl:DognTilbudType">
+							<xs:attribute name="dgPeID" type="xs:long" use="required"/>
+							<xs:attribute name="dgDgID" type="xs:long" use="required"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonOpplType">
+		<xs:sequence>
+			<xs:element name="poHusstand" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poOmsorgBarn" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poPrivHjelp" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poBoligTilr" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poVurdTann" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poVurdLege" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poIndPlan" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poHarKoordinator" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poArbBistBehov" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poArbBistMottar" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poArbTranspBehov" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poArbTranspMottar" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poFriBistBehov" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poFriBistMottar" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poFriTranspBehov" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poFriTranspMottar" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poLegeMiddGj" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poLegeMiddGjDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poErnKartlagt" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poErnKartlagtDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poErnRisiko" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poErnRisikoDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poErnPlan" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poErnPlanDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poFraDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poTilDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<!-- 6 nye element for rapportering av Venteliste, Heldøgnstjenester og Rehabilitering -->
+			<xs:element name="poVenteliste" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poVentelisteDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poHeldg" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<!-- <xs:element name="poHeldgDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/> -->
+			<xs:element name="poHab" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="poHabDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FunksjonType">
+		<xs:sequence>
+			<xs:element name="fnFunkType" type="xs:short" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="fnFunkVerdi" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="fnFraDato" type="ipl:DatoType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="fnTilDato" type="ipl:DatoType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TjenesteType">
+		<xs:sequence>
+			<xs:element name="tjTjenType" type="xs:short" minOccurs="1" maxOccurs="1"/>
+			<!-- <xs:element name="tjTjenUnderType" type="xs:short" minOccurs="0" maxOccurs="1"/> -->
+			<xs:element name="tjSoknadDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tjVedtDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tjVedtak" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tjTimerUke" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="5"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="tjResTimerUke" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="5"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="tjRullerende" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tjInstOrgnr" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tjFraDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tjTilDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tjKlageMottatt" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tjKlageBesvart" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DiagnoseType">
+		<xs:sequence>
+			<xs:element name="diKodeVersjon" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="diDiagKode" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="diFraDato" type="ipl:DatoType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="diTilDato" type="ipl:DatoType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DognTilbudType">
+		<xs:sequence>
+			<xs:element name="dgInstOrgnr" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dgFraDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dgTilDato" type="ipl:DatoType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DatoType">
+		<xs:restriction base="xs:string">
+			<xs:length value="8"/>
+			<xs:pattern value="[0-9]{4}([0][1-9]|[1][0-2])([0][1-9]|[1-2][0-9]|[3][0-1])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="KontaktType">
+		<xs:sequence>
+			<xs:element name="Type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Navn" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Telefon" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Epost" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

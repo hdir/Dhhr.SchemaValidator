@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generated on 11-27-2018  11:18:04 at NPR -->
+<!-- Avdeling helseregistres meldinger -->
+<!-- Modul pre  -->
+<!-- Skjema for Innrapportering av data fra Prehospitale tjenester/Ambulanse  -->
+<!-- XML-Schema level supported is specified by W3C -->
+<!-- http://www.w3.org/2001/XMLSchema -->
+<schema 
+       xmlns="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
+    xmlns:kith="http://www.kith.no/xmlstds" 
+    xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" 
+    xmlns:npr = "http://www.npr.no/xmlstds/53_1_3_pre"
+    targetNamespace = "http://www.npr.no/xmlstds/53_1_3_pre"
+    elementFormDefault = "qualified"
+    attributeFormDefault="unqualified">
+   <import namespace="http://www.npr.no/xmlstds/53_1_3" schemaLocation="NPR.xsd"/>
+<!-- LEVEL 1 -->
+<!-- Class: Melding -->
+   <!--     A P P I N F O     -->
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Melding' --> 
+<simpleType name="meldingstype">
+   <restriction base="string">  <!-- Kodeverk: 7371 Meldingstype -->
+   </restriction>
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Melding' --> 
+<annotation>
+   <appinfo>
+      <class name="Melding"/> 
+      <attribute name="meldingstype"/> 
+      <codingScheme name="Meldingstype"/> 
+      <codingScheme OID="7371"/> 
+      <simpleT name="meldingstype"/> 
+         <code value="E" text="Endringsmelding" comment=""/>
+         <code value="B" text="Satsvis melding" comment=""/>
+   </appinfo>
+</annotation>
+<!-- LEVEL 2 -->
+<!-- Class: Helseinstitusjon -->
+   <!--     A P P I N F O     -->
+<!-- LEVEL 3 -->
+<!-- Class: Slett -->
+   <!--     A P P I N F O     -->
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Slett' --> 
+<simpleType name="objekttype">
+   <restriction base="string">  <!-- Kodeverk: 7372 Objekttype -->
+   </restriction>
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Slett' --> 
+<annotation>
+   <appinfo>
+      <class name="Slett"/> 
+      <attribute name="objekttype"/> 
+      <codingScheme name="Objekttype"/> 
+      <codingScheme OID="7372"/> 
+      <simpleT name="objekttype"/> 
+         <code value="P" text="Pasient" comment=""/>
+         <code value="H" text="Henvisningsperiode" comment=""/>
+         <code value="E" text="Episode" comment=""/>
+         <code value="B" text="Behandlerkrav" comment=""/>
+         <code value="A" text="Prehospital/AMK" comment=""/>
+         <code value="R" text="Russituasjon" comment=""/>
+         <code value="S" text="Personskade" comment=""/>
+         <code value="M" text="Medisinsk stråling" comment=""/>
+         <code value="L" text="Pleie og omsorg" comment=""/>
+         <code value="V" text="Vedtak i psykisk helsevern" comment=""/>
+         <code value="F" text="Forløp" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Hendelse -->
+   <!--     A P P I N F O     -->
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Hendelse' --> 
+<simpleType name="hendelsestype">
+   <restriction base="string">  <!-- Kodeverk: 7332 Hendelsestype -->
+   </restriction>
+</simpleType>
+<simpleType name="risiko_Risikotype">
+   <restriction base="string">  <!-- Kodeverk: 7335 Risiko-Risikotype -->
+   </restriction>
+</simpleType>
+<simpleType name="gruppering_av_hentesteder_og_leveringssteder">
+   <restriction base="string">  <!-- Kodeverk: 7337 Gruppering av hentesteder og leveringssteder -->
+   </restriction>
+</simpleType>
+<simpleType name="avvikshandtering_i_AMK_sentraler">
+   <restriction base="string">  <!-- Kodeverk: 7342 Avvikshåndtering i AMK-sentraler -->
+   </restriction>
+</simpleType>
+<simpleType name="hastegrad_AMK">
+   <restriction base="string">  <!-- Kodeverk: 7340 Hastegrad AMK -->
+   </restriction>
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Hendelse' --> 
+<annotation>
+   <appinfo>
+      <class name="Hendelse"/> 
+      <attribute name="hendelseType"/> 
+      <codingScheme name="Hendelsestype"/> 
+      <codingScheme OID="7332"/> 
+      <simpleT name="hendelsestype"/> 
+         <code value="11" text="Ulykke/skade trafikk" comment=""/>
+         <code value="12" text="Ulykke/skade annet" comment=""/>
+         <code value="13" text="Søk og redning" comment=""/>
+         <code value="14" text="Vold" comment=""/>
+         <code value="15" text="Rus" comment=""/>
+         <code value="16" text="Overdose" comment=""/>
+         <code value="21" text="Fødsel/Fødselshjelp" comment=""/>
+         <code value="22" text="Sykdom, somatisk" comment=""/>
+         <code value="23" text="Sykdom, psykiatrisk" comment=""/>
+         <code value="24" text="Dødsfall, sikkert" comment=""/>
+         <code value="25" text="Sykehus intern nød" comment=""/>
+         <code value="28" text="Intensivtransport" comment="Denne må defineres"/>
+         <code value="32" text="Formidling sykehusinnl." comment=""/>
+         <code value="33" text="Amb. til/fra poliklinikk" comment=""/>
+         <code value="34" text="Hjemkjøring" comment=""/>
+         <code value="35" text="Overføring" comment=""/>
+         <code value="61" text="Nødtelefon til 110" comment=""/>
+         <code value="62" text="Nødtelefon til 112" comment=""/>
+         <code value="71" text="Beredskap - Brann" comment=""/>
+         <code value="72" text="Beredskap - Politi" comment=""/>
+         <code value="73" text="Beredskap flyttet" comment="Flytting i beredskapsøyemed"/>
+         <code value="81" text="Øvelse" comment=""/>
+         <code value="88" text="Annet" comment=""/>
+         <code value="91" text="Falsk melding" comment=""/>
+         <code value="92" text="Feilringing" comment=""/>
+         <code value="93" text="Teknisk feilringing" comment=""/>
+         <code value="94" text="Sjikane" comment=""/>
+         <code value="98" text="Makuleres" comment=""/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Hendelse"/> 
+      <attribute name="hendelseRisiko"/> 
+      <codingScheme name="Risiko-Risikotype"/> 
+      <codingScheme OID="7335"/> 
+      <simpleT name="risiko_Risikotype"/> 
+         <code value="1" text="Ingen risiko" comment=""/>
+         <code value="12" text="Skarpt oppdrag" comment=""/>
+         <code value="13" text="Vold" comment=""/>
+         <code value="21" text="Brann / eksplosjon" comment=""/>
+         <code value="23" text="Gift/Gass" comment=""/>
+         <code value="24" text="Høyspenning" comment=""/>
+         <code value="25" text="Trafikk" comment=""/>
+         <code value="26" text="Smitte" comment=""/>
+         <code value="88" text="Annet" comment=""/>
+         <code value="99" text="Ukjent risiko" comment=""/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Hendelse"/> 
+      <attribute name="hentestedType"/> 
+      <codingScheme name="Gruppering av hentesteder og leveringssteder"/> 
+      <codingScheme OID="7337"/> 
+      <simpleT name="gruppering_av_hentesteder_og_leveringssteder"/> 
+         <code value="1" text="Hjem eller annen privat adresse" comment="For eksempel til familie eller venner"/>
+         <code value="2" text="Arbeidssted" comment=""/>
+         <code value="3" text="Offentlig sted" comment=""/>
+         <code value="11" text="Sykehus" comment=""/>
+         <code value="12" text="Sykehjem" comment=""/>
+         <code value="21" text="Lege eller legevakt" comment=""/>
+         <code value="22" text="Ambulanse, flere etapper" comment=""/>
+         <code value="19" text="Annen Institusjon" comment=""/>
+         <code value="88" text="Annet sted" comment=""/>
+         <code value="98" text="Avbrutt" comment=""/>
+         <code value="99" text="Ukjent sted" comment=""/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Hendelse"/> 
+      <attribute name="hendelseAvvik"/> 
+      <codingScheme name="Avvikshåndtering i AMK-sentraler"/> 
+      <codingScheme OID="7342"/> 
+      <simpleT name="avvikshandtering_i_AMK_sentraler"/> 
+         <code value="1" text="Avbrudd" comment="Må defineres"/>
+         <code value="2" text="Avvist" comment="Må defineres"/>
+         <code value="3" text="Teknisk feil" comment=""/>
+         <code value="4" text="Makulert" comment="Av andre årsaker enn 1-3"/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Hendelse"/> 
+      <attribute name="hastegradHoyeste"/> 
+      <codingScheme name="Hastegrad AMK"/> 
+      <codingScheme OID="7340"/> 
+      <simpleT name="hastegrad_AMK"/> 
+         <code value="A" text="Akutt (rød)" comment="Hastegrad for antatt kritisk tilstand der de vitale funksjoner kan være truet eller manifest forstyrret og der ambulanse skal rykke ut og lege alarmeres."/>
+         <code value="H" text="Haster (gul)" comment="Hastegrad for antatt alvorlig tilstand der de vitale funksjonene kan bli truet og der det er behov for umiddelbar situasjonsvurdering av lege eller transport til sykehus."/>
+         <code value="V" text="Vanlig (grønn)" comment="Hastegrad for tilstander der det antas at tidsmomentet medisinsk sett ikke er avgjørende og som kan forelegges lege til vurdering ved første passende anledning."/>
+         <code value="V1" text="Vanlig (grønn)" comment="Vanlig, lokal variant"/>
+         <code value="V2" text="Vanlig (grønn)" comment="Vanlig, lokal variant"/>
+         <code value="V3" text="Vanlig (grønn)" comment="Vanlig, lokal variant"/>
+         <code value="U" text="Udefinert" comment=""/>
+   </appinfo>
+</annotation>
+<!-- LEVEL 4 -->
+<!-- Class: Henvendelse -->
+   <!--     A P P I N F O     -->
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Henvendelse' --> 
+<simpleType name="innringer_type">
+   <restriction base="string">  <!-- Kodeverk: 7333 Innringer type -->
+   </restriction>
+</simpleType>
+<simpleType name="sambandsvei">
+   <restriction base="string">  <!-- Kodeverk: 7336 Sambandsvei -->
+   </restriction>
+</simpleType>
+<simpleType name="avvikshandtering_ved_henvendelser_til_AMK_sentraler">
+   <restriction base="string">  <!-- Kodeverk: 7346 Avvikshåndtering ved henvendelser til AMK-sentraler -->
+   </restriction>
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Henvendelse' --> 
+<annotation>
+   <appinfo>
+      <class name="Henvendelse"/> 
+      <attribute name="innringerType"/> 
+      <codingScheme name="Innringer type"/> 
+      <codingScheme OID="7333"/> 
+      <simpleT name="innringer_type"/> 
+         <code value="1" text="HRS" comment=""/>
+         <code value="2" text="LV-Sentral" comment=""/>
+         <code value="3" text="Politi" comment=""/>
+         <code value="4" text="Brannvesen" comment=""/>
+         <code value="5" text="Politi/Brann" comment=""/>
+         <code value="6" text="Helsepersonell" comment=""/>
+         <code value="8" text="Annen AMK" comment=""/>
+         <code value="11" text="Pasient" comment=""/>
+         <code value="12" text="Pårørende" comment=""/>
+         <code value="13" text="Publikum" comment=""/>
+         <code value="88" text="Annet" comment=""/>
+         <code value="98" text="Makulert" comment=""/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Henvendelse"/> 
+      <attribute name="sambandsveiType"/> 
+      <codingScheme name="Sambandsvei"/> 
+      <codingScheme OID="7336"/> 
+      <simpleT name="sambandsvei"/> 
+         <code value="1" text="Rød linje" comment=""/>
+         <code value="2" text="Gul linje" comment=""/>
+         <code value="3" text="Intern nød" comment=""/>
+         <code value="4" text="Ambulansebestilling" comment=""/>
+         <code value="5" text="Ø.hj. Innleggelse" comment="Dette er vel ingen linje?"/>
+         <code value="8" text="Radio" comment=""/>
+         <code value="9" text="Adm.linje" comment=""/>
+         <code value="11" text="Nødlinje 113" comment=""/>
+         <code value="12" text="LV-Linje" comment=""/>
+         <code value="21" text="Politi" comment=""/>
+         <code value="22" text="Brann" comment=""/>
+         <code value="23" text="Legevakt" comment=""/>
+         <code value="24" text="Politi/Brann" comment=""/>
+         <code value="61" text="Web-bestilling" comment=""/>
+         <code value="88" text="Annen" comment=""/>
+         <code value="98" text="Makulert" comment=""/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Henvendelse"/> 
+      <attribute name="henvendelseAvvik"/> 
+      <codingScheme name="Avvikshåndtering ved henvendelser til AMK-sentraler"/> 
+      <codingScheme OID="7346"/> 
+      <simpleT name="avvikshandtering_ved_henvendelser_til_AMK_sentraler"/> 
+         <code value="1" text="Avbrudd" comment=""/>
+         <code value="2" text="Falsk melding" comment=""/>
+         <code value="3" text="Sjikane" comment=""/>
+         <code value="6" text="Feilringing til annet nødnummer 11x" comment=""/>
+         <code value="7" text="Annen feilringing" comment=""/>
+         <code value="8" text="Teknisk feil som genererer henvendelse" comment=""/>
+         <code value="9" text="Makulert" comment="Av andre årsaker enn 1-8, inkludert test"/>
+         <code value="999" text="Lokal kode" comment="Lokale koder uten nasjonal mapping"/>
+   </appinfo>
+</annotation>
+<!-- Class: Pasientkontakt -->
+   <!--     A P P I N F O     -->
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Pasientkontakt' --> 
+<simpleType name="bevissthet">
+   <restriction base="string">  <!-- Kodeverk: 7331 Bevissthet -->
+   </restriction>
+</simpleType>
+<simpleType name="respirasjon">
+   <restriction base="string">  <!-- Kodeverk: 7334 Respirasjon -->
+   </restriction>
+</simpleType>
+<simpleType name="kjonn">
+   <restriction base="string">  <!-- Kodeverk: 3101 Kjønn -->
+   </restriction>
+</simpleType>
+<!-- simpleType for  hastegrad_AMK written before    -->
+<!-- simpleType for  hastegrad_AMK written before    -->
+<!-- simpleType for  hastegrad_AMK written before    -->
+ <!-- Appinfo for Coding schemes in the class: 'Pasientkontakt' --> 
+<annotation>
+   <appinfo>
+      <class name="Pasientkontakt"/> 
+      <attribute name="bevissthetType"/> 
+      <codingScheme name="Bevissthet"/> 
+      <codingScheme OID="7331"/> 
+      <simpleT name="bevissthet"/> 
+         <code value="1" text="Bevisstløs" comment=""/>
+         <code value="2" text="Reagerer på rop /rist" comment=""/>
+         <code value="3" text="Våken, kan snakke" comment=""/>
+         <code value="9" text="Vet ikke" comment=""/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Pasientkontakt"/> 
+      <attribute name="respirasjonsType"/> 
+      <codingScheme name="Respirasjon"/> 
+      <codingScheme OID="7334"/> 
+      <simpleT name="respirasjon"/> 
+         <code value="1" text="Puster normalt" comment=""/>
+         <code value="2" text="Puster ikke normalt" comment=""/>
+         <code value="3" text="Intubert" comment=""/>
+         <code value="4" text="Respirasjonsstans" comment=""/>
+         <code value="9" text="Vet ikke" comment=""/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Pasientkontakt"/> 
+      <attribute name="kjonn"/> 
+      <codingScheme name="Kjønn"/> 
+      <codingScheme OID="3101"/> 
+      <simpleT name="kjonn"/> 
+         <code value="0" text="Ikke kjent" comment=""/>
+         <code value="1" text="Mann" comment=""/>
+         <code value="2" text="Kvinne" comment=""/>
+         <code value="9" text="Ikke spesifisert" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Hastegrad AMK written before    -->
+<!-- Appinfo for  Hastegrad AMK written before    -->
+<!-- Appinfo for  Hastegrad AMK written before    -->
+<!-- Class: Tiltak_amk -->
+   <!--     A P P I N F O     -->
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Tiltak_amk' --> 
+<simpleType name="tiltakstype_Respons">
+   <restriction base="string">  <!-- Kodeverk: 7338 Tiltakstype-Respons -->
+   </restriction>
+</simpleType>
+<simpleType name="tiltak_kategori">
+   <restriction base="string">  <!-- Kodeverk: 7347 Tiltak kategori -->
+   </restriction>
+</simpleType>
+<simpleType name="avvikshandtering_ved_tiltak_i_AMK_sentraler">
+   <restriction base="string">  <!-- Kodeverk: 7341 Avvikshåndtering ved tiltak i AMK-sentraler -->
+   </restriction>
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Tiltak_amk' --> 
+<annotation>
+   <appinfo>
+      <class name="Tiltak_amk"/> 
+      <attribute name="tiltakType"/> 
+      <codingScheme name="Tiltakstype-Respons"/> 
+      <codingScheme OID="7338"/> 
+      <simpleT name="tiltakstype_Respons"/> 
+         <code value="11" text="Ambulanse" comment=""/>
+         <code value="12" text="Ambulansehelikopter" comment=""/>
+         <code value="13" text="Redningshelikopter" comment=""/>
+         <code value="14" text="Ambulansebåt" comment=""/>
+         <code value="15" text="Ambulansefly" comment=""/>
+         <code value="16" text="Akuttlegebil" comment=""/>
+         <code value="17" text="Annet kjøretøy" comment=""/>
+         <code value="18" text="Annen båt" comment=""/>
+         <code value="21" text="Innmelding" comment="Bruk av fremmed ressurs, uavhengig av type ressurs"/>
+         <code value="22" text="Ambulanse fremmed" comment="Bruk av annen AMKs ambulanse"/>
+         <code value="31" text="Politi" comment=""/>
+         <code value="32" text="Brannvesen" comment=""/>
+         <code value="33" text="AMK-lege" comment=""/>
+         <code value="34" text="Fastlege" comment=""/>
+         <code value="35" text="Jordmor" comment=""/>
+         <code value="36" text="Frivillige organisasjoner" comment=""/>
+         <code value="37" text="Barnevern" comment=""/>
+         <code value="38" text="Operativ leder Helse" comment=""/>
+         <code value="39" text="First responder" comment=""/>
+         <code value="41" text="Annen AMK" comment=""/>
+         <code value="42" text="LV-/Kommunal helsetjeneste varslet" comment=""/>
+         <code value="44" text="HRS" comment=""/>
+         <code value="45" text="R-AMK varslet" comment=""/>
+         <code value="46" text="Lege og ambulanse alarmert" comment=""/>
+         <code value="88" text="Annet" comment=""/>
+         <code value="90" text="Avvist/ikke svar" comment=""/>
+         <code value="91" text="Ambulanse ikke tilgjengelig" comment="Hva med andre ressurser?"/>
+         <code value="92" text="Tiltak utgår" comment="Registrering av tiltak startet, men avbrudt"/>
+         <code value="93" text="Ingen tiltak" comment="Tiltak ikke registret ferdig"/>
+         <code value="99" text="Samtidighetskonflikt" comment=""/>
+         <code value="111" text="Rådgivning indeks" comment=""/>
+         <code value="112" text="Rådgivning instruksjon" comment=""/>
+         <code value="113" text="Rådgivning fri" comment=""/>
+         <code value="121" text="Henvist LV-/Kommunal helsetjeneste" comment="Pas blir henvist til LV?"/>
+         <code value="122" text="Henvist sykehus" comment="Pasient blir anmodet om å selv oppsøke sykehus"/>
+         <code value="123" text="Ambulanse intern" comment="Transport mellom enheter innen sykehus"/>
+         <code value="124" text="Videreformidling" comment="Må defineres"/>
+         <code value="131" text="Behandlingsprotokoll" comment="Tiltak der behandling blir utført i henhold til protokoll. Gjelder for spesielle tilstander."/>
+         <code value="174" text="Konferanse" comment=""/>
+         <code value="225" text="Sykehus-intern varsling" comment="Ressurs innen eget sykehus varslet"/>
+         <code value="271" text="Beredskap" comment=""/>
+         <code value="272" text="Syketransport" comment=""/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Tiltak_amk"/> 
+      <attribute name="tiltakKategori"/> 
+      <codingScheme name="Tiltak kategori"/> 
+      <codingScheme OID="7347"/> 
+      <simpleT name="tiltak_kategori"/> 
+         <code value="T" text="Tiltak uten oppdrag" comment=""/>
+         <code value="A" text="Ambulanseoppdrag" comment="Kan også være Helikopter"/>
+         <code value="H" text="Helikopteroppdrag" comment=""/>
+         <code value="O" text="Legeoppdrag" comment=""/>
+         <code value="F" text="Flyoppdrag" comment=""/>
+         <code value="999" text="Lokal kode" comment="Lokale koder uten nasjonal mapping"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Tiltak_amk"/> 
+      <attribute name="tiltakAvvik"/> 
+      <codingScheme name="Avvikshåndtering ved tiltak i AMK-sentraler"/> 
+      <codingScheme OID="7341"/> 
+      <simpleT name="avvikshandtering_ved_tiltak_i_AMK_sentraler"/> 
+         <code value="1" text="Ingen tiltak" comment=""/>
+         <code value="2" text="Ikke svar fra ressurs" comment=""/>
+         <code value="3" text="Avvist av ressurs" comment=""/>
+         <code value="4" text="Samtidighetskonflikt" comment=""/>
+         <code value="5" text="Dobbeltregistrering" comment=""/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<!-- LEVEL 5 -->
+<!-- Class: Ambulansejournal -->
+   <!--     A P P I N F O     -->
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Ambulansejournal' --> 
+<simpleType name="prioritet_ved_triageannet">
+   <restriction base="string">  <!-- Kodeverk: 7361 Prioritet ved triage/annet -->
+   </restriction>
+</simpleType>
+<simpleType name="symptom">
+   <restriction base="string">  <!-- Kodeverk: 7362 Symptom -->
+   </restriction>
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Ambulansejournal' --> 
+<annotation>
+   <appinfo>
+      <class name="Ambulansejournal"/> 
+      <attribute name="prioritet"/> 
+      <codingScheme name="Prioritet ved triage/annet"/> 
+      <codingScheme OID="7361"/> 
+      <simpleT name="prioritet_ved_triageannet"/> 
+         <code value="R" text="Rød" comment=""/>
+         <code value="O" text="Orange" comment=""/>
+         <code value="G" text="Grønn" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Ambulansejournal"/> 
+      <attribute name="symptom"/> 
+      <codingScheme name="Symptom"/> 
+      <codingScheme OID="7362"/> 
+      <simpleT name="symptom"/> 
+         <code value="1" text="Symptom 1" comment=""/>
+         <code value="2" text="Symptom 2" comment=""/>
+         <code value="3" text="Symptom 3" comment=""/>
+         <code value="4" text="Symptom 4" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Oppdrag -->
+   <!--     A P P I N F O     -->
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Oppdrag' --> 
+<simpleType name="oppdrag_type">
+   <restriction base="string">  <!-- Kodeverk: 7348 Oppdrag type -->
+   </restriction>
+</simpleType>
+<simpleType name="ja_nei">
+   <restriction base="string">  <!-- Kodeverk: 1101 Ja, nei -->
+   </restriction>
+</simpleType>
+<!-- simpleType for  gruppering_av_hentesteder_og_leveringssteder written before    -->
+<!-- simpleType for  hastegrad_AMK written before    -->
+<simpleType name="avvikshandtering_ved_oppdrag_i_AMK_sentraler">
+   <restriction base="string">  <!-- Kodeverk: 7343 Avvikshåndtering ved oppdrag i AMK-sentraler -->
+   </restriction>
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Oppdrag' --> 
+<annotation>
+   <appinfo>
+      <class name="Oppdrag"/> 
+      <attribute name="oppdragType"/> 
+      <codingScheme name="Oppdrag type"/> 
+      <codingScheme OID="7348"/> 
+      <simpleT name="oppdrag_type"/> 
+         <code value="1" text="Primæroppdrag" comment=""/>
+         <code value="2" text="Sekundæroppdrag" comment=""/>
+         <code value="11" text="Intensivtransport" comment=""/>
+         <code value="12" text="Interntransport" comment=""/>
+         <code value="21" text="Overføring" comment=""/>
+         <code value="22" text="Hjemkjøring" comment=""/>
+         <code value="31" text="Øvelse" comment=""/>
+         <code value="41" text="Beredskap" comment=""/>
+         <code value="88" text="Annet" comment=""/>
+         <code value="99" text="Makuleres" comment=""/>
+         <code value="999" text="Lokal kode" comment="Lokale koder uten nasjonal mapping"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Oppdrag"/> 
+      <attribute name="tettsted"/> 
+      <codingScheme name="Ja, nei"/> 
+      <codingScheme OID="1101"/> 
+      <simpleT name="ja_nei"/> 
+         <code value="1" text="Ja" comment=""/>
+         <code value="2" text="Nei" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Gruppering av hentesteder og leveringssteder written before    -->
+<!-- Appinfo for  Hastegrad AMK written before    -->
+<annotation>
+   <appinfo>
+      <class name="Oppdrag"/> 
+      <attribute name="oppdragAvvik"/> 
+      <codingScheme name="Avvikshåndtering ved oppdrag i AMK-sentraler"/> 
+      <codingScheme OID="7343"/> 
+      <simpleT name="avvikshandtering_ved_oppdrag_i_AMK_sentraler"/> 
+         <code value="1" text="Avbrudd" comment="Må defineres"/>
+         <code value="2" text="Avvist" comment="Må defineres"/>
+         <code value="3" text="Teknisk feil" comment=""/>
+         <code value="4" text="Makulert" comment="Av andre årsaker enn 1-3"/>
+         <code value="11" text="Oppmøte" comment="Pasienten møtte opp"/>
+         <code value="12" text="Behandlet ferdig på stedet" comment="Retur uten pasient"/>
+         <code value="999" text="Lokal kode" comment=""/>
+   </appinfo>
+</annotation>
+<!-- LEVEL 6 -->
+<!-- Class: Medikament -->
+   <!--     A P P I N F O     -->
+<!-- Class: Observasjon -->
+   <!--     A P P I N F O     -->
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Observasjon' --> 
+<simpleType name="type_observasjon">
+   <restriction base="string">  <!-- Kodeverk: 7365 Type observasjon -->
+   </restriction>
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Observasjon' --> 
+<annotation>
+   <appinfo>
+      <class name="Observasjon"/> 
+      <attribute name="typeObservasjon"/> 
+      <codingScheme name="Type observasjon"/> 
+      <codingScheme OID="7365"/> 
+      <simpleT name="type_observasjon"/> 
+         <code value="1" text="Øyeåpning, ved tiltale" comment=""/>
+         <code value="2" text="Beste verbale respons, irritabel gråt" comment=""/>
+         <code value="3" text="Puls uregelmessig" comment=""/>
+         <code value="4" text="Kramper" comment=""/>
+         <code value="5" text="Etc" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Behandlingstiltak -->
+   <!--     A P P I N F O     -->
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Behandlingstiltak' --> 
+<simpleType name="type_behandling">
+   <restriction base="string">  <!-- Kodeverk: 7363 Type behandling -->
+   </restriction>
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Behandlingstiltak' --> 
+<annotation>
+   <appinfo>
+      <class name="Behandlingstiltak"/> 
+      <attribute name="typeBehandling"/> 
+      <codingScheme name="Type behandling"/> 
+      <codingScheme OID="7363"/> 
+      <simpleT name="type_behandling"/> 
+         <code value="1" text="BT" comment=""/>
+         <code value="2" text="SpO2" comment=""/>
+         <code value="3" text="Temperatur" comment=""/>
+         <code value="4" text="Behandling 4" comment=""/>
+         <code value="5" text="Behandling 5" comment=""/>
+   </appinfo>
+</annotation>
+</schema>

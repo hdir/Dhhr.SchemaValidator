@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generated on 11-27-2018  11:02:06 at NPR -->
+<!-- Avdeling helseregistres meldinger -->
+<!-- Modul str  -->
+<!-- Skjema for Innrapportering av data fra stråleterapi  -->
+<!-- XML-Schema level supported is specified by W3C -->
+<!-- http://www.w3.org/2001/XMLSchema -->
+<schema 
+       xmlns="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
+    xmlns:kith="http://www.kith.no/xmlstds" 
+    xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" 
+    xmlns:npr = "http://www.npr.no/xmlstds/53_1_3_str"
+    targetNamespace = "http://www.npr.no/xmlstds/53_1_3_str"
+    elementFormDefault = "qualified"
+    attributeFormDefault="unqualified">
+   <import namespace="http://www.npr.no/xmlstds/53_1_3" schemaLocation="NPR.xsd"/>
+
+<include schemaLocation="XPR(str)_CodingSchemes.xsd"/>
+
+
+<!-- LEVEL 1 -->
+
+<!-- Class: Melding -->
+<element name = "Melding">
+   <annotation>
+       <documentation>
+         Opplysninger som leverandører av helsetjenester i kommuner, helsevirksomheter eller helsepersonell etter bestemmelser i lov eller i medhold av lov i gitte situasjoner er pliktig til å rapportere.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Kontaktperson" minOccurs = "1" maxOccurs = "unbounded" />
+         <element ref = "npr:Institusjon" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "versjon" type = "string"  use = "required" fixed = "53.1.3" />
+      <attribute name = "meldingstype" type = "npr:meldingstype"  use = "required" />
+      <attribute name = "fraDatoPeriode" type = "date"  use = "required" />
+      <attribute name = "uttakDato" type = "date"  use = "required" />
+      <attribute name = "leverandor" type = "string"  use = "required" />
+      <attribute name = "navnEPJ" type = "string"  use = "required" />
+      <attribute name = "versjonEPJ" type = "string"  use = "required" />
+      <attribute name = "versjonUt" type = "string"  use = "required" />
+      <attribute name = "lopenr" type = "string"  use = "required" />
+      <attribute name = "tilDatoPeriode" type = "date"  use = "required" />
+      <attribute name = "lokalident" type = "string"  use = "optional" />
+   </complexType>
+      <unique name= "InstitusjonP_ID">
+         <selector xpath = "npr:Institusjon"/>
+         <field xpath = "@institusjonID"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 2 -->
+
+<!-- Class: Kontaktperson -->
+<element name = "Kontaktperson">
+   <annotation>
+       <documentation>
+         Kontaktpersoner for dialog mellom kommune/helseinstitusjon og Helsedirektoratet.  NB: Det kan registreres flere kontaktpersoner per Type kontaktperson.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "kontPerson" type = "string"  use = "required" />
+      <attribute name = "meldTelefon" type = "string"  use = "optional" />
+      <attribute name = "meldEpost1" type = "string"  use = "required" />
+      <attribute name = "meldEpost2" type = "string"  use = "optional" />
+      <attribute name = "typeKontaktperson" type = "npr:kontaktperson_type"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Helseinstitusjon -->
+<element name = "Institusjon">
+   <annotation>
+       <documentation>
+         Institusjon som hører under lov om spesialisthelsetjenesten.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Enhet" minOccurs = "1" maxOccurs = "unbounded" />
+         <element ref = "npr:Slett" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Objektholder" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "institusjonID" type = "string"  use = "required" />
+   </complexType>
+      <key name= "EnhetP_ID">
+         <selector xpath = "npr:Enhet"/>
+         <field xpath = "@enhetID"/>
+      </key>
+      <unique name= "ObjektholderP_ID">
+         <selector xpath = "npr:Objektholder"/>
+         <field xpath = "@pasientNr"/>
+      </unique>
+      <keyref name = "Tjeneste_IDREF0" refer = "npr:EnhetP_ID">
+         <selector xpath = "npr:Objektholder/npr:Episode/npr:Tjeneste"/>
+         <field xpath = "@tjenesteenhetID"/>
+      </keyref>
+      <keyref name = "RefEnhet_IDREF0" refer = "npr:EnhetP_ID">
+         <selector xpath = "npr:Objektholder/npr:Episode/npr:RefEnhet"/>
+         <field xpath = "@enhetID"/>
+      </keyref>
+</element>
+
+
+<!-- LEVEL 3 -->
+
+<!-- Class: Enhet -->
+<element name = "Enhet">
+   <annotation>
+       <documentation>
+         Organisatorisk enhet ved en helseinstitusjon eller et selvstendig foretak (eks avtalespesialist) uten organisatoriske inndelinger.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Utstyr" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "enhetID" type = "string"  use = "required" />
+      <attribute name = "orgNr" type = "string"  use = "optional" />
+      <attribute name = "nace" type = "string"  use = "optional" />
+      <attribute name = "offAvdKode" type = "string"  use = "optional" />
+      <attribute name = "reshID" type = "string"  use = "optional" />
+      <attribute name = "isfRefusjon" type = "npr:ja_nei"  use = "optional" />
+      <attribute name = "enhetLokal" type = "string"  use = "optional" />
+   </complexType>
+      <key name= "UtstyrP_ID">
+         <selector xpath = "npr:Utstyr"/>
+         <field xpath = "@utstyrID"/>
+      </key>
+      <keyref name = "ApparatFremmote_IDREF0" refer = "npr:UtstyrP_ID">
+         <selector xpath = "npr:Melding/npr:Institusjon/npr:Objektholder/npr:MedisinskStraling/npr:Behandlingsserie/npr:ApparatFremmote"/>
+         <field xpath = "@refUtstyr"/>
+      </keyref>
+</element>
+
+<!-- Class: Slett -->
+<element name = "Slett">
+   <annotation>
+       <documentation>
+         Brukes for å angi informasjon om hvilke objekter som skal slettes.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "objekttype" type = "npr:objekttype"  use = "required" />
+      <attribute name = "slettGUID" type = "nprx:guid"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Objektholder -->
+<element name = "Objektholder">
+   <annotation>
+       <documentation>
+         Er en container som holder objekter fra lavere nivå. Hver av objektene på lavere nivå skal identifiseres ved hjelp av GUID eller annen unik identifikasjon slik at alle objekter kan identifiseres på tvers av meldinger.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+      <!-- Dette skal skrives ut som et sequence element -->
+         <element ref = "npr:Pasient" minOccurs = "0" maxOccurs = "1" />
+         <element ref = "npr:Episode" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:MedisinskStraling" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "pasientGUID" type = "nprx:guid"  use = "optional" />
+      <attribute name = "pasientNr" type = "string"  use = "required" />
+   </complexType>
+      <unique name= "EpisodeP_ID">
+         <selector xpath = "npr:Episode"/>
+         <field xpath = "@episodeID"/>
+      </unique>
+      <unique name= "PasientP_ID">
+         <selector xpath = "npr:Pasient"/>
+         <field xpath = "@pasientNr"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 4 -->
+
+<!-- Class: Utstyr -->
+<element name = "Utstyr">
+   <annotation>
+       <documentation>
+         Dokumentasjon av medisinsk utstryr.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Utstyrselementer" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Utstyrsegenskaper" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "utstyrID" type = "string"  use = "required" />
+      <attribute name = "referanseMEDUSA" type = "string"  use = "optional" />
+      <attribute name = "typeUtstyr" type = "string"  use = "required" />
+      <attribute name = "lokaltNavnUtstyr" type = "string"  use = "required" />
+      <attribute name = "plassering" type = "string"  use = "optional" />
+      <attribute name = "produsent" type = "string"  use = "required" />
+      <attribute name = "modell" type = "string"  use = "optional" />
+      <attribute name = "ferdigDato" type = "date"  use = "optional" />
+      <attribute name = "oppgradert" type = "date"  use = "optional" />
+      <attribute name = "statusUtstyr" type = "npr:status_for_medisinsk_teknisk_utstyr"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Pasient -->
+<element name = "Pasient">
+   <annotation>
+       <documentation>
+         En person som henvender seg til helsevesenet med anmodning om helsehjelp, eller som helsevesenet gir eller tilbyr helsehjelp i individuelle tilfeller.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "pasientGUID" type = "nprx:guid"  use = "optional" />
+      <attribute name = "pasientNr" type = "string"  use = "required" />
+      <attribute name = "kjonn" type = "npr:kjonn"  use = "required" />
+      <attribute name = "fodselsar" type = "gYear"  use = "required" />
+      <attribute name = "fodselsvekt" type = "integer"  use = "prohibited" />
+   </complexType>
+</element>
+
+<!-- Class: Episode -->
+<element name = "Episode">
+   <annotation>
+       <documentation>
+         Tidsperiode hvor pasienten får helsehjelp ved én og samme helseinstitusjon for ett og samme helseproblem.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+      <!--          CHOICE only one          --> 
+         <element ref = "npr:Kontakt" minOccurs = "1" maxOccurs = "1"  />
+         <element ref = "npr:RefEnhet" minOccurs = "3" maxOccurs = "unbounded" />
+         <element ref = "npr:Tilstand" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Tjeneste" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "episodeGUID" type = "nprx:guid"  use = "optional" />
+      <attribute name = "episodeID" type = "string"  use = "required" />
+      <attribute name = "henvisningsperiodeID" type = "string"  use = "optional" />
+      <attribute name = "serieID" type = "string"  use = "optional" />
+      <attribute name = "innDatoTid" type = "dateTime"  use = "required" />
+      <attribute name = "fraSted" type = "npr:sted"  use = "optional" />
+      <attribute name = "fraInstitusjonID" type = "string"  use = "prohibited" />
+      <attribute name = "kommTjeneste" type = "npr:kommunale_tjenester"  use = "prohibited" />
+      <attribute name = "debitor" type = "npr:debitor"  use = "required" />
+      <attribute name = "episodeFag" type = "npr:fagomrade"  use = "optional" />
+      <attribute name = "delytelse" type = "npr:delytelser_i_rehabilitering"  use = "prohibited" />
+      <attribute name = "fbvTjenesteEpisode" type = "npr:tjenester_i_godkjenningsordningen_innen_Fritt_behandlingsvalg"  use = "prohibited" />
+      <attribute name = "komNrHjem" type = "nprx:kommNr"  use = "required" />
+      <attribute name = "bydel" type = "nprx:bydelNr"  use = "optional" />
+      <attribute name = "inntilstand" type = "npr:inntilstand"  use = "optional"  fixed = "1"/>
+      <attribute name = "samtykkekompetanse" type = "npr:ja_nei"  use = "prohibited" />
+      <attribute name = "innmateHast" type = "npr:innmate_hastegrad"  use = "required"  fixed = "4"/>
+      <attribute name = "alderIDager" type = "integer"  use = "prohibited" />
+      <attribute name = "omsorgsniva" type = "npr:omsorgsniva"  use = "required" />
+      <attribute name = "arenafleksibel" type = "npr:ja_nei"  use = "optional" />
+      <attribute name = "utTilstand" type = "npr:uttilstand"  use = "optional" />
+      <attribute name = "sluttKode" type = "npr:avslutningsmate_rus"  use = "prohibited" />
+      <attribute name = "epikriseDato" type = "date"  use = "optional" />
+      <attribute name = "tilSted" type = "npr:sted"  use = "optional" />
+      <attribute name = "tilInstitusjonID" type = "string"  use = "prohibited" />
+      <attribute name = "utDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "epikriseSamtykke" type = "npr:status_for_innhenting_av_pasientens_samtykke"  use = "prohibited" />
+   </complexType>
+</element>
+
+<!-- Class: Medisinsk stråling -->
+<element name = "MedisinskStraling">
+   <annotation>
+       <documentation>
+         Medisinsk stråling er en samlebetegnelse for informasjoner som knytter seg til all bruk av bildedannende utstyr, nukleærmedisin og stråleterapi.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Behandlingsserie" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Referansevolum" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "medisinskStralingGUID" type = "nprx:guid"  use = "optional" />
+      <attribute name = "medisinskStralingID" type = "string"  use = "required" />
+      <attribute name = "tilleggsopplysninger" type = "string"  use = "optional" />
+   </complexType>
+      <key name= "ReferansevolumP_ID">
+         <selector xpath = "npr:Referansevolum"/>
+         <field xpath = "@referansevolumID"/>
+      </key>
+      <keyref name = "Dosebidrag_IDREF0" refer = "npr:ReferansevolumP_ID">
+         <selector xpath = "npr:Behandlingsserie/npr:ApparatFremmote/npr:Dosebidrag"/>
+         <field xpath = "@referansevolumID"/>
+      </keyref>
+</element>
+
+
+<!-- LEVEL 5 -->
+
+<!-- Class: Utstyrselementer -->
+<element name = "Utstyrselementer">
+   <complexType >
+      <attribute name = "typeElement" type = "string"  use = "required" />
+      <attribute name = "inkludert" type = "npr:ja_nei"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Utstyrsegenskaper -->
+<element name = "Utstyrsegenskaper">
+   <complexType >
+      <attribute name = "egenskapType" type = "string"  use = "required" />
+      <attribute name = "verdi" type = "string"  use = "required" />
+      <attribute name = "benevning" type = "string"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Kontakt -->
+<element name = "Kontakt">
+   <annotation>
+       <documentation>
+         Uavbrutt samhandling mellom pasient og helsepersonell hvor det utføres helsehjelp for pasienten eller indirekte kontakt.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Helseperson" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "kontaktType" type = "npr:kontakttype"  use = "required" />
+      <attribute name = "initiativtaker" type = "npr:initiativtaker"  use = "prohibited" />
+      <attribute name = "stedAktivitet" type = "npr:sted_for_aktivitet"  use = "required" />
+      <attribute name = "polkonAktivitet" type = "npr:aktivitetstype"  use = "prohibited" />
+      <attribute name = "polIndir" type = "npr:indirekte_aktiviteter"  use = "prohibited" />
+   </complexType>
+</element>
+
+<!-- Class: Referanse til enhet -->
+<element name = "RefEnhet">
+   <annotation>
+       <documentation>
+         Inneholder alle referanser av forskjellige typer til klassen Enhet. Type referanse er bestemt av kode i kodeverk.  Obligatoriske referanser i NPR-melding fra Episode og Henvisning er av typene  1 Behandlingsted  7 Avdeling  2 Fagenhet  Det kan godt være at ulike referanser refererer til samme Enhet.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "enhetID" type = "string"  use = "required" />
+      <attribute name = "typeEnhet" type = "npr:type_enhet"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Tilstand -->
+<element name = "Tilstand">
+   <annotation>
+       <documentation>
+         En tilstand uttrykt med en eller flere diagnosekoder (ICD-10).
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Kode" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "tilstNr" type = "integer"  use = "required" />
+      <attribute name = "akse" type = "npr:akse"  use = "optional" />
+   </complexType>
+      <unique name= "KodeP_ID">
+         <selector xpath = "npr:Kode"/>
+         <field xpath = "@kodeNr"/>
+      </unique>
+</element>
+
+<!-- Class: Tjeneste -->
+<element name = "Tjeneste">
+   <annotation>
+       <documentation>
+         En eller flere behandlingsrettede tiltak som utføres for en pasient under en og samme tjeneste (seanse).  			
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Tiltak" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "instID" type = "string"  use = "prohibited" />
+      <attribute name = "tjenesteenhetID" type = "string"  use = "optional" />
+      <attribute name = "startDatoTid" type = "dateTime"  use = "required" />
+      <attribute name = "sluttDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "tjenesteFag" type = "npr:fagomrade"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Behandlingsserie -->
+<element name = "Behandlingsserie">
+   <annotation>
+       <documentation>
+         En serie med fremmøter innen medlsinsk strålebruk.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:ApparatFremmote" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "serieID" type = "string"  use = "required" />
+      <attribute name = "behandlingsserieNavn" type = "string"  use = "optional" />
+      <attribute name = "intensjon" type = "string"  use = "optional" />
+      <attribute name = "nyPasient" type = "npr:ja_nei"  use = "required" />
+      <attribute name = "datoForste" type = "date"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Referansevolum stråleterapi -->
+<element name = "Referansevolum">
+   <annotation>
+       <documentation>
+         Volum  Referansepunkt
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "referansevolumID" type = "string"  use = "required" />
+      <attribute name = "referansevolumNavn" type = "string"  use = "required" />
+      <attribute name = "regionkode" type = "npr:anatomisk_region_angitt_for_straleterapi"  use = "required" />
+      <attribute name = "regionNavn" type = "string"  use = "optional" />
+      <attribute name = "planlagtTotalDose" type = "double"  use = "required" />
+      <attribute name = "dosekorreksjon" type = "double"  use = "required" />
+      <attribute name = "merknad" type = "string"  use = "optional" />
+   </complexType>
+</element>
+
+
+<!-- LEVEL 6 -->
+
+<!-- Class: Tiltak -->
+<element name = "Tiltak">
+   <annotation>
+       <documentation>
+         Representerer et tiltak i en tjeneste. Et tiltak kan inneholde null, en eller flere forekomster av klassen Prosedyre.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Helseperson" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Prosedyre" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "typeTiltak" type = "npr:type_tiltak"  use = "required" />
+      <attribute name = "startDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "sluttDatoTid" type = "dateTime"  use = "optional" />
+   </complexType>
+      <unique name= "ProsedyreP_ID">
+         <selector xpath = "npr:Prosedyre"/>
+         <field xpath = "@prosNr"/>
+      </unique>
+</element>
+
+<!-- Class: Apparat- fremmøte -->
+<element name = "ApparatFremmote">
+   <annotation>
+       <documentation>
+         Det enkelte apparats bidrag til et fremmøte.  Det kan være flere apparat-fremmøter per Episode.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Dosebidrag" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "episodeID" type = "string"  use = "required" />
+      <attribute name = "refUtstyr" type = "string"  use = "required" />
+   </complexType>
+</element>
+
+
+<!-- LEVEL 7 -->
+
+<!-- Class: Helseperson -->
+<element name = "Helseperson">
+   <annotation>
+       <documentation>
+         Angir hvilke typer helsepersonell som deltar i direkte pasientkontakt, og ved indirekte pasientkontakt som samarbeidspartnere i utredning og planlegging av behandling av en pasient.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "polUtforende" type = "npr:utforende_helsepersonell"  use = "required" />
+      <attribute name = "spesialist" type = "npr:ja_nei_ukjent"  use = "optional" />
+      <attribute name = "rolle" type = "npr:rolle"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Prosedyre -->
+<element name = "Prosedyre">
+   <annotation>
+       <documentation>
+         Pasientrettet tiltak kategorisert etter en normgivende beskrivelse eller et kodeverk.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Kode" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "prosNr" type = "integer"  use = "required" />
+      <attribute name = "tilstNr" type = "integer"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Dosebidrag -->
+<element name = "Dosebidrag">
+   <annotation>
+       <documentation>
+         Ulike målevolum i Region
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "referansevolumID" type = "string"  use = "required" />
+      <attribute name = "planDose" type = "double"  use = "required" />
+      <attribute name = "gittDose" type = "double"  use = "required" />
+   </complexType>
+</element>
+
+
+<!-- LEVEL 8 -->
+
+<!-- Class: Kode -->
+<element name = "Kode">
+   <annotation>
+       <documentation>
+         En bokstav- og/eller tallkombinasjon, eventuelt med skilletegn i form av f. eks. punktum eller mellomrom, som utvetydig representerer en kategori i et medisinsk kodeverk.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "kodeNr" type = "integer"  use = "required" />
+      <attribute name = "Kodeverk" type = "npr:medisinske_kodeverk"  use = "required" />
+      <attribute name = "kodeVersjon" type = "string"  use = "required" />
+      <attribute name = "kodeVerdi" type = "string"  use = "required" />
+   </complexType>
+</element>
+</schema>

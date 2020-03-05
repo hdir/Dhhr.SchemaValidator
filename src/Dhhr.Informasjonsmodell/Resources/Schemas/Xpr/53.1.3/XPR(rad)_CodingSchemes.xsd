@@ -1,0 +1,1935 @@
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generated on 11-27-2018  11:36:22 at NPR -->
+<!-- Avdeling helseregistres meldinger -->
+<!-- Modul rad  -->
+<!-- Skjema for Innrapportering av data fra bildediagnostikk, bildeveiledet intervensjon og nukleærmedisin  -->
+<!-- XML-Schema level supported is specified by W3C -->
+<!-- http://www.w3.org/2001/XMLSchema -->
+<schema 
+       xmlns="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
+    xmlns:kith="http://www.kith.no/xmlstds" 
+    xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" 
+    xmlns:npr = "http://www.npr.no/xmlstds/53_1_3_rad"
+    targetNamespace = "http://www.npr.no/xmlstds/53_1_3_rad"
+    elementFormDefault = "qualified"
+    attributeFormDefault="unqualified">
+   <import namespace="http://www.npr.no/xmlstds/53_1_3" schemaLocation="NPR.xsd"/>
+<!-- LEVEL 1 -->
+<!-- Class: Melding -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Melding' --> 
+<simpleType name="meldingstype">
+   <restriction base="string"/>  <!-- Kodeverk: 7371 Meldingstype -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Melding' --> 
+<annotation>
+   <appinfo>
+      <class name="Melding"/> 
+      <attribute name="meldingstype"/> 
+      <codingScheme name="Meldingstype"/> 
+      <codingScheme OID="7371"/> 
+      <simpleT name="meldingstype"/> 
+         <code value="E" text="Endringsmelding" comment=""/>
+         <code value="B" text="Satsvis melding" comment=""/>
+   </appinfo>
+</annotation>
+<!-- LEVEL 2 -->
+<!-- Class: Kontaktperson -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Kontaktperson' --> 
+<simpleType name="kontaktperson_type">
+   <restriction base="string"/>  <!-- Kodeverk: 8471 Kontaktperson type -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Kontaktperson' --> 
+<annotation>
+   <appinfo>
+      <class name="Kontaktperson"/> 
+      <attribute name="typeKontaktperson"/> 
+      <codingScheme name="Kontaktperson type"/> 
+      <codingScheme OID="8471"/> 
+      <simpleT name="kontaktperson_type"/> 
+         <code value="1" text="Teknisk produksjon" comment=""/>
+         <code value="2" text="Somatisk spesialisthelsetjeneste" comment=""/>
+         <code value="3" text="Psykisk helsevern voksne" comment=""/>
+         <code value="4" text="Barne og ungdomspsykiatri" comment=""/>
+         <code value="5" text="Tverrfaglig spesialisert rusbehandling" comment=""/>
+         <code value="6" text="Personskadestatistikk" comment=""/>
+         <code value="7" text="Ventelistestatistikk" comment=""/>
+         <code value="8" text="Ident-meldingen" comment=""/>
+         <code value="9" text="RESH" comment=""/>
+         <code value="10" text="Radiologi" comment="Unntatt stråleterapi"/>
+         <code value="11" text="Stråleterapi" comment=""/>
+         <code value="12" text="Pakkeforløp kreft" comment=""/>
+         <code value="13" text="Vedtak etter psykisk helsevernloven" comment=""/>
+         <code value="14" text="Organisasjonsoppsett i EPJ" comment=""/>
+         <code value="15" text="EPJ-leverandør, meldingsvalidering" comment=""/>
+         <code value="16" text="IPLOS kontaktperson" comment=""/>
+         <code value="17" text="IPLOS innsendingsansvarlig" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Helseinstitusjon -->
+   
+   <!--     A P P I N F O     -->
+   
+<!-- LEVEL 3 -->
+<!-- Class: Enhet -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Enhet' --> 
+<simpleType name="ja_nei">
+   <restriction base="string"/>  <!-- Kodeverk: 1101 Ja, nei -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Enhet' --> 
+<annotation>
+   <appinfo>
+      <class name="Enhet"/> 
+      <attribute name="isfRefusjon"/> 
+      <codingScheme name="Ja, nei"/> 
+      <codingScheme OID="1101"/> 
+      <simpleT name="ja_nei"/> 
+         <code value="1" text="Ja" comment=""/>
+         <code value="2" text="Nei" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Slett -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Slett' --> 
+<simpleType name="objekttype">
+   <restriction base="string"/>  <!-- Kodeverk: 7372 Objekttype -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Slett' --> 
+<annotation>
+   <appinfo>
+      <class name="Slett"/> 
+      <attribute name="objekttype"/> 
+      <codingScheme name="Objekttype"/> 
+      <codingScheme OID="7372"/> 
+      <simpleT name="objekttype"/> 
+         <code value="P" text="Pasient" comment=""/>
+         <code value="H" text="Henvisningsperiode" comment=""/>
+         <code value="E" text="Episode" comment=""/>
+         <code value="B" text="Behandlerkrav" comment=""/>
+         <code value="A" text="Prehospital/AMK" comment=""/>
+         <code value="R" text="Russituasjon" comment=""/>
+         <code value="S" text="Personskade" comment=""/>
+         <code value="M" text="Medisinsk stråling" comment=""/>
+         <code value="L" text="Pleie og omsorg" comment=""/>
+         <code value="V" text="Vedtak i psykisk helsevern" comment=""/>
+         <code value="F" text="Forløp" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Objektholder -->
+   
+   <!--     A P P I N F O     -->
+   
+<!-- LEVEL 4 -->
+<!-- Class: Utstyr -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Utstyr' --> 
+<simpleType name="status_for_medisinsk_teknisk_utstyr">
+   <restriction base="string"/>  <!-- Kodeverk: 9185 Status for medisinsk teknisk utstyr -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Utstyr' --> 
+<annotation>
+   <appinfo>
+      <class name="Utstyr"/> 
+      <attribute name="statusUtstyr"/> 
+      <codingScheme name="Status for medisinsk teknisk utstyr"/> 
+      <codingScheme OID="9185"/> 
+      <simpleT name="status_for_medisinsk_teknisk_utstyr"/> 
+         <code value="1" text="Planlagt anskaffet" comment=""/>
+         <code value="2" text="Under installasjon" comment=""/>
+         <code value="3" text="I drift" comment=""/>
+         <code value="4" text="Tatt ut av drift" comment=""/>
+         <code value="5" text="Kassert" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Pasient -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Pasient' --> 
+<simpleType name="kjonn">
+   <restriction base="string"/>  <!-- Kodeverk: 3101 Kjønn -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Pasient' --> 
+<annotation>
+   <appinfo>
+      <class name="Pasient"/> 
+      <attribute name="kjonn"/> 
+      <codingScheme name="Kjønn"/> 
+      <codingScheme OID="3101"/> 
+      <simpleT name="kjonn"/> 
+         <code value="0" text="Ikke kjent" comment=""/>
+         <code value="1" text="Mann" comment=""/>
+         <code value="2" text="Kvinne" comment=""/>
+         <code value="9" text="Ikke spesifisert" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Henvisningsperiode -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Henvisningsperiode' --> 
+<simpleType name="tjenester_og_vesen">
+   <restriction base="string"/>  <!-- Kodeverk: 8404 Tjenester og vesen -->
+</simpleType>
+<simpleType name="landkoder">
+   <restriction base="string"/>  <!-- Kodeverk: 9043 Landkoder -->
+</simpleType>
+<simpleType name="ny_tilstand">
+   <restriction base="string"/>  <!-- Kodeverk: 8430 Ny tilstand -->
+</simpleType>
+<!-- simpleType for  tjenester_og_vesen written before    -->
+ <!-- Appinfo for Coding schemes in the class: 'Henvisningsperiode' --> 
+<annotation>
+   <appinfo>
+      <class name="Henvisningsperiode"/> 
+      <attribute name="henvFraTjeneste"/> 
+      <codingScheme name="Tjenester og vesen"/> 
+      <codingScheme OID="8404"/> 
+      <simpleT name="tjenester_og_vesen"/> 
+         <code value="1" text="Pasienten selv" comment=""/>
+         <code value="41" text="Somatisk spesialisthelsetjeneste" comment=""/>
+         <code value="42" text="Tverrfaglig spesialisert rusbehandling" comment=""/>
+         <code value="44" text="Psykisk helsevern" comment="Inkludert DPS"/>
+         <code value="10" text="Privatpraktiserende spesialister" comment="Leger og psykologer"/>
+         <code value="28" text="Fastlege/primærlege/legevaktslege" comment="Primærhelsetjeneste"/>
+         <code value="88" text="Andre kommunale tjenester" comment="Barnehage, skolesektor, PPT Sosialtjeneste, barnevern"/>
+         <code value="9" text="Andre tjenester" comment="Rehabiliteringsinstitusjoner, politi, fengsel, rettsvesen"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Henvisningsperiode"/> 
+      <attribute name="trygdenasjon"/> 
+      <codingScheme name="Landkoder"/> 
+      <codingScheme OID="9043"/> 
+      <simpleT name="landkoder"/> 
+         <code value="AD" text="Andorra" comment=""/>
+         <code value="AE" text="De forente arabiske emiratene" comment=""/>
+         <code value="AF" text="Afghanistan" comment=""/>
+         <code value="AG" text="Antigua og Barbuda" comment=""/>
+         <code value="AI" text="Anguilla" comment=""/>
+         <code value="AL" text="Albania" comment=""/>
+         <code value="AM" text="Armenia" comment=""/>
+         <code value="AN" text="De nederlandske Antillene" comment="Oppløst 10. oktober 2010"/>
+         <code value="AO" text="Angola" comment=""/>
+         <code value="AQ" text="Antarktis" comment=""/>
+         <code value="AR" text="Argentina" comment=""/>
+         <code value="AS" text="Amerikansk Samoa" comment=""/>
+         <code value="AT" text="Østerrike" comment=""/>
+         <code value="AU" text="Australia" comment=""/>
+         <code value="AW" text="Aruba" comment=""/>
+         <code value="AX" text="Åland" comment=""/>
+         <code value="AZ" text="Aserbajdsjan" comment=""/>
+         <code value="BA" text="Bosnia-Hercegovina" comment=""/>
+         <code value="BB" text="Barbados" comment=""/>
+         <code value="BD" text="Bangladesh" comment=""/>
+         <code value="BE" text="Belgia" comment=""/>
+         <code value="BF" text="Burkina Faso" comment=""/>
+         <code value="BG" text="Bulgaria" comment=""/>
+         <code value="BH" text="Bahrain" comment=""/>
+         <code value="BI" text="Burundi" comment=""/>
+         <code value="BJ" text="Benin" comment=""/>
+         <code value="BL" text="Saint-Barthélemy" comment=""/>
+         <code value="BM" text="Bermuda" comment=""/>
+         <code value="BN" text="Brunei Darussalam" comment=""/>
+         <code value="BO" text="Bolivia" comment=""/>
+         <code value="BQ" text="Bonaire, Sint Eustatius og Saba" comment="Fra 10/10-2010"/>
+         <code value="BR" text="Brasil" comment=""/>
+         <code value="BS" text="Bahamas" comment=""/>
+         <code value="BT" text="Bhutan" comment=""/>
+         <code value="BV" text="Bouvetøya" comment=""/>
+         <code value="BW" text="Botswana" comment=""/>
+         <code value="BY" text="Hviterussland" comment=""/>
+         <code value="BZ" text="Belize" comment=""/>
+         <code value="CA" text="Canada" comment=""/>
+         <code value="CC" text="Kokosøyene" comment=""/>
+         <code value="CD" text="Kongo" comment=""/>
+         <code value="CF" text="Den sentralafrikanske republikken" comment=""/>
+         <code value="CG" text="Kongo-Brazzaville" comment=""/>
+         <code value="CH" text="Sveits" comment=""/>
+         <code value="CI" text="Elfenbe(i)nskysten" comment=""/>
+         <code value="CK" text="Cookøyene" comment=""/>
+         <code value="CL" text="Chile" comment=""/>
+         <code value="CM" text="Kamerun" comment=""/>
+         <code value="CN" text="Kina" comment=""/>
+         <code value="CO" text="Colombia" comment=""/>
+         <code value="CR" text="Costa Rica" comment=""/>
+         <code value="CS" text="Serbia og Montenegro" comment="Serbia og Montenegro utgår, bruk RS (Serbia) eller ME (Montenegro)"/>
+         <code value="CU" text="Cuba" comment=""/>
+         <code value="CV" text="Kapp Verde" comment=""/>
+         <code value="CW" text="Curaçao" comment="Fra 10/10-2010"/>
+         <code value="CX" text="Christmasøya" comment=""/>
+         <code value="CY" text="Kypros" comment=""/>
+         <code value="CZ" text="Tsjekkia" comment=""/>
+         <code value="DE" text="Tyskland" comment=""/>
+         <code value="DJ" text="Djibouti" comment=""/>
+         <code value="DK" text="Danmark" comment=""/>
+         <code value="DM" text="Dominica" comment=""/>
+         <code value="DO" text="Den dominikanske republikken" comment=""/>
+         <code value="DZ" text="Algerie" comment=""/>
+         <code value="EC" text="Ecuador" comment=""/>
+         <code value="EE" text="Estland" comment=""/>
+         <code value="EG" text="Egypt" comment=""/>
+         <code value="EH" text="Vest-Sahara" comment=""/>
+         <code value="ER" text="Eritrea" comment=""/>
+         <code value="ES" text="Spania" comment=""/>
+         <code value="ET" text="Etiopia" comment=""/>
+         <code value="FI" text="Finland" comment=""/>
+         <code value="FJ" text="Fiji" comment=""/>
+         <code value="FK" text="Falklandsøyene" comment=""/>
+         <code value="FM" text="Mikronesiaføderasjonen" comment=""/>
+         <code value="FO" text="Færøyene" comment=""/>
+         <code value="FR" text="Frankrike" comment=""/>
+         <code value="GA" text="Gabon" comment=""/>
+         <code value="GB" text="Storbritannia" comment=""/>
+         <code value="GD" text="Grenada" comment=""/>
+         <code value="GE" text="Georgia" comment=""/>
+         <code value="GF" text="Fransk Guyana" comment=""/>
+         <code value="GG" text="Guernsey" comment=""/>
+         <code value="GH" text="Ghana" comment=""/>
+         <code value="GI" text="Gibraltar" comment=""/>
+         <code value="GL" text="Grønland" comment=""/>
+         <code value="GM" text="Gambia" comment=""/>
+         <code value="GN" text="Guinea" comment=""/>
+         <code value="GP" text="Guadeloupe" comment=""/>
+         <code value="GQ" text="Ekvatorial-Guinea" comment=""/>
+         <code value="GR" text="Hellas" comment=""/>
+         <code value="GS" text="Sør-Georgia og de søndre Sandwichøyene" comment=""/>
+         <code value="GT" text="Guatemala" comment=""/>
+         <code value="GU" text="Guam" comment=""/>
+         <code value="GW" text="Guinea-Bissau" comment=""/>
+         <code value="GY" text="Guyana" comment=""/>
+         <code value="HK" text="Hong Kong" comment=""/>
+         <code value="HM" text="Heard- og McDonaldøyene" comment=""/>
+         <code value="HN" text="Honduras" comment=""/>
+         <code value="HR" text="Kroatia" comment=""/>
+         <code value="HT" text="Haiti" comment=""/>
+         <code value="HU" text="Ungarn" comment=""/>
+         <code value="ID" text="Indonesia" comment=""/>
+         <code value="IE" text="Irland" comment=""/>
+         <code value="IL" text="Israel" comment=""/>
+         <code value="IM" text="Man" comment=""/>
+         <code value="IN" text="India" comment=""/>
+         <code value="IO" text="Det britiske territoriet i Indiahavet" comment=""/>
+         <code value="IQ" text="Irak" comment=""/>
+         <code value="IR" text="Iran" comment=""/>
+         <code value="IS" text="Island" comment=""/>
+         <code value="IT" text="Italia" comment=""/>
+         <code value="JE" text="Jersey" comment=""/>
+         <code value="JM" text="Jamaica" comment=""/>
+         <code value="JO" text="Jordan" comment=""/>
+         <code value="JP" text="Japan" comment=""/>
+         <code value="KE" text="Kenya" comment=""/>
+         <code value="KG" text="Kirgisistan" comment=""/>
+         <code value="KH" text="Kambodsja" comment=""/>
+         <code value="KI" text="Kiribati" comment=""/>
+         <code value="KM" text="Komorene" comment=""/>
+         <code value="KN" text="Saint Kitts og Nevis" comment=""/>
+         <code value="KP" text="Nord-Korea" comment=""/>
+         <code value="KR" text="Sør-Korea" comment=""/>
+         <code value="KW" text="Kuwait" comment=""/>
+         <code value="KY" text="Caymanøyene" comment=""/>
+         <code value="KZ" text="Kasakhstan" comment=""/>
+         <code value="LA" text="Laos" comment=""/>
+         <code value="LB" text="Libanon" comment=""/>
+         <code value="LC" text="Saint Lucia" comment=""/>
+         <code value="LI" text="Liechtenstein" comment=""/>
+         <code value="LK" text="Sri Lanka" comment=""/>
+         <code value="LR" text="Liberia" comment=""/>
+         <code value="LS" text="Lesotho" comment=""/>
+         <code value="LT" text="Litauen" comment=""/>
+         <code value="LU" text="Luxemb(o)urg" comment=""/>
+         <code value="LV" text="Latvia" comment=""/>
+         <code value="LY" text="Libya" comment=""/>
+         <code value="MA" text="Marokko" comment=""/>
+         <code value="MC" text="Monaco" comment=""/>
+         <code value="MD" text="Moldova" comment=""/>
+         <code value="ME" text="Montenegro" comment=""/>
+         <code value="MF" text="Saint-Martin" comment=""/>
+         <code value="MG" text="Madagaskar" comment=""/>
+         <code value="MH" text="Marshalløyene" comment=""/>
+         <code value="MK" text="Makedonia" comment=""/>
+         <code value="ML" text="Mali" comment=""/>
+         <code value="MM" text="Myanmar/Burma" comment=""/>
+         <code value="MN" text="Mongolia" comment=""/>
+         <code value="MO" text="Macao" comment=""/>
+         <code value="MP" text="Nord-Marianene" comment=""/>
+         <code value="MQ" text="Martinique" comment=""/>
+         <code value="MR" text="Mauritania" comment=""/>
+         <code value="MS" text="Montserrat" comment=""/>
+         <code value="MT" text="Malta" comment=""/>
+         <code value="MU" text="Mauritius" comment=""/>
+         <code value="MV" text="Maldivene" comment=""/>
+         <code value="MW" text="Malawi" comment=""/>
+         <code value="MX" text="Mexico" comment=""/>
+         <code value="MY" text="Malaysia" comment=""/>
+         <code value="MZ" text="Mosambik" comment=""/>
+         <code value="NA" text="Namibia" comment=""/>
+         <code value="NC" text="Ny-Caledonia" comment=""/>
+         <code value="NE" text="Niger" comment=""/>
+         <code value="NF" text="Norfolkøya" comment=""/>
+         <code value="NG" text="Nigeria" comment=""/>
+         <code value="NI" text="Nicaragua" comment=""/>
+         <code value="NL" text="Nederland" comment=""/>
+         <code value="NO" text="Norge" comment=""/>
+         <code value="NP" text="Nepal" comment=""/>
+         <code value="NR" text="Nauru" comment=""/>
+         <code value="NU" text="Niue" comment=""/>
+         <code value="NZ" text="New Zealand" comment=""/>
+         <code value="OM" text="Oman" comment=""/>
+         <code value="PA" text="Panama" comment=""/>
+         <code value="PE" text="Peru" comment=""/>
+         <code value="PF" text="Fransk Polynesia" comment=""/>
+         <code value="PG" text="Papua Ny-Guinea" comment=""/>
+         <code value="PH" text="Filippinene" comment=""/>
+         <code value="PK" text="Pakistan" comment=""/>
+         <code value="PL" text="Polen" comment=""/>
+         <code value="PM" text="Saint-Pierre og Miquelon" comment=""/>
+         <code value="PN" text="Pitcairn" comment=""/>
+         <code value="PR" text="Puerto Rico" comment=""/>
+         <code value="PS" text="Det palestinske området" comment=""/>
+         <code value="PT" text="Portugal" comment=""/>
+         <code value="PW" text="Palau" comment=""/>
+         <code value="PY" text="Paraguay" comment=""/>
+         <code value="QA" text="Qatar" comment=""/>
+         <code value="RE" text="Réunion" comment=""/>
+         <code value="RO" text="Romania" comment=""/>
+         <code value="RS" text="Serbia" comment=""/>
+         <code value="RU" text="Russland" comment=""/>
+         <code value="RW" text="Rwanda" comment=""/>
+         <code value="SA" text="Saudi-Arabia" comment=""/>
+         <code value="SB" text="Salomonøyene" comment=""/>
+         <code value="SC" text="Seychellene" comment=""/>
+         <code value="SD" text="Sudan" comment=""/>
+         <code value="SE" text="Sverige" comment=""/>
+         <code value="SG" text="Singapore" comment=""/>
+         <code value="SH" text="Saint Helena" comment=""/>
+         <code value="SI" text="Slovenia" comment=""/>
+         <code value="SJ" text="Svalbard og Jan Mayen" comment=""/>
+         <code value="SK" text="Slovakia" comment=""/>
+         <code value="SL" text="Sierra Leone" comment=""/>
+         <code value="SM" text="San Marino" comment=""/>
+         <code value="SN" text="Senegal" comment=""/>
+         <code value="SO" text="Somalia" comment=""/>
+         <code value="SR" text="Surinam" comment=""/>
+         <code value="SS" text="Sør-Sudan" comment="Fra 9/11-2011"/>
+         <code value="ST" text="São Tomé og Príncipe" comment=""/>
+         <code value="SV" text="El Salvador" comment=""/>
+         <code value="SX" text="Sint Maarten" comment="Fra 10/10-2010"/>
+         <code value="SY" text="Syria" comment=""/>
+         <code value="SZ" text="Swaziland" comment=""/>
+         <code value="TC" text="Turks- og Caicosøyene" comment=""/>
+         <code value="TD" text="Tsjad" comment=""/>
+         <code value="TF" text="De franske territoriene i sør" comment=""/>
+         <code value="TG" text="Togo" comment=""/>
+         <code value="TH" text="Thailand" comment=""/>
+         <code value="TJ" text="Tadsjikistan" comment=""/>
+         <code value="TK" text="Tokelau" comment=""/>
+         <code value="TL" text="Øst-Timor" comment=""/>
+         <code value="TM" text="Turkmenistan" comment=""/>
+         <code value="TN" text="Tunisia" comment=""/>
+         <code value="TO" text="Tonga" comment=""/>
+         <code value="TR" text="Tyrkia" comment=""/>
+         <code value="TT" text="Trinidad og Tobago" comment=""/>
+         <code value="TV" text="Tuvalu" comment=""/>
+         <code value="TW" text="Taiwan" comment=""/>
+         <code value="TZ" text="Tanzania" comment=""/>
+         <code value="UA" text="Ukraina" comment=""/>
+         <code value="UG" text="Uganda" comment=""/>
+         <code value="UM" text="De forente stater, mindre, avsidesliggende øyer" comment=""/>
+         <code value="US" text="De forente stater (USA)" comment=""/>
+         <code value="UY" text="Uruguay" comment=""/>
+         <code value="UZ" text="Usbekistan" comment=""/>
+         <code value="VA" text="Vatikanstaten" comment=""/>
+         <code value="VC" text="Saint Vincent og Grenadinene" comment=""/>
+         <code value="VE" text="Venezuela" comment=""/>
+         <code value="VG" text="Jomfruøyene (Britisk)" comment=""/>
+         <code value="VI" text="Jomfruøyene (USA)" comment=""/>
+         <code value="VN" text="Vietnam" comment=""/>
+         <code value="VU" text="Vanuatu" comment=""/>
+         <code value="WF" text="Wallis- og Futunaøyene" comment=""/>
+         <code value="WS" text="Samoa" comment=""/>
+         <code value="XK" text="Kosovo" comment="Midl. kode benyttet av bla EU"/>
+         <code value="YE" text="Jemen" comment=""/>
+         <code value="YT" text="Mayotte" comment=""/>
+         <code value="YU" text="Jugoslavia" comment="Jugoslavia (YU), senere Serbia og Montenegro (CS) utgår, bruk RS (Serbia) eller ME (Montenegro)"/>
+         <code value="ZA" text="Sør-Afrika" comment=""/>
+         <code value="ZM" text="Zambia" comment=""/>
+         <code value="ZW" text="Zimbabwe" comment=""/>
+         <code value="XX" text="Ukjent nasjon" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Henvisningsperiode"/> 
+      <attribute name="nyTilstand"/> 
+      <codingScheme name="Ny tilstand"/> 
+      <codingScheme OID="8430"/> 
+      <simpleT name="ny_tilstand"/> 
+         <code value="1" text="Første gangs henvisning, ny tilstand" comment=""/>
+         <code value="2" text="Tilstanden er diagnostisert tidligere" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Tjenester og vesen written before    -->
+<!-- Class: Episode -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Episode' --> 
+<simpleType name="sted">
+   <restriction base="string"/>  <!-- Kodeverk: 8408 Sted -->
+</simpleType>
+<simpleType name="kommunale_tjenester">
+   <restriction base="string"/>  <!-- Kodeverk: 8481 Kommunale tjenester -->
+</simpleType>
+<simpleType name="debitor">
+   <restriction base="string"/>  <!-- Kodeverk: 8426 Debitor -->
+</simpleType>
+<simpleType name="fagomrade">
+   <restriction base="string"/>  <!-- Kodeverk: 8451 Fagområde -->
+</simpleType>
+<simpleType name="delytelser_i_rehabilitering">
+   <restriction base="string"/>  <!-- Kodeverk: 8472 Delytelser i rehabilitering -->
+</simpleType>
+<simpleType name="tjenester_i_godkjenningsordningen_innen_Fritt_behandlingsvalg">
+   <restriction base="string"/>  <!-- Kodeverk: 8486 Tjenester i godkjenningsordningen innen Fritt behandlingsvalg -->
+</simpleType>
+<simpleType name="inntilstand">
+   <restriction base="string"/>  <!-- Kodeverk: 8427 Inntilstand -->
+</simpleType>
+<!-- simpleType for  ja_nei written before    -->
+<simpleType name="innmate_hastegrad">
+   <restriction base="string"/>  <!-- Kodeverk: 8428 Innmåte hastegrad -->
+</simpleType>
+<simpleType name="omsorgsniva">
+   <restriction base="string"/>  <!-- Kodeverk: 8406 Omsorgsnivå -->
+</simpleType>
+<!-- simpleType for  ja_nei written before    -->
+<simpleType name="uttilstand">
+   <restriction base="string"/>  <!-- Kodeverk: 8431 Uttilstand -->
+</simpleType>
+<simpleType name="avslutningsmate_rus">
+   <restriction base="string"/>  <!-- Kodeverk: 8466 Avslutningsmåte rus -->
+</simpleType>
+<!-- simpleType for  sted written before    -->
+<simpleType name="status_for_innhenting_av_pasientens_samtykke">
+   <restriction base="string"/>  <!-- Kodeverk: 9064 Status for innhenting av pasientens samtykke -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Episode' --> 
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="fraSted"/> 
+      <codingScheme name="Sted"/> 
+      <codingScheme OID="8408"/> 
+      <simpleT name="sted"/> 
+         <code value="1" text="Bosted/arbeidssted" comment="Inklusive sykehjem langtidsplasser og kommunal omsorgsbolig"/>
+         <code value="2" text="Skade- eller funnsted" comment="Utenfor hjemmet"/>
+         <code value="11" text="Sykehjem/aldershjem/helsehus" comment=""/>
+         <code value="21" text="Kommunal akutt døgnenhet (KAD)" comment=""/>
+         <code value="99" text="Sted identifisert ved rapportering av attributt Til/Fra institusjon" comment="Bruk av denne koden forutsetter at Institusjon er identifisert ved hjelp av nisifret bedriftsnummer"/>
+         <code value="7" text="Annen (somatisk) enhet ved egen helseinstitusjon" comment="Har betydning for finansieringsordningen ISF"/>
+         <code value="8" text="Annen enhet (ikke somatikk) ved egen helseinstitusjon" comment="Har betydning for finansieringsordningen ISF"/>
+         <code value="3" text="Annen helseinstitusjon innen spesialisthelsetjenesten" comment="Har betydning for finansieringsordningen ISF"/>
+         <code value="10" text="Pasienthotell" comment="Har betydning for finansieringsordningen ISF. Hotell som er godkjent som sykehus iht. spesialisthelsetjenesteloven (eller sykehusloven)"/>
+         <code value="5" text="Institusjon i utlandet" comment="Har betydning for finansieringsordningen ISF"/>
+         <code value="88" text="Annet" comment=""/>
+         <code value="98" text="Ukjent" comment="Inkluderer personer uten fast bopel"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="kommTjeneste"/> 
+      <codingScheme name="Kommunale tjenester"/> 
+      <codingScheme OID="8481"/> 
+      <simpleT name="kommunale_tjenester"/> 
+         <code value="1" text="Kommunale hjemmetjenester" comment=""/>
+         <code value="2" text="Kommunal omsorgsbolig" comment=""/>
+         <code value="3" text="Sykehjem korttidsplass" comment=""/>
+         <code value="4" text="Sykehjem langtidsplass" comment=""/>
+         <code value="5" text="Kommunal ø-hjelp enhet" comment=""/>
+         <code value="6" text="Andre kommunale tjenester" comment=""/>
+         <code value="9" text="Ukjent" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="debitor"/> 
+      <codingScheme name="Debitor"/> 
+      <codingScheme OID="8426"/> 
+      <simpleT name="debitor"/> 
+         <code value="1" text="Ordinær pasient. Opphold finansiert gjennom ISF, HELFO, og ordinær finansiering innen psykisk helse og TSB" comment="Kun organisatoriske enheter innen RHF-systemet skal benytte denne koden."/>
+         <code value="11" text="Konvensjonspasient behandlet ved ø-hjelp" comment=""/>
+         <code value="12" text="Pasient  fra land uten konvensjonsavtale (selvbetalende)" comment=""/>
+         <code value="13" text="Folketrygdfinansiert behandling via Helfo for pasienter bosatt i utlandet, men med medlemskap i folketrygden" comment="Folketrygden skal dekke behandlings- og forpleiningsutgiftene her i landet for personer som ikke har bosted i Norge, men som er medlem i folketrygden med rett til stønad til helsetjenester. Dette følger av spesialisthelsetjenesteloven § 5-3 andre ledd. Regningen skal sendes Helfo (jf. rundskriv I-3/2017)"/>
+         <code value="20" text="Sykepengeprosjekt, Raskere tilbake" comment="Identifikasjon av behandling innenfor Raskere tilbake-ordningen"/>
+         <code value="22" text="Forskningsprogram" comment=""/>
+         <code value="24" text="Finansiert (betalt) av kommunen" comment=""/>
+         <code value="30" text="Selvbetalende norsk pasient og selvbetalende konvensjonspasient" comment=""/>
+         <code value="32" text="Selvbetalende pasient etter Eus pasientrettighetsdirektiv" comment=""/>
+         <code value="43" text="Anbudspasient på avtalen for Helse Vest RHF" comment=""/>
+         <code value="44" text="Anbudspasient på avtalen for Helse Midt-Norge RHF" comment=""/>
+         <code value="45" text="Anbudspasient på avtalen for Helse Nord RHF" comment=""/>
+         <code value="47" text="Anbudspasient på avtalen for Helse Sør-Øst RHF" comment=""/>
+         <code value="50" text="Opphold hos avtalespesialist finansiert via ISF" comment=""/>
+         <code value="51" text="Regional kurdøgnfinansiering" comment="Pasientbehandling som er forutsatt rammefinansiert fra statens side, og kurdøgnfinansiert i forholdet mellom RHF og utøvende virksomhet"/>
+         <code value="60" text="Forsikringsfinansiert opphold" comment="Pasientbehandling finansiert av forsikringsselskaper via private helseforsikringer"/>
+         <code value="70" text="HELFO formidlet opphold ved fristbrudd" comment="Pasientbehandling formidlet av HELFO ved brudd på frist for nødvendig helsehjelp"/>
+         <code value="80" text="Opphold på avtale med HF/RHF. Ikke anbudsavtale" comment="Pasientbehandling på avtale med helseforetak eller regionalt helseforetak"/>
+         <code value="90" text="Godkjent fritt behandlingsvalg (FBV)" comment="Pasientbehandling refunderes av HELFO gjennom godkjenningsordningen Fritt behandlingsvalg (FBV)"/>
+         <code value="99" text="Annet" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="episodeFag"/> 
+      <codingScheme name="Fagområde"/> 
+      <codingScheme OID="8451"/> 
+      <simpleT name="fagomrade"/> 
+         <code value="010" text="Generell kirurgi" comment=""/>
+         <code value="020" text="Barnekirurgi (under 15 år)" comment=""/>
+         <code value="030" text="Gastroenterologisk kirurgi" comment=""/>
+         <code value="040" text="Karkirurgi" comment=""/>
+         <code value="050" text="Ortopedisk kirurgi (inklusiv revmakirurgi)" comment=""/>
+         <code value="060" text="Thoraxkirurgi (inklusiv hjertekirurgi)" comment=""/>
+         <code value="070" text="Urologi" comment=""/>
+         <code value="080" text="Kjevekirurgi og munnhulesykdom" comment=""/>
+         <code value="090" text="Plastikk-kirurgi" comment=""/>
+         <code value="100" text="Nevrokirurgi" comment=""/>
+         <code value="105" text="Mamma- og para-/tyreoideakirurgi" comment="Ny kode fra 2008"/>
+         <code value="110" text="Generell indremedisin" comment=""/>
+         <code value="120" text="Blodsykdommer (hematologi)" comment=""/>
+         <code value="130" text="Endokrinologi" comment=""/>
+         <code value="140" text="Fordøyelsessykdommer" comment=""/>
+         <code value="150" text="Hjertesykdommer" comment=""/>
+         <code value="160" text="Infeksjonssykdommer" comment=""/>
+         <code value="170" text="Lungesykdommer" comment=""/>
+         <code value="180" text="Nyresykdommer" comment=""/>
+         <code value="190" text="Revmatiske sykdommer (revmatologi)" comment=""/>
+         <code value="200" text="Kvinnesykdommer og elektiv fødselshjelp" comment=""/>
+         <code value="210" text="Anestesiologi" comment=""/>
+         <code value="220" text="Barnesykdommer" comment=""/>
+         <code value="230" text="Fysikalsk medisin og rehabilitering" comment=""/>
+         <code value="233" text="Habilitering barn og unge" comment="Ny kode fra 2012. Delmengde av 232"/>
+         <code value="234" text="Habilitering voksne" comment="Ny kode fra 2012. Delmengde av 232"/>
+         <code value="240" text="Hud og veneriske sykdommer" comment=""/>
+         <code value="250" text="Nevrologi" comment=""/>
+         <code value="260" text="Klinisk nevrofysiologi" comment=""/>
+         <code value="290" text="Øre-nese-hals sykdommer" comment=""/>
+         <code value="300" text="Øyesykdommer" comment=""/>
+         <code value="310" text="Psykisk helsevern barn og unge" comment=""/>
+         <code value="320" text="Psykisk helsevern voksne" comment=""/>
+         <code value="330" text="Yrkes- og arbeidsmedisin" comment=""/>
+         <code value="340" text="Transplantasjon, utredning og kirurgi" comment=""/>
+         <code value="350" text="Geriatri" comment="Ny kode fra 2004"/>
+         <code value="360" text="Rus" comment="Ny kode fra 2005"/>
+         <code value="365" text="LAR - Legemiddelassistert rehabilitering" comment="Ny kode fra 2008"/>
+         <code value="370" text="Spillavhengighet" comment="Ny kode fra 2009"/>
+         <code value="380" text="Palliativ medisin" comment="Ny kode fra 2016"/>
+         <code value="410" text="Allergologi" comment="Ny kode fra 2017"/>
+         <code value="420" text="Sykelig overvekt" comment="Ny kode fra 2017"/>
+         <code value="430" text="Smertetilstander" comment="Ny kode fra 2017"/>
+         <code value="821" text="Klinisk farmakologi" comment="Ny kode fra 2004"/>
+         <code value="822" text="Medisinsk biokjemi" comment="Ny kode fra 2004"/>
+         <code value="823" text="Medisinsk mikrobiologi" comment="Ny kode fra 2004"/>
+         <code value="830" text="Immunologi og transfusjonsmedisin" comment="Ny kode fra 2004"/>
+         <code value="840" text="Medisinsk genetikk" comment="Ny kode fra 2004"/>
+         <code value="851" text="Nukleærmedisin" comment="Ny kode fra 2004"/>
+         <code value="852" text="Radiologi" comment="Ny kode fra 2004"/>
+         <code value="853" text="Onkologi" comment="Endret tekst i 2011"/>
+         <code value="860" text="Patologi" comment="Ny kode fra 2004"/>
+         <code value="900" text="Annet" comment="Ny kode fra 2004"/>
+         <code value="999" text="Ukjent" comment="Ny kode fra 2004"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="delytelse"/> 
+      <codingScheme name="Delytelser i rehabilitering"/> 
+      <codingScheme OID="8472"/> 
+      <simpleT name="delytelser_i_rehabilitering"/> 
+         <code value="A1.1" text="Brudd og slitasjeskader i skjelett, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="A1.2" text="Brudd og slitasjeskader i skjelett, Unge voksne 18-30 år,voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="A1.3" text="Brudd og slitasjeskader i skjelett, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="A1.4" text="Brudd og slitasjeskader i skjelett, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="B1.1" text="Reumatologiske sykdommer (inflammatoriske), Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="B1.2" text="Reumatologiske sykdommer (inflammatoriske), Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="B1.3" text="Reumatologiske sykdommer (inflammatoriske), Unge voksne 18-30 år, voksne over 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="B1.4" text="Reumatologiske sykdommer (inflammatoriske), Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="C1.1" text="Amputasjoner underekstremiteter, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="C1.2" text="Amputasjoner underekstremiteter, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="D1.1" text="CFS/ ME (diagnostisert), Barn og ungdom under 18 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="D1.2" text="CFS/ ME (diagnostisert), Barn og ungdom under 18 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="D1.3" text="CFS/ ME (diagnostisert), Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="D1.4" text="CFS/ ME (diagnostisert), Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="D1.5" text="CFS/ ME (diagnostisert), Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="D1.6" text="CFS/ ME (diagnostisert), Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="D1.7" text="CFS/ ME (diagnostisert), Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="D1.8" text="CFS/ ME (diagnostisert), Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="E1.1" text="Kreft, Barn og ungdom under 18 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="E1.2" text="Kreft, Barn og ungdom under 18 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="E1.3" text="Kreft, Unge voksne 18-30 år, voksne over 30 år,iIndividuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="E1.4" text="Kreft, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="E1.5" text="Kreft, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="E1.6" text="Kreft, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="E1.7" text="Kreft, Unge voksne 18-30 år og voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="E1.8" text="Kreft, Unge voksne 18-30 år og voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="F1.1" text="Hjerneslag og traumatiske hjerneskader, Barn og ungdom under 18 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="F1.2" text="Hjerneslag og traumatiske hjerneskader, Unge voksne 18-30 år, voksne over 30 år, Individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="F1.3" text="Hjerneslag og traumatiske hjerneskader, Unge voksne 18-30 år, voksne over 30 år, Individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="F1.4" text="Hjerneslag og traumatiske hjerneskader, Intensiv trening av spesifikke funksjoner: Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="F1.5" text="Hjerneslag og traumatiske hjerneskader, Intensiv trening av spesifikke funksjoner: Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="G1.1" text="Nevrologiske og nevromuskulære sykdommer, Barn og ungdom under 18 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="G1.2" text="Nevrologiske og nevromuskulære sykdommer, Barn og ungdom under 18 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="G1.3" text="Nevrologiske og nevromuskulære sykdommer, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="G1.4" text="Nevrologiske og nevromuskulære sykdommer, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="G1.5" text="Nevrologiske og nevromuskulære sykdommer, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="G1.6" text="Nevrologiske og nevromuskulære sykdommer, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="G1.7" text="Nevrologiske og nevromuskulære sykdommer, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="G1.8" text="Nevrologiske og nevromuskulære sykdommer, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="H1.1" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - dagtilbud" comment=""/>
+         <code value="H1.2" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - døgntilbud" comment=""/>
+         <code value="H1.3" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="H1.4" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="H1.5" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="H1.6" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="I1.1" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - dagtilbud" comment=""/>
+         <code value="I1.2" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - døgntilbud" comment=""/>
+         <code value="I1.3" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="I1.4" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="I1.5" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="I1.6" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="J1.1" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - dagtilbud" comment=""/>
+         <code value="J1.2" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - døgntilbud" comment=""/>
+         <code value="J1.3" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="J1.4" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="J1.5" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="J1.6" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="K1.1" text="Sykelig overvekt, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="K1.2" text="Sykelig overvekt, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="K1.3" text="Sykelig overvekt, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="K1.4" text="Sykelig overvekt, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="L1.1" text="Diabetes type 1, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="L1.2" text="Diabetes type 1, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="M1.1" text="Alvorlig grad av sanseforstyrrelser, Barn og ungdom under 18 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="M1.2" text="Alvorlig grad av sanseforstyrrelser, Barn og ungdom under 18 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="M1.3" text="Alvorlig grad av sanseforstyrrelser, Unge voksne 18-30 år, voksne over 30 år, Individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="M1.4" text="Alvorlig grad av sanseforstyrrelser, Unge voksne 18-30 år, voksne over 30 år, Individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="M1.5" text="Alvorlig grad av sanseforstyrrelser, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="M1.6" text="Alvorlig grad av sanseforstyrrelser, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="M1.7" text="Alvorlig grad av sanseforstyrrelser, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="M1.8" text="Alvorlig grad av sanseforstyrrelser, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="N1.1" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Barn og ungdom under 18 år, Individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="N1.2" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Barn og ungdom under 18 år, Individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="N1.3" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Unge voksne 18-30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="N1.4" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Unge voksne 18-30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="N1.5" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="N1.6" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="N1.7" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Unge voksne 18-30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="N1.8" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Unge voksne 18-30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="O1.1" text="Pasienter med komplekst sykdomsbilde med behov for sømløs rehabilitering etter sykehusbehandling , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="R1.1" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - dagtilbud" comment=""/>
+         <code value="R1.2" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - døgntilbud" comment=""/>
+         <code value="R1.3" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="R1.4" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="R1.5" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="R1.6" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="R1.8" text="Voksne over 18 år. Individuelt tilpassede tilbud- døgntilbud. Helse  og arbeid." comment=""/>
+         <code value="R1.9" text="Voksne over 18 år. Individuelt tilpassede tilbud  dagtilbud. Helse  og arbeid." comment=""/>
+         <code value="R1.10" text="Voksne over 18 år. Individuelt tilpassede tilbud  ambulant. Helse  og arbeid." comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="fbvTjenesteEpisode"/> 
+      <codingScheme name="Tjenester i godkjenningsordningen innen Fritt behandlingsvalg"/> 
+      <codingScheme OID="8486"/> 
+      <simpleT name="tjenester_i_godkjenningsordningen_innen_Fritt_behandlingsvalg"/> 
+         <code value="V" text="Psykisk helsevern for voksne, døgnbehandling" comment=""/>
+         <code value="VA" text="Alvorlig angst, alvorlig depresjon og alvorlige traumelidelser" comment=""/>
+         <code value="VA01" text="Alvorlig angst" comment=""/>
+         <code value="VA02" text="Alvorlig depresjon" comment=""/>
+         <code value="VA03" text="Alvorlige traumelidelser" comment=""/>
+         <code value="VB" text="Alvorlige psykoselidelser, alvorlige bipolare lidelser, alvorlige personlighetsforstyrrelser, alvorlige spiseforstyrrelser, komplekse traumer og alderspsykiatri, samt alvorlige psykiske lidelser og samtidig omfattende rusproblemer (ROP-pasienter)." comment=""/>
+         <code value="VB01" text="Alvorlige psykoselidelser" comment=""/>
+         <code value="VB02" text="Alvorlige bipolare lidelser" comment=""/>
+         <code value="VB03" text="Alvorlige personlighetsforstyrrelser" comment=""/>
+         <code value="VB04" text="Alvorlige spiseforstyrrelser" comment=""/>
+         <code value="VB05" text="Komplekse traumer" comment=""/>
+         <code value="VB06" text="Alderspsykiatri" comment=""/>
+         <code value="VB07" text="Alvorlige psykiske lidelser og samtidig omfattende rusproblemer (ROP-pasienter)" comment=""/>
+         <code value="B" text="Psykisk helsevern for barn og unge, døgnbehandling" comment=""/>
+         <code value="BA" text="Alvorlig (alv.) depresjon eller bipolar lidelse, alv. Atferds- og følelsesmessige forstyrrelser med samtidig alv. Tilleggsproblematikk (se forskrift), alv. Psykoselidelse, samtidige alv. Psykiske lidelser og rusmiddelproblem, spiseforstyrrelser" comment=""/>
+         <code value="BA01" text="Alvorlig depresjon eller bipolar lidelse" comment=""/>
+         <code value="BA02" text="Alvorlig atferds- og følelsesmessige forstyrrelser med samtidig alvorlig tilleggsproblematikk aggresjon/vold/utagering/selvskading" comment=""/>
+         <code value="BA03" text="Alvorlig psykoselidelse" comment=""/>
+         <code value="BA04" text="Samtidige alvorlige psykiske lidelser og rusmiddelproblemer" comment=""/>
+         <code value="BA05" text="Spiseforstyrrelser" comment=""/>
+         <code value="R" text="Tverrfaglig spesialisert rusbehandling (TSB), døgnbehandling" comment=""/>
+         <code value="RA01" text="Planlagt avgiftning som del av et behandlingsforløp" comment=""/>
+         <code value="RA02" text="Behandling av pasienter med rus og samtidig psykisk lidelse (ROP-pasienter)" comment=""/>
+         <code value="RB" text="Ordinær døgnbehandling TSB (mappes til RB01)" comment="Utgått"/>
+         <code value="RB01" text="Ordinær døgnbehandling TSB" comment="Tidligere kode RB"/>
+         <code value="S" text="Somatiske tjenester" comment=""/>
+         <code value="SA01" text="Hjerteutredning hos spesialist inkludert arbeids-EKG" comment=""/>
+         <code value="SA02" text="Hjerteutredning hos spesialist inkludert ultralyd hjerte" comment=""/>
+         <code value="SA03" text="Hjerteutredning hos spesialist (inkludert andre undersøkelser enn arbeids-EKG og ultralyd hjerte som er indisert)" comment=""/>
+         <code value="SA04" text="Ultralyd halskar" comment=""/>
+         <code value="SA91" text="Hjerteutredning hos spesialist inkludert arbeids-EKG og ultralyd" comment=""/>
+         <code value="SA95" text="Kontroll hos spesialist inkludert arbeids-EKG eller ultralyd hjerte" comment=""/>
+         <code value="SA96" text="Kontroll hos spesialist inkludert arbeids-EKG og ultralyd hjerte" comment=""/>
+         <code value="SA97" text="Kontroll hos spesialist (inkludert andre undersøkelser enn arbeids-EKG og ultralyd hjerte som er indisert)" comment=""/>
+         <code value="SB01" text="Operasjon av genitalt fremfall" comment=""/>
+         <code value="SB02" text="Urinlekkasje" comment=""/>
+         <code value="SC01" text="Grå stær" comment=""/>
+         <code value="SD01" text="Hofteartrose behandling med totalprotese" comment=""/>
+         <code value="SD02" text="Kneleddsartrose behandling med protese" comment=""/>
+         <code value="SD03" text="Ganglion hånd" comment=""/>
+         <code value="SD04" text="Ganglion fot" comment=""/>
+         <code value="SD05" text="Fjerning av metall (ikke i nakke og rygg)" comment=""/>
+         <code value="SD07" text="Hallux valgus" comment=""/>
+         <code value="SD08" text="Hammertå" comment=""/>
+         <code value="SD09" text="Carpal tunnel syndrom" comment=""/>
+         <code value="SD10" text="Triggerfinger" comment=""/>
+         <code value="SD11" text="Inngrodd negl" comment=""/>
+         <code value="SD12" text="Slitasje i tommelens rotledd" comment=""/>
+         <code value="SD13" text="Interdigitalt nevrom i fot (inkl. Mortons matatarsalgi)" comment=""/>
+         <code value="SE05" text="Åpen enkeltsidig brokkoperasjon hos voksne, lår og lyske" comment=""/>
+         <code value="SE06" text="Åpen dobbeltsidig brokkoperasjon hos voksne, lår og lyske" comment=""/>
+         <code value="SE07" text="Laparaskopisk enkeltsidig brokkoperasjon hos voksne, lår og lyske" comment=""/>
+         <code value="SE08" text="Laparaskopisk dobbeltsidig brokkoperasjon hos voksne, lår og lyske" comment=""/>
+         <code value="SE91" text="Mage-tarm undersøkelse, gastroskopi" comment=""/>
+         <code value="SE92" text="Mage-tarm undersøkelse, koloskopi" comment=""/>
+         <code value="SE93" text="Mage-tarm undersøkelse, sigmoidoskop" comment=""/>
+         <code value="SE94" text="Mage-tarm undersøkelse, rektoskopi" comment=""/>
+         <code value="SF01" text="Godartet forstørret prostata" comment=""/>
+         <code value="SF02" text="Trang forhud, voksne >15 år" comment=""/>
+         <code value="SF03" text="Cystoskopi" comment=""/>
+         <code value="SG" text="Forundersøkelse tilknyttet somatisk tjeneste som ikke leder til behandling (mappes til SZ00)" comment="Utgått"/>
+         <code value="SG01" text="Brystreduserende operasjon kvinne" comment=""/>
+         <code value="SG02" text="Brystreduserende operasjon mann (gynekomasti)" comment=""/>
+         <code value="SZ00" text="Forundersøkelse tilknyttet somatisk tjeneste som ikke leder til behandling" comment="Tidligere kode SG"/>
+         <code value="HA01" text="Intensiv habilitering av barn opp til og med 16 år med vesentlig nedsatt funksjonsevne som skyldes medfødt eller tidlig ervervet hjerneskade  pol. beh." comment=""/>
+         <code value="ED01" text="Døgnrehabilitering for benamputasjon, nyamputerte 5-7 ukers varighet." comment=""/>
+         <code value="EG02" text="Dagrehabilitering for pasienter med Parkinsons sykdom" comment=""/>
+         <code value="ED02" text="Døgnrehabilitering for pasienter med Parkinsons sykdom 4-6 ukers varighet" comment=""/>
+         <code value="ED03" text="Døgnrehabilitering for kompleks epilepsi 6-8 uker" comment=""/>
+         <code value="ED04" text="Døgnrehabilitering for Multippel sklerose 4 uker" comment=""/>
+         <code value="EG04" text="Dagrehabilitering for Multippel sklerose" comment=""/>
+         <code value="ED05" text="Døgnrehabilitering for KOLS 2-3 uker" comment=""/>
+         <code value="ED06" text="Døgnrehabilitering for pasienter med hjerte/kar-sykdommer" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="inntilstand"/> 
+      <codingScheme name="Inntilstand"/> 
+      <codingScheme OID="8427"/> 
+      <simpleT name="inntilstand"/> 
+         <code value="1" text="Levende ved ankomst til institusjon" comment=""/>
+         <code value="2" text="Død ved ankomst" comment=""/>
+         <code value="3" text="Levende født i sykehus" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Ja, nei written before    -->
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="innmateHast"/> 
+      <codingScheme name="Innmåte hastegrad"/> 
+      <codingScheme OID="8428"/> 
+      <simpleT name="innmate_hastegrad"/> 
+         <code value="1" text="Akutt = uten opphold eller innen 24 timer" comment=""/>
+         <code value="4" text="Planlagt" comment=""/>
+         <code value="5" text="Hastegrad ikke satt - tilbakeføring av pasient fra annet sykehus" comment="Skal benyttes der pasienten returnerer etter behandling i annet sykehus"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="omsorgsniva"/> 
+      <codingScheme name="Omsorgsnivå"/> 
+      <codingScheme OID="8406"/> 
+      <simpleT name="omsorgsniva"/> 
+         <code value="1" text="Døgnopphold" comment="Opphold hvor tjenestemottakeren normalt overnatter."/>
+         <code value="2" text="Dagbehandling" comment="Utredning eller behandling som er mer omfattende enn poliklinisk konsultasjon, men hvor pasienten ikke overnatter. Dagbehandling kan utføres poliklinisk eller ved Dagopphold."/>
+         <code value="3" text="Poliklinisk konsultasjon/kontakt" comment=""/>
+         <code value="8" text="Poliklinisk kontakt for inneliggende pasient for stråleterapi" comment="Dersom en poliklinikk utfører helsehjelp for en pasient som er innlagt. Gjelder kun for pasienter som mottar stråleterapi. For andre skal kode 3 benyttes."/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Ja, nei written before    -->
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="utTilstand"/> 
+      <codingScheme name="Uttilstand"/> 
+      <codingScheme OID="8431"/> 
+      <simpleT name="uttilstand"/> 
+         <code value="1" text="Som levende" comment=""/>
+         <code value="2" text="Som død" comment=""/>
+         <code value="3" text="Suicid" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="sluttKode"/> 
+      <codingScheme name="Avslutningsmåte rus"/> 
+      <codingScheme OID="8466"/> 
+      <simpleT name="avslutningsmate_rus"/> 
+         <code value="1" text="Etter gjensidig avtale mellom pasient og helseinstitusjon/behandler i henhold til behandlingsplan eller avtalt forløp" comment="Koden brukes når avslutningen foregår ved at både behandlende instans og pasient er enige om å avslutte behandlingsrelasjonen i henhold til behandlingsplan eller avtalt forløp. Koden gjelder også der behandlingsplanen eller forløpet har endret målsetninger underveis, og avslutning skjer i henhold til gjensidig avtale."/>
+         <code value="2" text="Behandlingsavbrudd initiert fra behandler/institusjon uten gjensidig avtale." comment="Koden brukes når behandlingen avsluttes fra behandlende instans uten pasientens medvirkning eller enighet. Dette kan for eksempel være når behandlingen avsluttes på grunn av kontraktsbrudd fra pasienten, eller hvis behandlingsstedet ikke anser behandlingen som nyttig for pasienten. "/>
+         <code value="3" text="Behandlingsavbrudd initiert fra pasientens side (beskjed gitt)" comment="Koden brukes hvis tidspunktet for behandlingsavslutningen ble bestemt ved at pasienten brøt behandlingen ved å gi melding/beskjed om dette, enten ved oppmøte, på telefon, eller ved annen kommunikasjon."/>
+         <code value="4" text="Behandlingsavbrudd hvor pasienten uteblir (beskjed ikke gitt)" comment="Hvis behandlingen ble avsluttet på grunn av uteblivelse, fastslått etter de rutiner tiltaket har for dette."/>
+         <code value="5" text="Overført til annen heiseinstitusjon med hjemmel i lovparagraf om tvang" comment="Koden brukes når slik overføring skjer, uavhengig av om behandlingen på de to tiltakene er hjemlet i samme tvangsparagraf, i forskjellige tvangsparagrafer, eller hjemmelen for tvang starter ved overføringen."/>
+         <code value="6" text="Dødsfall" comment="Dersom pasienten har avgått ved døden før behandlingsrelasjonen var avsluttet."/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Sted written before    -->
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="epikriseSamtykke"/> 
+      <codingScheme name="Status for innhenting av pasientens samtykke"/> 
+      <codingScheme OID="9064"/> 
+      <simpleT name="status_for_innhenting_av_pasientens_samtykke"/> 
+         <code value="1" text="Ja, samtykke er innhentet" comment=""/>
+         <code value="2" text="Pasientens samtykke er ikke påkrevet i dette tilfellet" comment=""/>
+         <code value="3" text="Svar på forespørsel e.l. som pasienten har gitt samtykke til" comment="Overføringen er svar på en forespørsel e.l. som pasienten har gitt samtykke til tidligere"/>
+         <code value="4" text="Nei, pasienten har ikke gitt sitt samtykke" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Medisinsk stråling -->
+   
+   <!--     A P P I N F O     -->
+   
+<!-- LEVEL 5 -->
+<!-- Class: Kalibrering -->
+   
+   <!--     A P P I N F O     -->
+   
+<!-- Class: Utstyrselementer -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Utstyrselementer' --> 
+<!-- simpleType for  ja_nei written before    -->
+ <!-- Appinfo for Coding schemes in the class: 'Utstyrselementer' --> 
+<!-- Appinfo for  Ja, nei written before    -->
+<!-- Class: Utstyrsegenskaper -->
+   
+   <!--     A P P I N F O     -->
+   
+<!-- Class: Henvisning -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Henvisning' --> 
+<simpleType name="henvisningstype">
+   <restriction base="string"/>  <!-- Kodeverk: 8455 Henvisningstype -->
+</simpleType>
+<simpleType name="utfall_av_vurdering_av_henvisningen">
+   <restriction base="string"/>  <!-- Kodeverk: 8485 Utfall av vurdering av henvisningen -->
+</simpleType>
+<simpleType name="henvisningsformalitet">
+   <restriction base="string"/>  <!-- Kodeverk: 8442 Henvisningsformalitet -->
+</simpleType>
+<simpleType name="ja_nei_ukjent">
+   <restriction base="string"/>  <!-- Kodeverk: 1103 Ja, nei, ukjent -->
+</simpleType>
+<!-- simpleType for  tjenester_i_godkjenningsordningen_innen_Fritt_behandlingsvalg written before    -->
+<!-- simpleType for  debitor written before    -->
+<!-- simpleType for  ja_nei written before    -->
+<!-- simpleType for  ja_nei_ukjent written before    -->
+<simpleType name="begjerende_instans">
+   <restriction base="string"/>  <!-- Kodeverk: 8443 Begjærende instans -->
+</simpleType>
+<!-- simpleType for  omsorgsniva written before    -->
+<!-- simpleType for  fagomrade written before    -->
+<simpleType name="tilstandsgrupper">
+   <restriction base="string"/>  <!-- Kodeverk: 8478 Tilstandsgrupper -->
+</simpleType>
+<!-- simpleType for  ja_nei written before    -->
+<simpleType name="rett_til_helsehjelp">
+   <restriction base="string"/>  <!-- Kodeverk: 8444 Rett til helsehjelp -->
+</simpleType>
+<simpleType name="status_for_varsling_av_Helfo">
+   <restriction base="string"/>  <!-- Kodeverk: 9180 Status for varsling av Helfo -->
+</simpleType>
+<simpleType name="ventetid_sluttkode">
+   <restriction base="string"/>  <!-- Kodeverk: 8445 Ventetid sluttkode -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Henvisning' --> 
+<annotation>
+   <appinfo>
+      <class name="Henvisning"/> 
+      <attribute name="henvType"/> 
+      <codingScheme name="Henvisningstype"/> 
+      <codingScheme OID="8455"/> 
+      <simpleT name="henvisningstype"/> 
+         <code value="10" text="Utredning/behandling" comment="Skal rettighetsvurderes"/>
+         <code value="11" text="Råd til henviser" comment="Skal ikke rettighetsvurderes"/>
+         <code value="99" text="Øvrige henvisninger" comment="Skal ikke rettighetsvurderes. Eks. spesialisterklæringer og attester, førerkortvurderinger og rituell omskjæring av gutter"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Henvisning"/> 
+      <attribute name="henvVurd"/> 
+      <codingScheme name="Utfall av vurdering av henvisningen"/> 
+      <codingScheme OID="8485"/> 
+      <simpleT name="utfall_av_vurdering_av_henvisningen"/> 
+         <code value="1" text="Utredning" comment=""/>
+         <code value="2" text="Behandling (eventuelt også inkludert videre utredning)" comment=""/>
+         <code value="3" text="Kontroll" comment=""/>
+         <code value="4" text="Generert for Ø-hjelpspasient" comment=""/>
+         <code value="5" text="Friskt nyfødt barn" comment=""/>
+         <code value="6" text="Graviditet" comment=""/>
+         <code value="7" text="Opplæring, kurs, attester og rådgivning" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Henvisning"/> 
+      <attribute name="henvFormal"/> 
+      <codingScheme name="Henvisningsformalitet"/> 
+      <codingScheme OID="8442"/> 
+      <simpleT name="henvisningsformalitet"/> 
+         <code value="1" text="Frivillig" comment="jf. § 4-1 i Lov om pasient- og brukerrettigheter § 4-1, og/eller  § 2-1 i Lov om etablering og gjennomføring av psykisk helsevern"/>
+         <code value="21" text="Tvang med samtykke (§2.2)" comment="J.f. §2.2 i Lov om etablering og gjennomføring av psykisk helsevern"/>
+         <code value="22" text="Tilbakehold av rusmiddelavhengig i institusjon på grunnlag av eget samtykke" comment="Helse- og omsorgstjenesteloven § 10-4"/>
+         <code value="3" text="Tvungen observasjon" comment="Psykisk helsevernloven § 3 3 a jf. § 3 2"/>
+         <code value="40" text="Tvungen psykisk helsevern" comment="Psykisk helsevernloven § 3 3 a jf. § 3-3"/>
+         <code value="41" text="Fylkesnemndsvedtak om tilbakehold av rusmiddelavhengig i institusjon uten eget samtykke" comment="Helse- og omsorgstjenesteloven § 10 2 første ledd"/>
+         <code value="42" text="Fylkesnemndsvedtak om tilbakeholdelse av gravide rusmiddelavhengige" comment="Helse- og omsorgstjenesteloven § 10-3 første ledd"/>
+         <code value="43" text="Midlertidig vedtak av kommunen om tilbakehold av rusmiddelavhengig" comment="Helse- og omsorgstjenesteloven § 10-2 fjerde ledd"/>
+         <code value="44" text="Midlertidig vedtak av kommunen om tilbakeholdelse av gravide rusmiddelavhengige" comment="Helse- og omsorgstjenesteloven § 10-3 femte ledd"/>
+         <code value="5" text="Dømt til tvungen behandling/omsorg (§39, §39a)" comment="UTGÅR"/>
+         <code value="51" text="Dom på overføring til tvungent psykisk helsevern" comment="Straffeloven § 62 første ledd første punktum, jf. psykisk helsevernloven kapittel 5"/>
+         <code value="52" text="Dom på overføring til tvungent psykisk helsevern" comment="Straffeloven § 62 første ledd andre punktum, jf. psykisk helsevernloven kapittel 5"/>
+         <code value="53" text="Dom på tvungen omsorg" comment="Straffeloven § 63"/>
+         <code value="6" text="Barnevernloven" comment=""/>
+         <code value="8" text="Gjennomføring av straff i institusjon eller sykehus (§12, §13)" comment="J.f §12 og §13 Straffegjennomføringsloven"/>
+         <code value="9" text="Rettsbestemt innlegges til undersøkelse på psykiatrisk sykehus eller annet egnet undersøkelsessted" comment="Straffeprosessloven § 167"/>
+         <code value="91" text="Rettsbestemt varetekt med plassering i psykisk helsevern" comment="Straffeprosessloven § 188"/>
+         <code value="88" text="Annen lovhjemmel/annet grunnlag" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Henvisning"/> 
+      <attribute name="frittBehandlingsvalg"/> 
+      <codingScheme name="Ja, nei, ukjent"/> 
+      <codingScheme OID="1103"/> 
+      <simpleT name="ja_nei_ukjent"/> 
+         <code value="1" text="Ja" comment=""/>
+         <code value="2" text="Nei" comment=""/>
+         <code value="9" text="Ukjent" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Tjenester i godkjenningsordningen innen Fritt behandlingsvalg written before    -->
+<!-- Appinfo for  Debitor written before    -->
+<!-- Appinfo for  Ja, nei written before    -->
+<!-- Appinfo for  Ja, nei, ukjent written before    -->
+<annotation>
+   <appinfo>
+      <class name="Henvisning"/> 
+      <attribute name="tutor"/> 
+      <codingScheme name="Begjærende instans"/> 
+      <codingScheme OID="8443"/> 
+      <simpleT name="begjerende_instans"/> 
+         <code value="1" text="Offentlig myndighet" comment=""/>
+         <code value="3" text="Ingen" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Omsorgsnivå written before    -->
+<!-- Appinfo for  Fagområde written before    -->
+<annotation>
+   <appinfo>
+      <class name="Henvisning"/> 
+      <attribute name="tilstandsgruppe"/> 
+      <codingScheme name="Tilstandsgrupper"/> 
+      <codingScheme OID="8478"/> 
+      <simpleT name="tilstandsgrupper"/> 
+         <code value="010100" text="Anorectale lidelser/obstipasjon/analfissur/rectalprolaps i fremre anus" comment="Tilstandsgruppen inneholder tilstander med svært ulik alvorlighet og ulik grad av nytte av kirurgisk behandling. For eksempel vil obstipasjon ha liten nytte, mens anorectalmisdannelse vanligvis har stor nytte."/>
+         <code value="010201" text="Fimose - barn under 5 år" comment=""/>
+         <code value="010202" text="Fimose - barn over 5 år" comment="Gjelder ikke fysiologisk trang forhud."/>
+         <code value="010300" text="Følgetilstander av medfødte misdannelser" comment="Stygge arr, inkontinens, diverse gastrointestinale plager. Diagnosegruppen inneholder svært ulike lidelser med ulik nytte av helsehjelpen."/>
+         <code value="010401" text="Hydronefrose/hydroureter - barn under 6 måneder" comment="Inneholder prenatalt diagnostisert hydronefrose/hydroureter og postnatalt diagnostisert hydronefrose/hydroureter."/>
+         <code value="010402" text="Hydronefrose/hydroureter - barn over 6 måneder" comment="Innholder prenatalt diagnostisert hydronefrose/hydroureter og postnatalt diagnostisert hydronefrose/hydroureter."/>
+         <code value="010500" text="Hypospadi og genitale anomalier" comment="Nyfødte med intersex-problematikk skal ha øyeblikkelig hjelp og omhandles ikke her."/>
+         <code value="010600" text="Lyskebrokk uten inkarserasjon" comment="Lyskebrokk med inkarserasjon skal ha øyeblikkelig hjelp og behandles ikke her."/>
+         <code value="010700" text="Navlebrokk hos barn over 2 år" comment=""/>
+         <code value="010800" text="Testikkelretensjon - barn under 18 måneder" comment=""/>
+         <code value="010900" text="Urininkontinens som omfatter daginkontinens - barn over 6 år" comment="Tilstanden krever primær pediatrisk utredning. Slik utredning vil identifisere eventuell indikasjon for behov for kirurgisk utredning hos barn over 6 år."/>
+         <code value="011000" text="Vesicoureteral reflux mer enn grad II" comment="Ved vesicoureteral reflux grad I til II uten residiverende infeksjoner er utredning for kirurgi ikke nødvendig."/>
+         <code value="020101" text="Allergi - alvorlig" comment="Påvirker funksjonsevne og allmenntilstand. Ikke oppnådd symptomkontroll. Inkluderer barn med mistenkt kumelkallergi under 2 års alder (på grunn av risiko for næringssvikt)."/>
+         <code value="020102" text="Allergi - ikke alvorlig" comment="Symptomkontroll, normal vekst og utvikling er en forutsetning."/>
+         <code value="020200" text="Anemi - alvorlig eller raskt fallende hemoglobin" comment=""/>
+         <code value="020301" text="Anfall - mistanke om epilepsi" comment=""/>
+         <code value="020302" text="Anfall - synkope eller forbigående tap av bevissthet" comment="Omfatter ikke ukomplisert vasovagalt-pregete synkoper."/>
+         <code value="020303" text="Anfall - uklare anfall" comment="Omfatter ikke ukompliserte feberkramper (i alderen 9 måneder til 6 år) eller ukompliserte og typiske affektanfall."/>
+         <code value="020400" text="Artritt" comment=""/>
+         <code value="020501" text="Astma - kontrollert" comment=""/>
+         <code value="020502" text="Astma - ukontrollert, delvis kontrollert og ved usikker diagnose" comment=""/>
+         <code value="020601" text="Bilyd - barn under 3 måneder" comment=""/>
+         <code value="020602" text="Bilyd - barn over 1 år" comment="Omfatter ikke bilyd under interkurrent sykdom."/>
+         <code value="020603" text="Bilyd - under interkurrent sykdom" comment="Tilfeldig oppdaget bilyd uten symptom på hjertesykdom."/>
+         <code value="020604" text="Bilyd - barn mellom 3 og 12 måneder" comment=""/>
+         <code value="020700" text="Blødningstendens" comment=""/>
+         <code value="020800" text="Brystsmerter" comment="Sjelden uttrykk for alvorlig sykdom. Kardial årsak er uvanlig. Vanligste årsak er udiagnostisert astma og myalgier."/>
+         <code value="020901" text="Cyanose - akrocyanose" comment=""/>
+         <code value="020902" text="Cyanose - generell" comment=""/>
+         <code value="021000" text="Hyperglykemi" comment="Uavklart hyperglykemi med behov for glukosebelastningstest."/>
+         <code value="021100" text="Diaré - kronisk" comment=""/>
+         <code value="021200" text="Dyspné" comment="Oftest lunge/luftveier - se astma."/>
+         <code value="021300" text="Dysuri/Pollakisuri" comment=""/>
+         <code value="021401" text="Eksem - alvorlig" comment=""/>
+         <code value="021402" text="Eksem - lett" comment=""/>
+         <code value="021500" text="Ernæringsproblemer" comment=""/>
+         <code value="021600" text="Fysisk kapasitet - redusert" comment="Fallende kapasitet eller økende avvik sammenliknet med forventet fysisk kapasitet."/>
+         <code value="021700" text="Genital utflod, kløe, svie" comment="Hvis ikke tilfredsstillende behandlet i primærhelsetjenesten."/>
+         <code value="021800" text="Glandelsvulst" comment="Størrelse større enn 2 cm ved kjevevinkelen eller over 1,5 cm i lyske eller over 1 cm andre steder."/>
+         <code value="021900" text="Gynekomasti" comment="Flertallet av pasientene utgjøres av spedbarnsgynekomasti, normal vekst av brystkjertel/bryst i spebarnsalder, rundt pubertet og ved fedme (pseudogynekomasti)."/>
+         <code value="022001" text="Hematuri - makroskopisk" comment=""/>
+         <code value="022002" text="Hematuri - mikroskopisk" comment=""/>
+         <code value="022100" text="Hjerte - forstørret på røntgen, uten symptomer" comment="Gjelder generell hjerteforstørrelse på røntgen thorax uten avsnittsforstørrelse / endring av spesifikke strukturer (atrier/aorta)."/>
+         <code value="022200" text="Hjerterytmeforstyrrelser" comment="Omfatter ikke palpitasjoner alene uten ledsagende symptomer. Omfatter ikke tilfeldig påviste ventrikulære eller supraventrikulære ekstrasystoler hos ellers friske barn eldre enn 3 måneder. Disse gis ikke rett til nødvendig helsehjelp i spesialisthelsetjen"/>
+         <code value="022301" text="Hodepine - intens, akutt/subakutt uten åpenbar årsak" comment=""/>
+         <code value="022302" text="Hodepine - kronisk" comment="Over 6 måneders varighet og mer enn 4 anfall per måned uten tilleggsymptomer."/>
+         <code value="022400" text="Hofteluksasjon/dysplasi - mistanke" comment="Ved mange sykehus skal pasientene henvises til ortoped."/>
+         <code value="022500" text="Hydronefrose" comment=""/>
+         <code value="022600" text="Hypertensjon - asymptomatisk" comment=""/>
+         <code value="022700" text="Hypofyse- og/eller binyrebarksvikt" comment=""/>
+         <code value="022800" text="Høyvokst" comment="Forventet slutthøyde betydelig utover midlere foreldrehøyde."/>
+         <code value="022901" text="Infeksjoner - kroniske og alvorlige" comment="Inkluderer mistanke om tbc, hiv eller hepatitt."/>
+         <code value="022902" text="Infeksjoner - residiverende eller sterk mistanke om immunsvikt" comment="Innbefatter vanligvis ikke hyppige øvre luftveisinfeksjoner eller cystitter."/>
+         <code value="023001" text="Kortvokst - familiær" comment="Sannsynlig familiær disposisjon. Aktuell høyde mindre enn 2,5 percentilen, men normal tilvekst."/>
+         <code value="023002" text="Kortvokst - ikke familiær" comment="Ikke mistanke om familiær kortvoksthet. Krysser 2 percentiler etter 1 års alder. Aktuell høyde under 2,5 percentilen og tilvekst under 25 percentilen."/>
+         <code value="023100" text="Kraniosynostose" comment=""/>
+         <code value="023201" text="Kronisk ledd- og muskelsmerte - betydelig påvirkning av funksjonsevne" comment=""/>
+         <code value="023202" text="Kronisk ledd- og muskelsmerte - liten påvirkning av funksjonsevne og uten progresjon" comment="Omfatter typiske 'voksesmerter'."/>
+         <code value="023300" text="Kronisk utmattelsessyndrom/asteni" comment="Må tilfredsstille diagnostiske krav til ME."/>
+         <code value="023400" text="Kvalme/oppkast - vedvarende eller residiverende" comment="Lettere funksjonelle plager uten andre symptomer gir ikke rett til vurdering av spesialisthelsetjenesten."/>
+         <code value="023500" text="Magesmerter - vedvarende eller residiverende" comment="Kroniske smerter. Omfatter ikke magesmerter med liten påvirkning av funksjonsevnen og uten progresjon i tilstanden."/>
+         <code value="023600" text="Makrocefali - stort hode" comment=""/>
+         <code value="023800" text="Mikrocefali i spedbarnsalder" comment="Før vanlig alder for lukning av suturer og fontanelle."/>
+         <code value="023900" text="Mikropenis" comment=""/>
+         <code value="024000" text="Nefrocalcinose/urinveisstein" comment=""/>
+         <code value="024100" text="Nevromuskulær sykdom" comment=""/>
+         <code value="024200" text="Nyrefunksjon - redusert" comment=""/>
+         <code value="024301" text="Obstipasjon - ukomplisert" comment=""/>
+         <code value="024302" text="Obstipasjon - uttalt og behandlingsresistent, enkoprese og inkontinens for avføring" comment=""/>
+         <code value="131901" text="Tuberkulose - pulmonal/ekstrapulmonal, mistanke om aktiv sykdom" comment="Tilsvarer T1 og T2 i Tuberkuloseveilederen fra Folkehelseinstituttet."/>
+         <code value="131902" text="Tuberkulose - sannsynlig latent, uten kjent økt risiko for utvikling av aktiv sykdom (immunkompetente, hiv-negative)" comment="Positiv IGRA-test, med beskjeden mistanke om aktiv tuberkulose (pulmonal/ekstrapulmonal) hos immunkompetente (hiv-negative) og symptomfrie pasienter med normal SR og normalt rtg toraks. Tilsvarer T4 i Tuberkuloseveilederen fra Folkehelseinstituttet."/>
+         <code value="131903" text="Tuberkulose - latent infeksjon hos personer med økt risiko for aktivering av sykdommen" comment="Positiv IGRA-test hos immunsupprimerte, med beskjeden mistanke om aktiv tuberkulose (pulmonal/ekstrapulmonal). Tilsvarer T3 i Tuberkuloseveilederen fra Folkehelseinstituttet."/>
+         <code value="132000" text="Urinveisinfeksjoner - residiverende" comment="Disse pasientene vil som regel høre inn under urologi eller gynekologi."/>
+         <code value="132101" text="Utmattelse - langvarig over 6 måneder" comment=""/>
+         <code value="132102" text="Utmattelse - langvarig. Med feber over 38,2°C, vekttap, nattesvette eller glandelsvulst" comment=""/>
+         <code value="300201" text="Avhengighet - alkohol som hovedrusmiddel" comment="Avhengighet med alkohol som hovedrusmiddel eventuelt Audit over 20."/>
+         <code value="300202" text="Avhengighet - cannabis som hovedrusmiddel" comment=""/>
+         <code value="300203" text="Avhengighet - opiater som hovedrusmiddel" comment=""/>
+         <code value="300204" text="Avhengighet - sentralstimulerende som hovedrusmiddel" comment=""/>
+         <code value="024400" text="Overvekt - sykelig" comment="Sykelig overvekt med KMI større eller lik 30. Overvekt uten komplikasjoner gis ikke rett til helsehjelp i spesialisthelsetjenesten."/>
+         <code value="024500" text="Polyuri" comment=""/>
+         <code value="024600" text="Proteinuri" comment=""/>
+         <code value="024701" text="Pubertet - for tidlig" comment="Gutter under 9 år. Jenter under 8 år."/>
+         <code value="024702" text="Pubertet - forsinket" comment="Gutter over 14,5 år. Jenter over 13,5 år."/>
+         <code value="024800" text="Rakitt - mistanke" comment=""/>
+         <code value="024900" text="Stridor" comment=""/>
+         <code value="025000" text="Systemisk bindevevssykdom/vaskulitt" comment=""/>
+         <code value="025100" text="Søvnforstyrrelser" comment="Innbefatter utredning av søvnapné, sentral apné, syndromer. Polysomnografi."/>
+         <code value="025201" text="Thyroideatilstand - hypertyreose" comment=""/>
+         <code value="025202" text="Thyroideatilstand - hypotyreose" comment=""/>
+         <code value="025301" text="Urininkontinens - daginkontinens barn under 6 år" comment=""/>
+         <code value="025302" text="Urininkontinens - daginkontinens barn over 6 år" comment=""/>
+         <code value="025303" text="Urininkontinens - nattenurese barn under 10 år" comment=""/>
+         <code value="025304" text="Urininkontinens - nattenurese barn over 10 år" comment="Alarmmatte og DDVAP skal være forsøkt før henvisning."/>
+         <code value="025401" text="Urinveisinfeksjoner - cystitter, residiverende" comment=""/>
+         <code value="025402" text="Urinveisinfeksjoner - pyelonefritt gjennomgått" comment="Omfatter ikke ukomplisert urinveisinfeksjon med normal ultralyd av urinveiene."/>
+         <code value="025500" text="Utviklingsavvik - psykomotorisk" comment="Se også prioriteringsveileder for habilitering av barn og unge."/>
+         <code value="025600" text="Vektstagnasjon/vekttap" comment="Avflatet vektkurve - krysset 2 percentiler."/>
+         <code value="025700" text="Hemangiom hos barn under 1 år" comment="Hemangiomer over 1,5 cm, i ansikt eller områder med risiko for blødning, eller ved funksjonsfortyrrelser."/>
+         <code value="025800" text="Matvareintoleranse/cøliaci - mistanke om" comment=""/>
+         <code value="030100" text="Anemi annet enn jernmangelanemi" comment=""/>
+         <code value="030200" text="Blødningstendens" comment=""/>
+         <code value="030300" text="Hemokromatose" comment=""/>
+         <code value="030400" text="Monoklonal gammopati" comment=""/>
+         <code value="030500" text="Neutropeni" comment=""/>
+         <code value="030601" text="Proliferative tilstander - cytoser som omfatter en, to eller tre cellelinjer" comment=""/>
+         <code value="030602" text="Proliferative tilstander - cytoser som omfatter en, to eller tre cellelinjer, mistanke om KML" comment=""/>
+         <code value="030700" text="Trombocytopeni" comment=""/>
+         <code value="030800" text="Venøs blodpropptendens" comment=""/>
+         <code value="040100" text="Binyresykdommer" comment="Inkluderer både funksjonssvikt, overproduksjon av hormoner og tumor."/>
+         <code value="040201" text="Diabetes - mellitus type 1, kjent fra før" comment=""/>
+         <code value="040202" text="Diabetes - type 2, vanskelig regulerbar og/eller med komplikasjoner" comment="Anbefalingene gjelder pasienter med dårlig metabolsk kontroll eller senkomplikasjoner, makrovaskulære sykdom eller annen kompliserende sykdom."/>
+         <code value="040203" text="Diabetes - type 1 og 2 ved graviditet" comment=""/>
+         <code value="040300" text="Osteoporose - etablert og sekundær som krever spesialisert behandling" comment=""/>
+         <code value="040400" text="Hyperkalsemi med mistanke om hyperparathyreoidisme" comment=""/>
+         <code value="040500" text="Hypofysesykdommer" comment=""/>
+         <code value="040600" text="Hypothyreose med tilleggsproblem" comment=""/>
+         <code value="040700" text="Knuter i skjoldbruskkjertelen/atoksisk knutestruma" comment="Omfatter både tilstander som utredes med tanke på malignitet og symptomgivende sannsynligvis godartet struma."/>
+         <code value="040800" text="Høyt blodsukker - nyoppdaget, trolig diabetes type 1" comment=""/>
+         <code value="040900" text="Svangerskapsdiabetes" comment="Glukoseintoleranse påvist for første gang i graviditeten."/>
+         <code value="041001" text="Tyreotoksikose" comment=""/>
+         <code value="041002" text="Tyreotoksikose - gravide" comment=""/>
+         <code value="041003" text="Tyreotoksikose - kraftig hyperthyreose" comment=""/>
+         <code value="041004" text="Tyreotoksikose - øyeproblemer" comment=""/>
+         <code value="050101" text="Avvikende prøvesvar - kreftsykdom eller annen alvorlig tilstand kan foreligge" comment="Pasienter med eller uten symptomer på fordøyelsessykdommer med prøvesvar som avviker på en måte som krever videre oppfølging i spesialisthelsetjenesten. Typiske eksempler på avvikende prøvesvar:; pasienter med avvik i blodprøver uten andre spesifikke symp"/>
+         <code value="050102" text="Avvikende prøvesvar - klart under realistisk risiko for alvorlig tilstand" comment="Pasienter med eller uten symptomer på fordøyelsessykdommer med prøvesvar som avviker på en måte som krever videre oppfølging i spesialisthelsetjenesten. Denne veilederen benyttes når risiko for kreft eller annen alvorlig tilstand er liten. #Typiske eksemp"/>
+         <code value="050103" text="Avvikende prøvesvar - kreftsykdom påvist eller overveiende sannsynlig" comment="Pasienter med eller uten symptomer på fordøyelsessykdommer med prøvesvar som avviker på en måte som krever videre oppfølging i spesialisthelsetjenesten. Typiske eksempler på avvikende prøvesvar:; pasienter med avvik i blodprøver uten andre spesifikke symp"/>
+         <code value="050200" text="Betydelige magesmerter" comment="Magesmerter ut over lette til moderate som hører inn under dyspepsi."/>
+         <code value="050300" text="Dysfagi og odynofagi" comment="Svelgbesvær og smerter ved svelging."/>
+         <code value="050401" text="Dyspepsi - pasient under 45 år med tilleggsfaktorer" comment="Ubehag, uvelhet og lette til moderate smerter som i hovedsak er lokalisert i øvre abdomen. Kan være relatert til væske og næringsinntak. Nyoppstått. Klassiske gallesteinssymptomer med postprandiale kolikksmerter under høyre costalbue eller i epigastriet f"/>
+         <code value="050402" text="Dyspepsi - pasient over 45 år" comment="Nyoppstått refluks og ubehag, uvelhet og lette til moderate smerter som i hovedsak er lokalisert i øvre abdomen."/>
+         <code value="050403" text="Dyspepsi - lett og ukomplisert pasient under 45 år" comment="Typisk lett fordøyelsesbesvær hos ung frisk person uten påvirkning av søvn, funksjons- og eller allmenntilstand. Klassiske gallesteinssymptomer med postprandiale kolikksmerter under høyre costalbue eller i epigastriet faller utenfor. #Kjennetegn:; varighe"/>
+         <code value="050601" text="GI-blødning - med jernmangelanemi pasient under 40 år" comment="Synlig eller okkult blødning."/>
+         <code value="050602" text="GI-blødning - med jernmangelanemi pasient over 40 år" comment="Synlig eller okkult blødning."/>
+         <code value="050603" text="GI-blødning - uten anemi pasient under 40 år" comment="Synlig eller okkult blødning."/>
+         <code value="050604" text="GI-blødning - uten anemi pasient over 40 år" comment="Okkult eller synlig blødning."/>
+         <code value="050605" text="GI-blødning - friskt blod på toalettpapiret, uten anemi eller jernmangel" comment="Forutsetter normal anorectoskopi med eksplorasjon hos fastlege. Når det er tvil om nødvendigheten av å gi rett til nødvendig helsehjelp kan en supplerende rectosigmoideoskopi i spesialisthelsetjenesten gjennomføres."/>
+         <code value="050700" text="Ikterus" comment="Ikterus defineres som synlig grågul eller gul farge i sclera i dagslys. Omfatter ikke tilstander med ikterus som gir grunnlag for øyeblikkelig hjelp innleggelse. Ved tilstander der andre ledsagende symptomer og funn gir rett til nødvendig helsehjelp, vurd"/>
+         <code value="050801" text="Klinisk signifikant ikke forklart vekttap pasient under 40 år" comment="Definisjon av vekttap: over 5 % av kroppsvekt i løpet av 6 månender, eller mer enn 2 kg i løpet av siste 6 uker, økt risiko, eller mer enn 3 kg i løpet av siste 6 uker, betydelig økt risiko. Viktig at det foreligger tilstrekkelig informasjon om faktisk ve"/>
+         <code value="050802" text="Klinisk signifikant ikke forklart vekttap pasient over 40 år" comment="Definisjon av vekttap: mer enn 5 % av kroppsvekt i løpet av 6 månender, eller mer enn 2 kg i løpet av siste 6 uker, økt risiko, eller mer enn 3 kg i løpet av siste 6 uker, betydelig økt risiko. Viktig at det foreligger tilstrekkelig informasjon om faktisk"/>
+         <code value="050900" text="Kronisk diare - uten blødning eller klinisk signifikant vekttap" comment="Må ha vart over 6 uker uten sikker bedring, og seponering av legemidler/rusmidler som kan gi diarre, bør være forsøkt i primærhelsetjenesten. Jevnt over vanndig til grøtaktig konsistens og økt avføringsvolum forutsettes."/>
+         <code value="051000" text="Refraktær obstipasjon" comment="Når følgende kriterier er oppfyllt kan det gis rett til nødvendig helsehjelp i spesialisthelsetjenesten:; Kronisk tilstand som har vart over 6 måneder; minst 3-6 måneder observasjon og oppfølging hos primærlege med tilpasning av kosthold, justering/bytte "/>
+         <code value="051101" text="Uforklart endring i avføringsmønster - pasient under 40 år" comment="Nyoppstått, tiltagende og vesentlig endring i avføringsmønster som har vedvart 6 uker eller lenger og som ikke har sammenheng med tarminfeksjon eller kjent tarmsykdom. Innbefatter ikke lettere endringer i avføringsmønster som følge av endringer i vannkval"/>
+         <code value="051102" text="Uforklart endring i avføringsmønster - pasient over 40 år" comment="Nyoppstått, tiltagende og vesentlig endring i avføringsmønster som har vedvart 6 uker eller lenger og som ikke har sammenheng med tarminfeksjon eller kjent tarmsykdom. Innbefatter ikke lettere endringer i avføringsmønster som følge av endringer i vannkval"/>
+         <code value="060101" text="Følge av kroniske og/eller progredierende sykdommer i nervesystemet- smerter og/eller spastisitet" comment="Følge av kroniske og/eller progredierende sykdommer i nervesystemet (cerebral parese, multippel sklerose, Mb Parkinson, poliomyelitt sekvele og lignende), ryggmargsskade og ryggmargsbrokk."/>
+         <code value="060102" text="Følge av kroniske og/eller progredierende sykdommer i nervesystemet - utredning av forstyrrelser i vannlating, avføring og seksualfunksjon" comment="Følge av kroniske og/eller progredierende sykdommer i nervesystemet (cerebral parese, multippel sklerose, Mb Parkinson, poliomyelitt sekvele og lignende), ryggmargsskade og ryggmargsbrokk."/>
+         <code value="060103" text="Følge av kroniske og/eller progredierende sykdommer i nervesystemet - vesentlig økning og/eller nyoppstått funksjonssvikt" comment="Følge av kroniske og/eller progredierende sykdommer i nervesystemet (cerebral parese, multippel sklerose, Mb Parkinson, poliomyelitt sekvele og lignende), ryggmargsskade og ryggmargsbrokk."/>
+         <code value="060104" text="Følge av kroniske og/eller progredierende sykdommer i nervesystemet - vurdering i forhold til sosial deltakelse" comment="Følge av kroniske og/eller progredierende sykdommer i nervesystemet (cerebral parese, multippel sklerose, Mb Parkinson, poliomyelitt sekvele og lignende), ryggmargsskade og ryggmargsbrokk."/>
+         <code value="060105" text="Følge av kroniske og/eller progredierende sykdommer i nervesystemet - sår som ikke tilheler ved konservativ behandling i primærhelsetjenesten" comment="Følge av kroniske og/eller progredierende sykdommer i nervesystemet (cerebral parese, multippel sklerose, Mb Parkinson, poliomyelitt sekvele og lignende), ryggmargsskade og ryggmargsbrokk."/>
+         <code value="060201" text="Følger av hjerneskade - dysfagi med sonde" comment=""/>
+         <code value="060202" text="Følger av hjerneskade - dysfagi uten sonde" comment="Følger av hjerneskade (traumatisk -atraumatisk - hjerneslag)."/>
+         <code value="060203" text="Følger av hjerneskade - raskt progredierende funksjonssvikt" comment="Følger av hjerneskade (traumatisk - atraumatisk - hjerneslag)."/>
+         <code value="060204" text="Følger av hjerneskade - smerter og/eller spastisitet" comment="Følger av hjerneskade (traumatiske - atraumatiske - hjerneslag)."/>
+         <code value="060205" text="Følger av hjerneskade - utredning av forstyrrelse i vannlating, avføring og seksualfunksjon" comment="Følger av hjerneskade (traumatisk - atraumatisk - hjerneslag)."/>
+         <code value="060206" text="Følger av hjerneskade - vesentlig økning og/eller nyoppstått funksjonssvikt" comment="Følge av hjerneskade (traumatisk - atraumatisk - hjerneslag)."/>
+         <code value="060207" text="Følger av hjerneskade - vurdering av funksjonsnivå og hjelpebehov" comment=""/>
+         <code value="060208" text="Følger av hjerneskade - vurdering i forhold til sosial deltakelse" comment=""/>
+         <code value="060301" text="Nakkesmerter med og uten nerverotsaffeksjon - akutte under 3 måneder" comment=""/>
+         <code value="060302" text="Nakkesmerter med og uten nerverotsaffeksjon - langvarige over 3 måneder" comment=""/>
+         <code value="060401" text="Ryggsmerter med og uten nerverotsaffeksjon - akutte under 3 måneder" comment=""/>
+         <code value="060402" text="Ryggsmerter med og uten nerverotsaffeksjon - langvarige over 3 måneder" comment=""/>
+         <code value="060501" text="Skuldersmerter - akutte under 3 måneder" comment=""/>
+         <code value="060502" text="Skuldersmerter - langvarige over 3 måneder" comment=""/>
+         <code value="060601" text="Tilstander knyttet til ekstremitetene (unntatt skulder) - akutte under 3 måneder" comment="Tilstander knyttet til hender, armer og ben (unntatt skulder)."/>
+         <code value="060602" text="Tilstander knyttet til ekstremitetene (unntatt skulder) - langvarig over 3 måneder" comment="Tilstander knyttet til hender, armer og ben (unntatt skulder)."/>
+         <code value="060701" text="Utbredte muskelsmerter og sammensatte, uavklarte tilstander preget av funksjonssvikt av flere årsaker (tretthet, kognitive vansker, sammensatte psykososiale problemer) - akutte under tre måneder" comment=""/>
+         <code value="060702" text="Utbredte muskelsmerter og sammensatte, uavklarte tilstander preget av funksjonssvikt av flere årsaker (tretthet, kognitive vansker, sammensatte psykososiale problemer) - langvarig mer enn 3 måneder" comment=""/>
+         <code value="070100" text="Alarmsymptomer" comment="Vekttap, endret avføringsmønster, blod i avføringen, ikterus, anemi."/>
+         <code value="070200" text="Brokk - alle typer bukvegg- og lyskebrokk og perineale brokk" comment=""/>
+         <code value="070300" text="Divertikulose med komplikasjon" comment="Residiverende infeksjoner, blødning, strictur."/>
+         <code value="070401" text="Frisk rectalblødning" comment="Elektiv tilstand. #Occult GI-blødning eventuelt med lav Hb og stabil pasient oppfattes som en medisinsk tilstand, og skal utredes ved Gastromedisinsk avdeling/Gastrolab. Ved noen helseforetak gjøres denne utrdedning ved Gastrokiruriske avdelinger."/>
+         <code value="070402" text="Frisk rectalblødning - pasienter under 45 år" comment="Elektiv tilstand. #Occult GI-blødning eventuelt med lav Hb og stabil pasient oppfattes som en medisinsk tilstand, og skal utredes ved Gastromedisinsk avdeling/Gastrolab. Som tilstand Frisk rectalblødning."/>
+         <code value="070403" text="Frisk rectalblødning - pasienter over 45 år" comment="Elektiv tilstand. #Occult GI-blødning eventuelt med lav Hb og stabil pasient oppfattes som en medisinsk tilstand, og skal utredes ved Gastromedisinsk avdeling/Gastrolab. Ved noen helseforetak utredes disse pasientene ved Gastrokirurgisk Avdeling."/>
+         <code value="070404" text="Frisk rectalblødning - med begrunnet mistanke om GI kreft" comment="Elektiv tilstand. #Occult GI-blødning eventuelt med lav Hb og stabil pasient oppfattes som en medisinsk tilstand, og skal utredes ved Gastromedisinsk avdeling/Gastrolab. I noen helseforetak gjøres dette i regi av Gastrokirurgisk avdeling."/>
+         <code value="070501" text="Gallestein - med komplikasjon" comment=""/>
+         <code value="070502" text="Gallestein - uten komplikasjoner, symptomgivende" comment=""/>
+         <code value="070600" text="Gastrøsofageal reflukssykdom med spørsmål om operativ behandling" comment=""/>
+         <code value="070700" text="GI kreft - mistanke eller verifisert" comment=""/>
+         <code value="070801" text="IBD inflammatorisk tarmsykdom - rekonstruktiv kirurgi" comment="Tilbakelegging av stomi, konstruksjon av reservoir"/>
+         <code value="070802" text="IBD inflammatorisk tarmsykdom" comment="Ulcerøs Kolitt, Mb Crohn, Indeterminite Colitis, Pouchitt. (ekslusiv Irritabel bowel symdrome, IBS)."/>
+         <code value="070900" text="Proktologisk tilstander uten blødning" comment="Anorectale prolaps, fissurer/fistler, anal insuffisiens. Gjelder første vurdering i spesialisthelsetjenesten. Ikke second opinion eller videre henvisning til tertiær referanseavdeling."/>
+         <code value="080100" text="Kognitiv svikt" comment=""/>
+         <code value="080200" text="Falltendens og gangvansker" comment=""/>
+         <code value="080300" text="Funksjonssvikt utviklet over 4-12 uker" comment=""/>
+         <code value="090100" text="Ervervet hjerneskade" comment=""/>
+         <code value="090200" text="Forsinket utvikling/forsinkelse i kognitiv funksjon" comment=""/>
+         <code value="090300" text="Gjennomgripende utviklingsforstyrrelse/ASD - mistanke" comment=""/>
+         <code value="090400" text="Omfattende atferdsvansker i målgruppen" comment=""/>
+         <code value="090500" text="Omfattende kommunikasjons- og språkvansker i målgruppen" comment=""/>
+         <code value="090600" text="Omfattende motorisk utviklingsforsinkelse/forstyrrelse - mistanke om eller påvist" comment=""/>
+         <code value="090701" text="Omfattende og sammensatte spise/ernæringsvansker i målgruppen - barn under 2 år" comment=""/>
+         <code value="090702" text="Omfattende og sammensatte spise/ernæringsvansker i målgruppen - barn over 2 år" comment=""/>
+         <code value="090800" text="Omfattende vansker knyttet til pubertet, seksualitet og identitet i målgruppen" comment=""/>
+         <code value="090900" text="Progredierende sykdom i hjerne, nervesystem eller muskulatur - mistanke" comment=""/>
+         <code value="091000" text="Syndrom som påvirker funsjon og utvikling - mistanke om eller påvist" comment=""/>
+         <code value="100101" text="Atferdsvansker - alvorlige" comment=""/>
+         <code value="100102" text="Atferdsvansker - lette" comment=""/>
+         <code value="100103" text="Atferdsvansker - moderate" comment=""/>
+         <code value="100201" text="Psykisk lidelse - alvorlig, hos personer med moderat til alvorlig/dyp utviklingshemming" comment=""/>
+         <code value="100202" text="Psykisk lidelse - lett, hos personer med moderat til alvorlig/dyp utviklingshemming" comment=""/>
+         <code value="100203" text="Psykisk lidelse - moderat, hos personer med moderat til alvorlig/dyp utviklingshemming" comment=""/>
+         <code value="100300" text="Demens - i målgruppen, mistanke" comment=""/>
+         <code value="100401" text="Følgetilstander av skader/sykdommer i nervesystemet og muskelsykdommer - alvorlige" comment=""/>
+         <code value="100402" text="Følgetilstander av skader/sykdommer i nervesystemet og muskelsykdommer - moderate" comment=""/>
+         <code value="100500" text="Gjennomgripende utviklingsforstyrrelse/autismespekterforstyrrelse - mistanke" comment=""/>
+         <code value="100600" text="Omfattende språk- og kommunikasjonsvansker i målgruppen" comment=""/>
+         <code value="100700" text="Psykisk utviklingshemning og/eller kognitiv svikt - mistanke om eller påvist" comment=""/>
+         <code value="100801" text="Vansker knyttet til seksualitet i målgruppen - alvorlige" comment=""/>
+         <code value="100802" text="Vansker knyttet til seksualitet - andre tilstander" comment=""/>
+         <code value="110100" text="Hjertesvikt" comment="Stor heterogen gruppe av pasienter med nyoppståtte symptomer på hjertesvikt eller forverring av allerede kjent hjertesvikt. Hjertesvikt kan skyldes en rekke tilstander som hypertensiv hjertesykdom, koronarsykdom, klaffesykdommer, kardiomyopatier, medfødte"/>
+         <code value="110201" text="Klaffesykdommer/bilyder - med symptomer" comment="Vurdering av bilyd inkluderer vurdering av alle typer klaffelidelser. Også medfødte tilstander vil kunne fanges opp i denne tilstanden. Pasienter med klaffelidelser og symptomer med eller uten tegn på hjertesvikt har dokumentert nytte av behandling."/>
+         <code value="110202" text="Klaffesykdommer/bilyder - uten symptomer" comment="Vurdering av bilyd inkluderer vurdering av alle typer klaffelidelser. Medfødte tilstander vil også kunne fanges opp i denne gruppen. Uskyldige bilyder er vanlig og systoliske 'lyder' hos pasienter med godt funksjonsnivå er ofte uskyldige, ikke-konstante o"/>
+         <code value="110300" text="Koronarsykdom/brystsmerter" comment="Dette er en stor gruppe pasienter med ulike symptomer. De kan ha sentrale brystsmerter, anstrengelsesrelaterte, funksjonsdyspne, redusert fysisk yteevne, mage- eller ryggsmerter. Vanligvis forverres symptomene ved anstrengelser og kan også forverres eller"/>
+         <code value="110400" text="Rytmeforstyrrelser/hjertebank/synkoper" comment="Stor heterogen gruppe av pasienter med symptomer som hjertebank, svimmelhet, synkope, symptomgivende bradykardi, anfall med rask og/eller uregelmessig puls. Innbefatter tilstander fra uskyldige ekstraslag til alvorlige rytmeforstyrrelser hvor symptomene k"/>
+         <code value="120101" text="Akne, hidrosadenitt, rosacea og andre kjertelsykdommer - arrdannende akne og alvorlig rosacea" comment="Akne og rosacea som ikke har respondert på adekvat behandling, herunder systemisk behandling i kombinasjon med lokal behandling i primærhelsetjenesten. Komedoakne og mild akne skal behandles i primærhelsetjenesten."/>
+         <code value="120102" text="Akne, hidrosadenitt, rosacea og andre kjertelsykdommer - hidrosadenitt" comment="Hidrosadenitt som ikke har respondert på adekvat behandling, herunder systemisk behandling i kombinasjon med lokal behandling i primærhelsetjenesten."/>
+         <code value="120103" text="Akne, hidrosadenitt, rosacea og andre kjertelsykdommer - øvrig akne, perioral dermatitt, rosacea" comment="Akne, rosacea, perioral dermatitt som ikke har respondert på adekvat behandling, herunder systemisk behandling i kombinasjon med lokal behandling i primærhelsetjenesten. Komedoakne og mild akne skal behandles i primærhelsetjenesten."/>
+         <code value="120200" text="Benigne hudsvulster" comment="Godartede hudsvulvster, mollusker, vorter, føflekker, arr."/>
+         <code value="120301" text="Eksem/dermatitter - lokalisert sykdom uten ledsagersymptomer eller komorbiditet" comment="Lokalisert uten ledsagersymptomer eller komorbiditet, forutsatt at lokalbehandling er utprøvd hos fastlegen."/>
+         <code value="120302" text="Eksem/dermatitter - utbredt og alvorlig" comment="Alvorlig kløe og andre følgetilstander."/>
+         <code value="120303" text="Eksem/dermatitter - utbredt og mindre alvorlig" comment="Mindre symptomer og uten andre følgetilstander."/>
+         <code value="120401" text="Hår- og neglesykdommer - arrdannende alopeci" comment="Andre tilstander i hår og negler kan som hovedregel utredes og behandles i primærhelsetjenesten."/>
+         <code value="120402" text="Hår- og neglesykdommer - infeksjoner i hodebunnen" comment="Andre tilstander i hår og negler kan som hovedregel utredes og behandles i primærhelsetjenesten."/>
+         <code value="120403" text="Hår- og neglesykdommer - omfattende alvorlige negleinfeksjoner" comment="Andre tilstander i hår og negler kan som hovedregel utredes og behandles i primærhelsetjenesten."/>
+         <code value="120501" text="Legg- og fot sår - immunologiske sår/vaskulitt sår" comment=""/>
+         <code value="120502" text="Legg- og fot sår - sår av annen årsak" comment="Ved arterielle sår skal pasienten til karkirurg, ved trykksår skal pasienten til kirurg. Målsetning for dermatologen er diagnostisering eller annenhåndsvurdering og å lage en individuell behandlingsplan. Videre pasientbehandling utføres i primærhelsetjene"/>
+         <code value="120601" text="Maligne hudsvulster og precancroser - aktiniske keratoser" comment="Aktiniske keratoser med lett til moderat atypi og enkeltlesjoner kan behandles i primærhelsetjenesten."/>
+         <code value="120602" text="Maligne hudsvulster og precancroser - aktiniske keratoser hos immunsupprimerte" comment=""/>
+         <code value="120603" text="Maligne hudsvulster og precancroser - basalcellecarcinom" comment="Enkeltlesjoner, små og/eller superficielle basalcellecarsinom kan behandles i primærhelsetjenesten."/>
+         <code value="120604" text="Maligne hudsvulster og precancroser - høyrisiko plateepitelcarcinom" comment="Grad av risiko defineres utfra lokalisasjon, størrelse større enn 2 cm, avgrensning, tilbakefall av svulst, raskt vekst, nevrologiske symptomer, tidligere strålebehandlet område eller kronisk inflammasjon, dybde, histologiske trekk, involvering av perineu"/>
+         <code value="120605" text="Maligne hudsvulster og precancroser - lavrisiko plateepitelcarcinom" comment="Grad av risiko defineres utfra lokalisasjon, størrelse større enn 2 cm, avgrensning, tilbakefall av svulst, raskt vekst, nevrologiske symptomer, tidligere strålebehandlet område eller kronisk inflammasjon, dybde, histologiske trekk, involvering av perineu"/>
+         <code value="120606" text="Maligne hudsvulster og precancroser - mistanke om maligne melanomer" comment=""/>
+         <code value="120701" text="Psoriasis - alvorlig" comment=""/>
+         <code value="120702" text="Psoriasis - lett" comment="Lett og moderat psoriasis dersom dersom adekvat hjelp i primærhelsetjenesten ikke har effekt."/>
+         <code value="120703" text="Psoriasis - moderat" comment=""/>
+         <code value="120801" text="Vaskulære malformasjoner og pigmentforstyrrelser - medfødte vaskulære malformasjoner" comment=""/>
+         <code value="120802" text="Vaskulære malformasjoner og pigmentforstyrrelser - rasktvoksende hemangiomer hos barn nær kroppsåpninger" comment=""/>
+         <code value="120803" text="Vaskulære malformasjoner og pigmentforstyrrelser - utbredt grad av teleangieektasier sekundært til andre hudlidelser" comment=""/>
+         <code value="120804" text="Vaskulære malformasjoner og pigmentforstyrrelser - vitiligo" comment=""/>
+         <code value="130100" text="Hepatitt - akutt virushepatitt, god allmenntilstand" comment="Høy risiko for smittespredning/-utbrudd ved hepatitt A/E. Fulminant hepatitt er livstruende."/>
+         <code value="130200" text="Diabetiske fotsår - infeksjonstruet, ved lokale infeksjonstegn uten allmennpåvirkning" comment=""/>
+         <code value="130300" text="Feber - ukjent årsak, minst 3 ukers varighet" comment=""/>
+         <code value="130401" text="Hepatitt B, kronisk - pasienter under 30 år med normale transaminaser og normal a-føtoprotein" comment=""/>
+         <code value="130402" text="Hepatitt B, kronisk - med patologisk forhøyede transaminaser eller alder over 30 år" comment=""/>
+         <code value="130403" text="Hepatitt B, kronisk - tegn til alvorlig leversvikt eller leverskade" comment=""/>
+         <code value="130501" text="Hepatitt C, kronisk - med tegn til alvorlig leversvikt eller leverskade" comment=""/>
+         <code value="130502" text="Hepatitt C, kronisk - normale transaminaser" comment=""/>
+         <code value="130503" text="Hepatitt C, kronisk - patologisk høye transaminaser" comment=""/>
+         <code value="130601" text="Herpes simplex infeksjon, residiverende - ved hiv og immunsvikt" comment=""/>
+         <code value="130602" text="Herpes simplex-infeksjon, residiverende, hos immunfriske" comment=""/>
+         <code value="130701" text="Hiv-infeksjon - gravid pasient" comment=""/>
+         <code value="130702" text="Hiv-infeksjon - uten klinisk sykdom, nydiagnostisert eller kjent fra før, ved CD-4 tall under 200 celler/µl" comment=""/>
+         <code value="130703" text="Hiv-infeksjon - uten klinisk sykdom, nydiagnostisert med CD4-tall over 200 celler/µl" comment="Forutsatt at henvisende lege har tatt hånd om informasjon og smittevern."/>
+         <code value="130704" text="Hiv-infeksjon - uten klinisk sykdom, kjent fra før, med høyt CD4-celletall, og/eller under behandling og i stabil tilstand" comment=""/>
+         <code value="130705" text="Hiv-infeksjon - nyoppdaget, med klinisk sykdom" comment=""/>
+         <code value="130706" text="Hiv-primærinfeksjon" comment=""/>
+         <code value="130800" text="Importfeber under 6 uker uten malariamistanke" comment=""/>
+         <code value="130900" text="Resistensproblem (MRSA, ESBL, VRE) - pågående infeksjon" comment=""/>
+         <code value="131000" text="Infeksjonstendens hos voksen ikke-hiv-pasient" comment=""/>
+         <code value="131100" text="Resistensproblem (MRSA, ESBL, VRE) - kolonisering uten aktiv infeksjon" comment=""/>
+         <code value="131201" text="Lymfeknutesvulst" comment=""/>
+         <code value="131202" text="Lymfeknutesvulst - ved hiv-infeksjon eller tilsvarende immunsvikt" comment=""/>
+         <code value="131300" text="Malariamistanke" comment=""/>
+         <code value="131401" text="Nevroborreliose - akutt" comment=""/>
+         <code value="131402" text="Nevroborreliose - sannsynligvis disseminert" comment=""/>
+         <code value="131500" text="Osteomyelitt - kronisk med og uten ortopedisk protese, lite påvirket allmenntilstand" comment=""/>
+         <code value="131600" text="Posteksposisjons smitterisiko (hiv, virushepatitt, rabies, varicella med fler)" comment=""/>
+         <code value="131700" text="SR - høy" comment=""/>
+         <code value="131801" text="Syfilis - latent uten symptomer" comment=""/>
+         <code value="131802" text="Syfilis - latent eller sekundær/tertiær syfilis hos gravide" comment=""/>
+         <code value="131803" text="Syfilis - ved symptomgivende sekundær/tertiær lues" comment=""/>
+         <code value="132200" text="Vaksinering, profylakse og infeksjonsforebyggende råd i forbindelse med reise" comment=""/>
+         <code value="140100" text="Aneurismesykdom - operasjonsindikasjon foreligger" comment=""/>
+         <code value="140201" text="Carotisstenose - amaurosis fugax" comment=""/>
+         <code value="140202" text="Carotisstenose - apopleksi/TIA, mistanke" comment=""/>
+         <code value="140203" text="Carotisstenose - asymptomatisk" comment=""/>
+         <code value="140300" text="Claudicatio intermittens" comment=""/>
+         <code value="140400" text="Kronisk kritisk iskemi" comment=""/>
+         <code value="140501" text="Venøs insuffisiens - C0-C2" comment="CEAP-Klassifikasjon av kronisk overfladisk venøs insuffisiens:; C0: Ingen synlige varicer; C1: Telangiektasier og retikulære vener; C2: Synlige varicer; C3: Kronisk ødem ankel/legg; C4: Eksem/hudforandringer; C5: Tilhelet venøst sår; C6: Aktivt venøst sår"/>
+         <code value="140502" text="Venøs insuffisiens - C3-C6" comment="CEAP-Klassifikasjon av kronisk overfladisk venøs insuffisiens:; C0: Ingen synlige varicer; C1: Telangiektasier og retikulære vener; C2: Synlige varicer; C3: Kronisk ødem ankel/legg; C4: Eksem/hudforandringer; C5: Tilhelet venøst sår; C6: Aktivt venøst sår"/>
+         <code value="150101" text="Ansiktssmerter - kroniske" comment=""/>
+         <code value="150102" text="Ansiktssmerter - nyoppståtte" comment="Myofasciale plager vurderes under tilstandsgruppen kjeveleddslidelser."/>
+         <code value="150200" text="Betennelsestilstander i kjeven" comment=""/>
+         <code value="150300" text="Craniofciale og dentofaciale anomalier" comment=""/>
+         <code value="150400" text="Cyster og benigne svulster i kjeve og ansikt" comment=""/>
+         <code value="150501" text="Dentoalveolær kirurgi" comment="Behandling dekkes i hovedsak av tannhelseloven og Den offentlige tannhelsetjenesten."/>
+         <code value="150502" text="Dentoalveolær kirurgi - for medisinsk kompromitterte og blødere" comment=""/>
+         <code value="150600" text="Kjevehulens sykdommer" comment=""/>
+         <code value="150700" text="Kjeveleddsrelaterte lidelser" comment="Muskelsmerter og leddskiveforandringer."/>
+         <code value="150800" text="Mistanke om malignitet" comment=""/>
+         <code value="150900" text="Munnslimhinnelidelser" comment=""/>
+         <code value="151000" text="Rekonstruktiv kjeve- og ansiktskirurgi" comment=""/>
+         <code value="151100" text="Spyttkjertelsykdommer" comment=""/>
+         <code value="160100" text="Gynekologisk kreft - begrunnet mistanke" comment="Gjelder pasienter som meget sannsynlig har gynekologisk kreft (klinisk bilde, radiologiske undersøkelser, cytologi, histologi og kreftmarkører)."/>
+         <code value="160200" text="Genital descens" comment=""/>
+         <code value="160300" text="Habituell abort" comment="Defineres som 3 spontane aborter i rekke med samme partner."/>
+         <code value="160400" text="Infertilitet" comment="Ikke oppnådd graviditet etter regelmessig samliv uten prevensjon i 12 måneder."/>
+         <code value="160500" text="Kroniske underlivssmerter" comment="Underlivssmerter med varighet på mer enn 3 måneder, hvor kreft ikke er sannsynlig."/>
+         <code value="160600" text="Oppfylling i det lille bekken" comment="Oppfylling oppdaget av pasienten selv, av lege, eller som tilfeldige funn ved radiologiske undersøkelser. Med eller uten symptomer."/>
+         <code value="160700" text="Postmenopausale blødninger" comment=""/>
+         <code value="160800" text="Premaligne tilstander i genitalia" comment="Avvikende cytologiske eller histologiske prøver."/>
+         <code value="160900" text="Premenopausale blødningsforstyrrelser" comment="Oligomenore, amenore, meno-metroragi."/>
+         <code value="161000" text="Prevensjonsproblemer" comment="Prevensjonsproblemer som ikke er løst i primærhelsetjenesten."/>
+         <code value="161100" text="Urininkontinens" comment="Alle grader av stress-, urge-, og blandingsinkontinens."/>
+         <code value="161200" text="Hormonforstyrrelser" comment="Pasienter med unormal hårvekst, uregelmessig menstruasjon, mistanke om hormonelle forstyrrelser."/>
+         <code value="170101" text="Astma - kontrollert" comment="Tilstand med god symptomkontroll med enkel medikasjon."/>
+         <code value="170102" text="Astma - delvis ukontrollert med moderate symptomer" comment="Tilstand med moderate symptomer til tross for igangsatt behandling."/>
+         <code value="170103" text="Astma - ukontrollert og uavklart med betydelige symptomer" comment="Tilstand med betydelige symptomer til tross for medikamentell behandling."/>
+         <code value="170200" text="Dyspnoe" comment="Lungesykdom, hjertesykdom, nevromuskulært, psykogent."/>
+         <code value="170300" text="Hoste" comment="Ved hyperreaktivitet/astma, infeksjon, KOLS, tumor, bronkiektasier."/>
+         <code value="170401" text="Infeksjoner - residiverende NLVI/pneumoni uten alvorlige sykdomstegn" comment="Pneumoni (residiverende, behandlingsresistente), cystisk fibrose, tuberkulose inkludert omslager."/>
+         <code value="170402" text="Infeksjoner - latent tuberkolose" comment="Pneumoni (residiverende, behandlingsresistente), cystisk fibrose, tuberkulose inkludert omslager."/>
+         <code value="170501" text="KOLS - stadium 1-2" comment="I tillegg til FEV1 må også andre deler av sykdomsbildet vurderes."/>
+         <code value="170502" text="KOLS - stadium 3-4, og stadium 2 med FEV1 under 60 %, hyppige eksaserbasjoner og tap av FEV1 over 70 ml/år i mer enn 2 år" comment=""/>
+         <code value="170600" text="Pleurasykdom" comment="Pleuraeffusjon, pleurafortykkelse, mesoteliom."/>
+         <code value="170700" text="Respirasjonssvikt" comment=""/>
+         <code value="170801" text="Søvnrelaterte respirasjonsforstyrrelser" comment=""/>
+         <code value="170802" text="Søvnrelaterte respirasjonsforstyrrelser - ved neuromuskulær sykdom, BMI over 35, AHI over 30, alvorlig desaturering" comment=""/>
+         <code value="170901" text="Lungefortetninger/hæmoptyse - ved fibrose/sarkoidose" comment="Ved liten mistanke om kreft."/>
+         <code value="170902" text="Lungefortetninger/hæmoptyse - lungekreft, ved malignitetsmistanke" comment=""/>
+         <code value="180100" text="Benigne CNS-svulster" comment="Både intrakranielle og intraspinale svulster, meningeomer, schwannomer, hypofysesvulster, og andre sjeldne godartede svulster."/>
+         <code value="180200" text="Degenerative spinale lidelser med utstrålende radikulære symptomer og/eller myelopati" comment="Kun tilstander som vurderes for kirurgisk behandling."/>
+         <code value="180300" text="Ikke rumperte aneurysmer, AVM, AV-fistler, kronisk cerebral ischemi" comment="Inkluderer pasienter med ikke-rumperte cerebrale aneurismer, AVM, AV-fistler henvist til nevrokirurgisk avdeling for vurdering, kronisk cerebral iskemi for vurdering av revaskularisering."/>
+         <code value="180400" text="Maligne CNS-svulster" comment="Inkluderer både primære og sekundære maligne svulster. Både intrakranielle og intraspinale svulster."/>
+         <code value="180500" text="Utviklingsanomalier" comment="Chiari malformasjon, arachnoidale cyster og andre anomalier."/>
+         <code value="190100" text="Anfallsutredning" comment="Pasienter med førstegangs epilepsisuspekte anfall uten og med bevissthetsforstyrrelser og uten eller med kramper. For pasienter med bevissthetstap uten kramper bør det også vurderes om de skal henvises til kardiolog først."/>
+         <code value="190200" text="Bevegelsesforstyrrelser" comment="Spørsmål om Parkinsons sykdom, parkinsonisme, dystonier, uavklart tremor, andre bevegelsesforstyrrelser. Essensiell tremor og restless legs bør primært forsøkes behandlet i primærhelsetjenesten, om nødvendig etter rådgivning."/>
+         <code value="190300" text="Demyeliniserende sykdom" comment="Nyoppståtte symptomer, utfall eller MR-funn som kan gi mistanke om demyeliniserende sykdom. Uspesifikke symptomer med negativ MR (for eksempel kronisk tretthet) anses ikke å ha behov for nevrologisk utredning."/>
+         <code value="190400" text="Epilepsi" comment="Gjelder pasienter med kjent epilepsidiagnose."/>
+         <code value="190501" text="Hodepine - med begrensning av livsutfoldelsen" comment="Nevrologiske tilleggssymptomer. Manglende effekt av behandling."/>
+         <code value="190502" text="Hodepine - med liten begrensning av livsutfoldelse" comment="Ukomplisert migrene og spenningshodepine. Normal billeddiagnostikk. Lavgradig hodepine. Ingen nevrologiske tilleggssymptomer."/>
+         <code value="190600" text="Nakke- og ryggsmerter med utstråling" comment="Nevrologens rolle i vurdering av rygg- og nakkesmerter er begrenset til pasienter med mistanke om radikulopati eller myelopati."/>
+         <code value="190700" text="Perifere nevropatier" comment=""/>
+         <code value="190800" text="Kognitiv svikt" comment="Pasienter med symptom på kognitiv svikt/hukommelsessvikt, yngre enn 70 år."/>
+         <code value="190900" text="Svimmelhet med sannsynlig sentralnervøs årsak" comment="Svimmelhet av perifer type hører inn under prioriteringsveilederen for øre-nese-halssykdommer."/>
+         <code value="191000" text="Progredierende myelopati" comment="Symptomer forenlig med affeksjon av ryggmarg."/>
+         <code value="200100" text="Behandlingsresistent hypertensjon og/eller mistanke om sekundær hypertensjon" comment="Mistanke om sekundær hypertensjon. Tegn til nyresykdom, behandlingsrefraktær hypertensjon til tross for 3 medikamenter i maksimalt tolererte doser inklusive diuretika."/>
+         <code value="200201" text="Etablert proteinuri - proteinuri over 300 mg/døgn (albumin/kreatinin ratio over 30 mg/mmol)" comment=""/>
+         <code value="200202" text="Etablert proteinuri - redusert GFR (kronisk nyresykdom stadium 3a, 3b,4 og 5), diabetes mellitus, hypertensjon, ødemer" comment=""/>
+         <code value="200203" text="Etablert proteinuri - ved mistanke om nefrotisk syndrom" comment=""/>
+         <code value="200300" text="Isolert asymptomatisk mikroskopisk hematuri" comment="Urogenital årsak forutsettes utelukket."/>
+         <code value="200401" text="Nedsatt GFR - kronisk nyresvikt stadium 3a, 3b, 4 og 5, spesielt ved stadium 4 (GFR 15-30) og lavere (under 15)" comment=""/>
+         <code value="200402" text="Nedsatt GFR - kronisk nyresvikt stadium 3a, 3b, 4 og 5, ved mikroskopisk hematuri, proteinuri, uavklart anemi og elektrolyttforstyrrelser, mistanke om systemsykdom og ukontrollert hypertensjon" comment=""/>
+         <code value="200403" text="Nedsatt GFR - stadium 5, under 15 ml/min hos pasienter tidligere ukjent for helsevesenet" comment=""/>
+         <code value="200500" text="Polycystisk nyresykdom (voksen type)" comment="Den største delen av gruppen arvelige nyresykdommer utgjøres av gruppen polycystisk nyresykdom voksen type."/>
+         <code value="210100" text="Avansert symptomlindring ved kreft" comment="Intraktable smerter, etablere ileuspumpe, vanskelig kontrollerbare lungesymptomer."/>
+         <code value="210201" text="Kuler og klumper med malignitetsmistanke" comment=""/>
+         <code value="210202" text="Kuler og klumper med malignitetsmistanke - mistanke om sarkom" comment=""/>
+         <code value="210203" text="Kuler og klumper med malignitetsmistanke - rask vekst og allmennsymptomer" comment=""/>
+         <code value="210300" text="Bløtvevsmetastaser - mistanke" comment="Pasienter som ikke er under behandling eller oppfølging for kjent kreftsykdom."/>
+         <code value="210400" text="Følgetilstander etter kreftbehandling - mistanke" comment="Sekundær malignitet er inkludert i tilstander i andre prioriteringsveiledere."/>
+         <code value="210500" text="Hjernemetastase - mistanke" comment=""/>
+         <code value="210600" text="Residiv av kreft - mistanke" comment="Gjelder både lokale residiver og metastaser hvor det er en kjent tidligere kreftsykdom."/>
+         <code value="210700" text="Skjelettmetastaser - mistanke" comment="Pasienter som ikke er i aktiv behandling eller oppfølging for kjent kreftsykdom."/>
+         <code value="220100" text="Ankelinstabilitet" comment="Vedvarende instabilitetsplager etter gjennomført adekvat konservativ behandling (blant annet proprioseptiv trening) i minst 20 uker."/>
+         <code value="220200" text="Artrose i skulder og albue" comment="Adekvat konservativ behandling forutsettes allerede i iverksatt (medikamentell, fysioterapi). Kirurgi er siste utvei."/>
+         <code value="220301" text="Ben- eller bløtvevstumor - benigne tumores" comment="For eksempel små lipomer."/>
+         <code value="220302" text="Ben- eller bløtvevstumor - mistanke om malignitet (hovedregel)" comment=""/>
+         <code value="220303" text="Ben- eller bløtvevstumor - ved antatt benigne over 5 cm og/eller dyptliggende, eller ved plager" comment=""/>
+         <code value="220401" text="Bløtdelslidelser og femuro-acetabulært impingement (FAI), hofte - alvorlige plager" comment=""/>
+         <code value="220402" text="Bløtdelslidelser og femuro-acetabulært impingement (FAI), hofte - moderate plager" comment=""/>
+         <code value="220501" text="Bruskskader i kne" comment="Gjelder ikke ved låsning."/>
+         <code value="220502" text="Bruskskader i kne - låsning, hovedregel" comment=""/>
+         <code value="220601" text="Deformiteter i ekstremiteter og columna hos barn - alvorlige tilstander" comment=""/>
+         <code value="220602" text="Deformiteter i ekstremiteter og columna hos barn - mindre alvorlige tilstander" comment=""/>
+         <code value="220701" text="Degenerativ rygg - uten nevrologiske utfall, uten symptomer på instabilitet" comment=""/>
+         <code value="220702" text="Degenerativ rygg - med nevrologiske utfall, ved symptomer på instabilitet og radikulopat" comment=""/>
+         <code value="220801" text="Diabetesfot - ikke opplysninger om sår" comment=""/>
+         <code value="220802" text="Diabetesfot - ved opplysninger om sår" comment=""/>
+         <code value="220900" text="Fot- og forfotslidelser - moderate og betydelige plager" comment="Forutsetter betydelige smerter og redusert gangevne i vanlig sko. Konservativ behandling er forsøkt."/>
+         <code value="221001" text="Hofteartrose - alvorlige plager" comment="Konservativ behandling skal være forsøkt."/>
+         <code value="221002" text="Hofteartrose - moderate plager" comment="Konservativ behandling skal være forsøkt."/>
+         <code value="221100" text="Hoftelidelser hos barn" comment=""/>
+         <code value="221200" text="Infeksjoner i bevegelsesapparatet - subakutte eller kroniske med forverring over tid" comment=""/>
+         <code value="221301" text="Kneleddsartrose - alvorlige plager" comment="Konservativ behandling skal være forsøkt."/>
+         <code value="221302" text="Kneleddsartrose - moderate plager" comment="Konservativ behandling skal være forsøkt."/>
+         <code value="221401" text="Komplikasjoner og sekvele ved innsatt hofteprotese - hovedregel" comment="Spørsmål om revisjon av protese."/>
+         <code value="221402" text="Komplikasjoner og sekvele ved innsatt hofteprotese - mistanke om infeksjon (subakutt eller kronisk) og/eller risiko for fraktur" comment="Spørsmål om revisjon av protese."/>
+         <code value="221501" text="Komplikasjoner og sekvele ved innsatt kneprotese - hovedregel" comment=""/>
+         <code value="221502" text="Komplikasjoner og sekvele ved innsatt kneprotese - ved infeksjon (subakutt eller kronisk) og/eller risiko for fraktur" comment=""/>
+         <code value="221601" text="Kontrakturer, deformiteter og artrose i håndledd, håndrot og fingerledd - moderate plager" comment=""/>
+         <code value="221602" text="Kontrakturer, deformiteter og artrose i håndledd, håndrot og fingerledd - uttalte plager" comment=""/>
+         <code value="221701" text="Ligamentskade i kne - ved kronisk instabilitet" comment=""/>
+         <code value="221702" text="Ligamentskade i kne - ved stor og akutt instabilitet" comment=""/>
+         <code value="221801" text="Nervekompresjoner og andre bløtvevslidelser i hånd og arm - moderate plager" comment=""/>
+         <code value="221802" text="Nervekompresjoner og andre bløtvevslidelser i hånd og arm - uttalte plager" comment=""/>
+         <code value="221901" text="Nevroortopedi hos barn - alvorlige tilstander" comment="Cerebral parese, myelomengocele."/>
+         <code value="221902" text="Nevroortopedi hos barn - mindre alvorlige tilstander" comment="Cerebral parese, myelomengocele."/>
+         <code value="222000" text="Patellainstabilitet og fremre knesmerter" comment=""/>
+         <code value="222101" text="Posttraumatiske meniskskader i kne - akutt skade og låst kne" comment=""/>
+         <code value="222102" text="Posttraumatiske meniskskader i kne - akutt skade, pasient under 30 år" comment=""/>
+         <code value="222103" text="Posttraumatiske meniskskader i kne - ikke akutt" comment=""/>
+         <code value="222201" text="Rotator cuff-rupturer i skulder - ved degenerative rupturer" comment="Må skille mellom traumatiske og degenerative."/>
+         <code value="222202" text="Rotator cuff-rupturer i skulder - ved traumatiske rupturer" comment="Må skille mellom traumatiske og degenerative."/>
+         <code value="222300" text="Ryggsmerter med nevrologiske utfall - påvist prolaps" comment=""/>
+         <code value="222400" text="Skulderinstabiliteter" comment=""/>
+         <code value="222501" text="Subacromialt impingement i skulder - hovedregel" comment="Konservativ behandling skal være forsøkt før henvisning. Medikamentell. Rotator cuff-trening."/>
+         <code value="222502" text="Subacromialt impingement i skulder - ved gjennomført adekvat konservativ behandling" comment="Konservativ behandling skal være forsøkt før henvisning. Medikamentell. Rotator cuff-trening."/>
+         <code value="222600" text="Tendinitter, tendinopatier og bursitter (ekskludert skulder) - ved moderate og uttalte plager" comment=""/>
+         <code value="230102" text="Brystforstørrelse - eget vev" comment="Rekonstruksjon etter kreftoperasjon."/>
+         <code value="230200" text="Brystlidelser - hyperplasia mammae" comment=""/>
+         <code value="230300" text="Bukplastikk" comment=""/>
+         <code value="230400" text="Fjerning av kosmetiske brystimplantat" comment=""/>
+         <code value="230501" text="Hudoverskudd - blepharochalase" comment=""/>
+         <code value="230502" text="Hudoverskudd - etter vektreduksjon" comment=""/>
+         <code value="230601" text="Hudsvulster - basalcellekarcinom" comment=""/>
+         <code value="230602" text="Hudsvulster - benigne hudsvulster" comment="Godartede hudsvulvster, mollusker, vorter, føflekker, arr."/>
+         <code value="230603" text="Hudsvulster - malignt melanom" comment=""/>
+         <code value="230604" text="Hudsvulster - usikkert malignitets potensial" comment=""/>
+         <code value="230605" text="Hudsvulster - maligne hudsvulster og precancroser - høyrisiko plateepitelcarcinom" comment="Grad av risiko defineres utfra lokalisasjon, størrelse større enn 2 cm, avgrensning, tilbakefall av svulst, raskt vekst, nevrologiske symptomer, tidligere strålebehandlet område eller kronisk inflammasjon, dybde, histologiske trekk, involvering av perineu"/>
+         <code value="230606" text="Hudsvulster - maligne hudsvulster og precancroser - lavrisiko plateepitelcarcinom" comment="Grad av risiko defineres utfra lokalisasjon, størrelse større enn 2 cm, avgrensning, tilbakefall av svulst, raskt vekst, nevrologiske symptomer, tidligere strålebehandlet område eller kronisk inflammasjon, dybde, histologiske trekk, involvering av perineu"/>
+         <code value="230701" text="Håndlidelser - artrose i hånd og håndledd" comment=""/>
+         <code value="230702" text="Håndlidelser - funksjonelle tilstander (dupuytrens kontraktur og triggerfinger)" comment=""/>
+         <code value="230800" text="Indikasjon for arrkorreksjon" comment=""/>
+         <code value="230900" text="Indikasjon for øyebrynsløft" comment=""/>
+         <code value="231000" text="Mammalidelse - medfødt misdannelse i bryst" comment=""/>
+         <code value="231100" text="Mammatilstander - seqvele brystkreft" comment=""/>
+         <code value="231200" text="Medfødte misdannelser - utstående ører" comment=""/>
+         <code value="231300" text="Medfødte misdannelser - hypospadi" comment=""/>
+         <code value="231400" text="Medfødte misdannelser - leppe-kjeve-ganespalte" comment=""/>
+         <code value="231500" text="Nervekompresjoner overekstremitet" comment=""/>
+         <code value="231600" text="Sekvele kirurgi" comment=""/>
+         <code value="231701" text="Sår - decubitus" comment=""/>
+         <code value="231702" text="Sår - kroniske" comment=""/>
+         <code value="231800" text="Gynecomasti" comment=""/>
+         <code value="240101" text="Angstlidelser - moderate til alvorlige" comment=""/>
+         <code value="240102" text="Angstlidelser - lettere" comment=""/>
+         <code value="240200" text="Atferdsforstyrrelse/trasslidelse" comment=""/>
+         <code value="240301" text="Bekymring for barn under 6 år - mellom 0-2 år, alvorlig bekymring" comment=""/>
+         <code value="240302" text="Bekymring for barn under 6 år - mellom 3-6 år, alvorlig bekymring" comment=""/>
+         <code value="240400" text="Bipolar lidelse" comment=""/>
+         <code value="240501" text="Depresjon - alvorlig" comment=""/>
+         <code value="240502" text="Depresjon - lettere" comment=""/>
+         <code value="240503" text="Depresjon - moderat" comment=""/>
+         <code value="240600" text="Forstyrrelse av aktivitet og oppmerksomhet (ADHD) - mistanke" comment="Kan også omfatte tilstander der oppmerksomhetsvanskene er de sentrale vanskene (ADD)."/>
+         <code value="240700" text="Psykiske symptomer - alvorlige, sekundært til somatisk sykdom" comment="Tilstanden omfatter alvorlige konversjonslidelser (F44) med symptomer som lammelser, besvimelser, kramper eller sansemessig svikt, og somatoforme lidelser (F45), der særlig langvarige, invalidiserende smertetilstander dominerer."/>
+         <code value="240800" text="Psykiske vansker - lettere" comment="Lettere psykiske vansker hos barn med normal utvikling. Inkluderer normale reaksjoner på belastende livshendelser."/>
+         <code value="240900" text="Psykose" comment=""/>
+         <code value="241001" text="Selvskading - alvorlig" comment=""/>
+         <code value="241002" text="Selvskading - moderat" comment=""/>
+         <code value="241100" text="Skolevegring" comment=""/>
+         <code value="241201" text="Spiseforstyrrelser - anorexi, alvorlig forverring" comment=""/>
+         <code value="241202" text="Spiseforstyrrelser - anorexi" comment=""/>
+         <code value="241203" text="Spiseforstyrrelser - bulimi" comment=""/>
+         <code value="241300" text="Språk- og lærevansker - spesifikke, uten alvorlige psykiske symptomer" comment=""/>
+         <code value="241400" text="Tourettes syndrom" comment=""/>
+         <code value="241500" text="Traumer, kriser eller katastrofer - alvorlige psykiske reaksjoner" comment=""/>
+         <code value="241600" text="Tvangstanker og/eller tvangshandlinger - tilbakevendende" comment=""/>
+         <code value="241700" text="Utviklingsforstyrrelser/autismespekter tilstander, mistanke om gjennomgripende forstyrrelser/tilstander" comment=""/>
+         <code value="250100" text="ADHD - alvorlige symptomer og nedsatt funksjon" comment="Det henvises mange pasienter til utredning av mulig hyperkinetisk forstyrrelse. Spesialisthelsetjenesten bør konsentrere seg om utredning av de som har betydelige funksjonsproblemer på skole, arbeid og i hjemmet."/>
+         <code value="250201" text="Angst og tvang - alvorlig til moderat" comment="Uttalt grad av ulike angstlidelser og tvangstanker og/eller handlinger som medfører tap av funksjon og gir høyt lidelsestrykk."/>
+         <code value="250202" text="Angst og tvang - lettere symptomer" comment="Dette dreier seg om letter tilstander som oftest er forbigående og kan håndteres i førstelinje."/>
+         <code value="250301" text="Bipolar lidelse - type I" comment=""/>
+         <code value="250302" text="Bipolar lidelse - type I, ustabil fase" comment=""/>
+         <code value="250303" text="Bipolar lidelse - type II" comment=""/>
+         <code value="250401" text="Depresjon - alvorlig" comment=""/>
+         <code value="250402" text="Depresjon - lettere" comment="I hovedregel MADRS under 20."/>
+         <code value="250403" text="Depresjon - moderat" comment=""/>
+         <code value="250501" text="Psykoselidelse - alvorlig forverring av symptomer" comment=""/>
+         <code value="250502" text="Psykoselidelse - forverring av symptomer" comment="Der pasienten har adekvat oppfølging i førstelinjetjenesten kan behandling i første omgang forsøkes på et lavere omsorgsnivå enn i spesialisthelsetjenesten."/>
+         <code value="250600" text="Psykoseutvikling" comment="Pasienter med symptomer som kan gi mistanke om en prodromalfase, med tilbaketrekning, isolasjon, endret atferd og endret opplevelse av omgivelsene. Angst og affektive symptomer kan være tilstede."/>
+         <code value="250701" text="Spiseforstyrrelser - anorexi med alvorlig forverring" comment=""/>
+         <code value="250702" text="Spiseforstyrrelser - anorexi" comment=""/>
+         <code value="250703" text="Spiseforstyrrelser - bulimi, alvorlige" comment=""/>
+         <code value="260101" text="Muskel- og skjelettsmerter - med leddhevelser, forhøyede inflammasjonsmarkører" comment="Begrunnet mistanke om inflammatorisk leddsykdom i perifere ledd."/>
+         <code value="260102" text="Muskel- og skjelettsmerter - uten leddhevelser, uten inflammasjonparametre" comment="Denne tilstanden anses som et allmennmedisinsk ansvarsområde og generelt uten behov for spesialisthelsetjenester. Tilstanden omfatter pasienter med langvarige (mer enn 3 måneder) med utbredte muskelsmerter og sammensatte uavklarte tilstander av flere årsa"/>
+         <code value="260103" text="Muskel- og skjelettsmerter - uten leddhevelser, med inflammasjonsmarkører" comment="Før henvisning bør forbigående tilstander som for eksempel virusinfeksjoner eller andre antatt forbigående tilstander utelukkes. Begrunnet mistanke om polymyalgia revmatika og temporalarteritt faller inn under denne tilstanden."/>
+         <code value="260200" text="Muskel- og skjelettsykdommer - lokaliserte, ved mistanke om revmatisk inflammatorisk sykdom" comment="Lokaliserte muskel- og skjelettsykdommer uten leddhevelser for eksempel tendinitt, tendovaginitt, bursitt, entesitt kan være tilstander som kan være manifetsasjoner på inflammatorisk leddsykdom."/>
+         <code value="260300" text="Inflammatoriske ryggsmerter" comment="Inflammatoriske ryggsmerter med mistanke om spondylartritt/sakroileitt."/>
+         <code value="260401" text="Sammensatte sykdomsbilder - med spesifikke organfunn" comment="Tilstanden omfatter flere alvorlige sykdommer som for eksempel SLE, sklerodermi, myositt, vaskulitter hvor det er holdepunkter for at et eller flere organer er affisert."/>
+         <code value="260402" text="Sammensatte sykdomsbilder - symptomer fra ett eller flere organsystemer" comment="Tilstanden omfatter mistanke om at flere ulike sykdommer som for eksempel SLE, sklerodermi, myosit eller vaskulitt foreligger uten at det er holdepunkter for at konkrete organ er involvert."/>
+         <code value="260501" text="Artroser - i vektbærende ledd" comment="Artroser i småledd i hender og føtter. Helsehjelpen i revmatologi er knyttet til ikke-operativ behandling og moderate plager. Som hovedregel skal tilstanden behandles i primærhelsetjenesten."/>
+         <code value="260502" text="Artroser - i ikke vektbærende ledd" comment="Artroser i småledd i hender og føtter. Helsehjelpen i revmatologi er knyttet til ikke-operativ behandling og moderate plager. Som hovedregel skal tilstanden behandles i primærhelsetjenesten."/>
+         <code value="260600" text="Osteoporose sekundært til revmatiske sykdommer" comment="Mistanke om osteoporose medbehov for å vurdere behandling- og muligebehandlingsalternativer."/>
+         <code value="270100" text="Langvarige smertetilstander - avklart utløsende årsak" comment=""/>
+         <code value="270200" text="Langvarige smertetilstander - uavklart årsak" comment="Utredet i spesialisthelsetjenesten, men fortsatt uavklart smertetilstand."/>
+         <code value="270300" text="Langvarige smertetilstander - som kan eller skal ivaretas i andre deler av helsetjenesten" comment="Pasienter som forventes å få tilfredsstillende hjelp i primærhelsetjenesten. Pasienter som åpenbart har negative prognostiske faktorer som gjør at det er lite sannsynlig at behandling ved smerteklinikkene kan gi bedre resultater enn det som kan oppnås i a"/>
+         <code value="270400" text="Sterke smerter som er vanskelige å behandle" comment="Pasienter med kjent alvorlig langtkommet grunnsykdom for eksempel kreft, KOLS, hjertesykdom eller sluttfase av MS."/>
+         <code value="270500" text="Subakutte smertetilstander - bekymring for kronifisering" comment=""/>
+         <code value="280100" text="Sykelig overvekt - barn" comment="Definisjon: barn (0-18 år, enkelte helseforetak har andre aldersangivelser), isoKMI større eller lik 35, isoKMIstørre eller lik 25 med komplikasjoner og/eller risikofaktorer:; mistanke om medisinsk årsak til fedme (kortvokst, dyskrine trekk, forsinket psy"/>
+         <code value="280200" text="Sykelig overvekt - voksne" comment="Definisjon er voksne 18 pr og oppover, KMI større eller lik 40 eller KMI større eller lik 35, i tillegg til komplikasjoner relatert til fedme som for eksempel diabetes mellitus, søvnapné, PCOS, hypertensjon og/eller hjerte-karsykdom, belastningslidelser m"/>
+         <code value="290100" text="Hyperhidrose og rødming" comment="Hyperhidrose: hender, hode og ansikt. Rødming: Ansikt."/>
+         <code value="290200" text="Lungemetastase" comment=""/>
+         <code value="290300" text="Medfødte thoraxveggdeformiteter" comment=""/>
+         <code value="290400" text="Mediastinale svulster" comment=""/>
+         <code value="290500" text="Thorakale aortaaneurysmer" comment=""/>
+         <code value="290600" text="Thoraxapertur syndrom" comment="Foreligger nevrogen og vasculær type, herav siste som venøs eller arteriell variant."/>
+         <code value="300100" text="Risikofylt bruk av rusmidler" comment="Problematisk bruk med psykiske, fysiske og/eller sosiale konsekvenser, Audit score 8-20, DUDIT score 2-25."/>
+         <code value="300205" text="Avhengighet - legemiddelavhengighet" comment=""/>
+         <code value="300502" text="Uavklart rusmiddelproblem - pasienter under 23 år" comment=""/>
+         <code value="300503" text="Uavklart rusmiddelproblem - pasienter over 23 år" comment="Gjelder alle rusmidler."/>
+         <code value="300600" text="Risiko for reaktivering av tildligere alvorlig avhengighetstilstand" comment="Pasient med tidligere avhengighetstilstand og risiko for å gjenoppta rusmiddelbruken, og/eller tidlig fase av tilbakefall. Det kan være behov for tiltak for å forebygge tilbakefall før pasienten har aktivt begynt å ruse seg igjen."/>
+         <code value="300700" text="Andre rusmidler - ikke dekket i andre tilstandsgrupper" comment="GHB, hallusinogener (unntatt cannabinoider), designer drugs, løsemidler og andre midler."/>
+         <code value="300800" text="Patologisk spillelidenskap" comment=""/>
+         <code value="300900" text="Doping/androgene anabole steroider" comment="Pasient med tidligere eller nåværende bruk av ulike typer prestasjonsfremmnde midler."/>
+         <code value="310100" text="Bekkensmerter/Chronic Pelvic Pain Syndrom(CPPS)/PBS/IC/Prostatitt" comment="Førstegangsvurdering for avklaring av underliggende urologisk sykdom gis tilbud med bindende frist. Se også prioriteringsveileder for smertetilstander."/>
+         <code value="310200" text="Blærekreft" comment="Pasienter med endoskopisk eller radiologisk sannsynlig blærekreft, eller histologisk påvist blærekreft."/>
+         <code value="310300" text="Hematuri" comment="Asymptomatiske pasienter under 40 år uten lang røykeanamnese med mikrohematuri trenger ikke urologisk utredning."/>
+         <code value="310400" text="LUTS" comment="Gruppen er stor og heterogen. Pasienter med IPSS under 10, målt resturin under 150 ml og uten andre alvorlighetskriterier, skal ikke utredes i spesialisthelsetjenesten. Se også prioriteringsveilederne i kvinnesykdommer og gastroenterologisk kirurgi om ink"/>
+         <code value="310500" text="Prostatakreft" comment="Pasienter med mistenkt prostatakreft ut fra kliniske funn, eller påvist prostatakreft."/>
+         <code value="310600" text="PSA (monosymptomatisk forhøyet)" comment="Pasienter med mindre enn 10 års forventet levetid og PSA forhøyet over aldersspesifikt nivå i minst 2 prøver med 3 ukers mellomrom, etter at infeksjon og retensjon er utelukket, skal utredes. Det samme gjelder pasienter med PSA-stigning under 0,75 ngMl pr"/>
+         <code value="310700" text="Scrotaltilstander - øvrige, unntatt testikkelkreft" comment="Forutsetter ultralydundersøkelse har utelukket malignitetsmistanke."/>
+         <code value="310800" text="Stein i øvre urinveier" comment="Eldre komorbide pasienter med asymptomatisk stein i nedre calyx skal ikke ha helsehjelp i spesialisthelsetjenesten. Utredes/behandles ved utvikling av symptomer eller mistanke om komplikasjoner."/>
+         <code value="310900" text="Nyrekreft" comment="Gruppen innbefatter malignitetssuspekte solide lesjoner samt cystiske lesjoner Bosniak IIF - IV."/>
+         <code value="311000" text="Testikkelkreft" comment="Palpabel og/eller ultralydpåvist svulst i testikkel."/>
+         <code value="311100" text="Urinveisinfeksjoner" comment="Det forutsettes at de som henvises til spesialisthelsetjenesten har gjennomgått utredning med bakteriologisk diagnostikk og behandling uten ønsket effekt i primærhelsetjenesten. Tilstanden er aldersavhengig - desto yngre desto større sannsynlighet for alv"/>
+         <code value="330100" text="Barn under 5 år med symptomer på øyesykdom eller brytningsfeil" comment=""/>
+         <code value="330200" text="Barn med lese- og skrivevansker" comment=""/>
+         <code value="330300" text="Barn med mistanke om sykdom i øyet/øyets omgivelser/fare for amblyopiutvikling" comment=""/>
+         <code value="330401" text="Katarakt - visus dårligere enn 0,5 på det beste øyet" comment=""/>
+         <code value="330500" text="Diabetes mellitus med retinopati/mistanke om retinopati" comment=""/>
+         <code value="330600" text="Forhold ved øyelokk som i vesentlig grad påvirker syn og/eller synsfelt" comment=""/>
+         <code value="330701" text="Glaukom - mistanke" comment=""/>
+         <code value="330702" text="Glaukom - mistanke om progredierende papilleskade" comment=""/>
+         <code value="330800" text="Hornhinneforandringer med visusreduksjon av betydning for pasienten" comment=""/>
+         <code value="330402" text="Katarakt - visus bedre enn 0.5 på beste øye" comment=""/>
+         <code value="331000" text="Makulalidelse med utvikling av synssvekkelse/metamorfopsier og forventet behandlingseffekt" comment="Ikke makulahull eller epiretinal fibrose."/>
+         <code value="331100" text="Ondartet sykdom i øyet, orbita eller øyets omgivelser - mistanke" comment=""/>
+         <code value="331200" text="Små barn med mistanke om øyesykdom" comment=""/>
+         <code value="331300" text="Stillingsfeil på øyelokk med risiko for skade av øyet" comment=""/>
+         <code value="331400" text="Tørr makuladegenerasjon" comment=""/>
+         <code value="331500" text="Tørt øye" comment=""/>
+         <code value="331600" text="Tåreveisproblemer" comment=""/>
+         <code value="320101" text="Bihulelidelser - avklarte" comment="Sekresjon, gjentatte infeksjoner, smerte."/>
+         <code value="320102" text="Bihulelidelser - betydelig redusert funksjonsevne" comment="Sekresjon, gjentatte infeksjoner, uavklarte smertetilstander."/>
+         <code value="320301" text="Hals - utvendig, avklarte tilstander (ikke kreft)" comment="Halscyster/-fistler, symptomgivende knuter i thyroidea, spyttkjertelsvulster."/>
+         <code value="320302" text="Hals - utvendig (ikke mistanke om kreft)" comment="Halscyster/ -fistler, spyttkjertellidelser, forandringer i skjoldbruskkjertel, knuter på halsen."/>
+         <code value="320401" text="Hudsvulster - avklart, basalcellecarsinom" comment=""/>
+         <code value="320402" text="Hudsvulster - uavklarte" comment="Benign/malign hudsvulst."/>
+         <code value="320403" text="Hudsvulster - avklart, plateepitelcarsinom" comment=""/>
+         <code value="320404" text="Hudsvulster - avklart, maligne melanomer" comment=""/>
+         <code value="320501" text="Hørsel - hørselstap, hos barn og alvorlige hørselstap hos voksne, tinnitus grad 3" comment="Voksne: Alvorlig hørselstap (over 60dBHL) innenfor talefrekvensområdet (0,5 - 4 kHz)."/>
+         <code value="320502" text="Hørsel - hørselstap, moderat" comment="Hørselstap (40 - 60dB) innenfor talefrekvensområdet (0,5 - 4 kHz), moderat tinnitus (Klockhoffs indeks grad 2)."/>
+         <code value="320503" text="Hørsel - hørseltap, utenfor talefrekvensområdet" comment=""/>
+         <code value="320504" text="Hørsel - døv" comment="Medfødt eller ervervet døvhet."/>
+         <code value="320600" text="Kreft - mistanke om" comment="For eksempel: Svulster med malignit postensial, kul på hals og i spyttkjertler med uklar årsak."/>
+         <code value="320701" text="Ørelidelse - kronisk ørebetennelse, uten fare for destruksjon (tørt øre)" comment="Trommehinneperforasjon, tørt øre."/>
+         <code value="320702" text="Ørelidelse - kronisk destruerende ørebetennelse med/uten sekresjon" comment="For eksempel cholesteatom."/>
+         <code value="320703" text="Ørelidelse - utstående ører" comment=""/>
+         <code value="320704" text="Ørelidelse - selvbegrensende tilstand" comment="For eksempel øregangseksostoser."/>
+         <code value="320801" text="Svelg/spiserør/munnhule - alvorlige svelgeproblemer" comment="For eksempel: Zenkerdivertikkel, lammelser, spasmer."/>
+         <code value="320802" text="Svelg/spiserør/munnhule - residiverende infeksjoner i svelg, avklart" comment="For eksempel kronisk residiverende tonsilitt."/>
+         <code value="320803" text="Svelg/spiserør/munnhule - tilstander i svelg, uavklart (uten mistanke om kreft)" comment="Smerter i svelg, residiverende infeksjoner, hoste, uavklart feber, slimhinnelidelser."/>
+         <code value="320900" text="Nesedeformitet" comment="Skjev ytternese uten nesetetthet."/>
+         <code value="321001" text="Nesetetthet - moderat, avklart (uten mistanke om kreft)" comment="Nesepolypper, skjev neseskillevegg, betydelig nesedeformitet."/>
+         <code value="321002" text="Nesetetthet - uttalt, uavklart (uten mistanke om kreft)" comment="Nesepolypper, skjev neseskillevegg, betydelig nesedeformitet, kronisk infeksjon."/>
+         <code value="321003" text="Nesetetthet - komplett" comment=""/>
+         <code value="321101" text="Svimmelhet" comment="Invalidiserende svimmelhet (for eksempel Mb Meniere med hyppige anfall, BPPV, vestibularisnevronitt)."/>
+         <code value="321102" text="Svimmelhet  - moderate plager" comment="Ustøhet, vestbularisnevronitt, BPPV i restitusjonsfasen."/>
+         <code value="321200" text="Søvnapné" comment="Nattlig apné med økt dagtretthet, konsentrasjonsvansker."/>
+         <code value="321400" text="Allergiske lidelser i øvre luftveier" comment="Nesetetthet, nasal sekresjon, irritasjon i øyne, kløe."/>
+         <code value="321500" text="Bihulelidelse - lite hyppig" comment="Kortere perioder med både sekresjon og smerter mer enn 4 ganger per år."/>
+         <code value="321601" text="Luftveier - alvorlige strupelidelser" comment="Heshet i over 4 uker, obstruksjon med pustebesvær."/>
+         <code value="321602" text="Luftveier - mindre alvorlige strupelidelser (uten kreftmistanke)" comment="Sangerknuter, reinkes ødem eller dysfonier."/>
+         <code value="321700" text="Snorking" comment="Snorking uten pustestopp eller andre tilleggssymptomer"/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Ja, nei written before    -->
+<annotation>
+   <appinfo>
+      <class name="Henvisning"/> 
+      <attribute name="rettTilHelsehjelp"/> 
+      <codingScheme name="Rett til helsehjelp"/> 
+      <codingScheme OID="8444"/> 
+      <simpleT name="rett_til_helsehjelp"/> 
+         <code value="3" text="Pasienten har rett til nødvendig helsehjelp i spesialisthelsetjenesten" comment=""/>
+         <code value="4" text="Pasienten har behov for helsehjelp i spesialisthelsetjenesten, men ikke rett til nødvendig (prioritert) helsehjelp" comment="Koden er ikke gyldig for henvisninger som er vurdert etter ikrafttredelse av pasient og brukerrettighetslov"/>
+         <code value="5" text="Pasienten har ikke behov for helsehjelp i spesialisthelsetjenesten" comment=""/>
+         <code value="6" text="Henvisningen er ikke aktuell for rettighetsvurdering" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Henvisning"/> 
+      <attribute name="varslingHelfo"/> 
+      <codingScheme name="Status for varsling av Helfo"/> 
+      <codingScheme OID="9180"/> 
+      <simpleT name="status_for_varsling_av_Helfo"/> 
+         <code value="1" text="Ikke aktuelt" comment=""/>
+         <code value="2" text="Helfo er varslet" comment=""/>
+         <code value="3" text="Helfo skal ikke varsles i følge avtale med pasient" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Henvisning"/> 
+      <attribute name="ventetidSluttKode"/> 
+      <codingScheme name="Ventetid sluttkode"/> 
+      <codingScheme OID="8445"/> 
+      <simpleT name="ventetid_sluttkode"/> 
+         <code value="1" text="Helsehjelp er påbegynt" comment=""/>
+         <code value="2" text="Pasienten ønsker ikke helsehjelp" comment=""/>
+         <code value="3" text="Pasienten er henvist til et annet sykehus/institusjon (unntatt fritt behandlingsvalg)" comment=""/>
+         <code value="4" text="Pasienten har valgt annet sykehus/institusjon" comment="Fritt behandlingsvalg"/>
+         <code value="5" text="Pasienten mottar helsehjelp ved annet sykehus/institusjon rekvirert av HELFO" comment="Ved fristbrudd"/>
+         <code value="9" text="Annen årsak til ventetid slutt/helsehjelp uaktuelt" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Kontakt -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Kontakt' --> 
+<simpleType name="kontakttype">
+   <restriction base="string"/>  <!-- Kodeverk: 8432 Kontakttype -->
+</simpleType>
+<simpleType name="initiativtaker">
+   <restriction base="string"/>  <!-- Kodeverk: 8433 Initiativtaker -->
+</simpleType>
+<simpleType name="sted_for_aktivitet">
+   <restriction base="string"/>  <!-- Kodeverk: 8434 Sted for aktivitet -->
+</simpleType>
+<simpleType name="aktivitetstype">
+   <restriction base="string"/>  <!-- Kodeverk: 8452 Aktivitetstype -->
+</simpleType>
+<simpleType name="indirekte_aktiviteter">
+   <restriction base="string"/>  <!-- Kodeverk: 8454 Indirekte aktiviteter -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Kontakt' --> 
+<annotation>
+   <appinfo>
+      <class name="Kontakt"/> 
+      <attribute name="kontaktType"/> 
+      <codingScheme name="Kontakttype"/> 
+      <codingScheme OID="8432"/> 
+      <simpleT name="kontakttype"/> 
+         <code value="1" text="Utredning" comment=""/>
+         <code value="2" text="Behandling" comment=""/>
+         <code value="3" text="Kontroll" comment=""/>
+         <code value="5" text="Indirekte pasientkontakt" comment="Arbeid eller aktivitet knyttet til helsehjelpen som gis til en pasient uten at pasienten deltar."/>
+         <code value="12" text="Pasientadministrert behandling" comment=""/>
+         <code value="13" text="Opplæring" comment="Opplæring av pasienter og/eller pårørende. Inkludert lærings- og mestringsaktiviteter."/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Kontakt"/> 
+      <attribute name="initiativtaker"/> 
+      <codingScheme name="Initiativtaker"/> 
+      <codingScheme OID="8433"/> 
+      <simpleT name="initiativtaker"/> 
+         <code value="1" text="Pasienten" comment=""/>
+         <code value="2" text="Familie" comment=""/>
+         <code value="3" text="Andre" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Kontakt"/> 
+      <attribute name="stedAktivitet"/> 
+      <codingScheme name="Sted for aktivitet"/> 
+      <codingScheme OID="8434"/> 
+      <simpleT name="sted_for_aktivitet"/> 
+         <code value="1" text="På egen helseinstitusjon" comment=""/>
+         <code value="2" text="Hos ekstern instans" comment=""/>
+         <code value="3" text="Telemedisinsk behandling (der behandlende lege er)" comment="Det ene sted i en telemedisinsk seanse"/>
+         <code value="5" text="Annet ambulant sted" comment="Kode 5 anvendes i ISF-sammenheng"/>
+         <code value="6" text="Telemedisinsk behandling (der pasienten er)" comment="Det andre sted i en telemedisinsk seanse"/>
+         <code value="4" text="Hjemme hos pasienten" comment="Inkludert hjemmebehandling som for eksempel hjemmedialyse"/>
+         <code value="9" text="Annet sted" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Kontakt"/> 
+      <attribute name="polkonAktivitet"/> 
+      <codingScheme name="Aktivitetstype"/> 
+      <codingScheme OID="8452"/> 
+      <simpleT name="aktivitetstype"/> 
+         <code value="1" text="Individualbehandling" comment=""/>
+         <code value="2" text="Parbehandling" comment=""/>
+         <code value="3" text="Familiebehandling" comment=""/>
+         <code value="4" text="Gruppebehandling" comment=""/>
+         <code value="5" text="Annet" comment=""/>
+         <code value="6" text="Miljøterapi" comment=""/>
+         <code value="7" text="Nettverksterapi" comment=""/>
+         <code value="8" text="Fysisk trening" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Kontakt"/> 
+      <attribute name="polIndir"/> 
+      <codingScheme name="Indirekte aktiviteter"/> 
+      <codingScheme OID="8454"/> 
+      <simpleT name="indirekte_aktiviteter"/> 
+         <code value="1" text="Erklæring/uttalelse/melding" comment=""/>
+         <code value="2" text="Møte. Samarbeid (om pasient) med annet helsepersonell" comment="Spesialisthelsetjeneste"/>
+         <code value="22" text="Samarbeidsmøte (om pasient) med førstelinjetjenesten" comment=""/>
+         <code value="23" text="Samarbeidsmøte (om pasient) med annen tjeneste" comment=""/>
+         <code value="3" text="Aktivitetsgruppe" comment=""/>
+         <code value="5" text="Brev" comment=""/>
+         <code value="6" text="e-post" comment=""/>
+         <code value="7" text="Telefon" comment="Uten pasientens deltakelse"/>
+         <code value="71" text="Telefonmøte (om pasient) med førstelinjetjenesten" comment=""/>
+         <code value="8" text="Tele-/videokonferanse" comment="Uten pasientens deltakelse"/>
+         <code value="11" text="Telemedisin" comment="Med pasientens deltakelse"/>
+         <code value="12" text="Telefonsamtale med pasient" comment="Samtale med pasient"/>
+         <code value="21" text="Teknisk Episode" comment="Skal brukes dersom det må opprettes en teknisk Epsisode for registrering av prosedyrer Pakkeforløp kreft"/>
+   </appinfo>
+</annotation>
+<!-- Class: Tilstand -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Tilstand' --> 
+<simpleType name="akse">
+   <restriction base="string"/>  <!-- Kodeverk: 8409 Akse -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Tilstand' --> 
+<annotation>
+   <appinfo>
+      <class name="Tilstand"/> 
+      <attribute name="akse"/> 
+      <codingScheme name="Akse"/> 
+      <codingScheme OID="8409"/> 
+      <simpleT name="akse"/> 
+         <code value="1" text="Akse I    Klinisk psykiatrisk syndrom" comment="ICD-10 F00-F99"/>
+         <code value="2" text="Akse II   Spesifikke utviklingsforstyrrelser" comment="ICD-10 F80-F89"/>
+         <code value="3" text="Akse III   Psykisk utviklingshemming" comment="ICD-10 F70-F79"/>
+         <code value="4" text="Akse IV   Somatiske tilstander" comment="ICD-10"/>
+         <code value="5" text="Akse V   Avvikende psykososiale forhold" comment=""/>
+         <code value="6" text="Akse VI   Global vurdering av funksjonsnivå" comment="CGAS"/>
+   </appinfo>
+</annotation>
+<!-- Class: Tjeneste -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Tjeneste' --> 
+<!-- simpleType for  fagomrade written before    -->
+ <!-- Appinfo for Coding schemes in the class: 'Tjeneste' --> 
+<!-- Appinfo for  Fagområde written before    -->
+<!-- Class: Behandlingsserie -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Behandlingsserie' --> 
+<!-- simpleType for  ja_nei written before    -->
+ <!-- Appinfo for Coding schemes in the class: 'Behandlingsserie' --> 
+<!-- Appinfo for  Ja, nei written before    -->
+<!-- LEVEL 6 -->
+<!-- Class: Referanse til enhet -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Referanse til enhet' --> 
+<simpleType name="type_enhet">
+   <restriction base="string"/>  <!-- Kodeverk: 8476 Type enhet -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Referanse til enhet' --> 
+<annotation>
+   <appinfo>
+      <class name="Referanse til enhet"/> 
+      <attribute name="typeEnhet"/> 
+      <codingScheme name="Type enhet"/> 
+      <codingScheme OID="8476"/> 
+      <simpleT name="type_enhet"/> 
+         <code value="1" text="Behandlingssted" comment=""/>
+         <code value="2" text="Fagenhet" comment=""/>
+         <code value="3" text="Tjenesteenhet" comment=""/>
+         <code value="4" text="Klinikk" comment=""/>
+         <code value="5" text="Poliklinikk" comment=""/>
+         <code value="6" text="Post" comment=""/>
+         <code value="7" text="Avdeling" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Utsettelse -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Utsettelse' --> 
+<simpleType name="utsettelseskode">
+   <restriction base="string"/>  <!-- Kodeverk: 8446 Utsettelseskode -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Utsettelse' --> 
+<annotation>
+   <appinfo>
+      <class name="Utsettelse"/> 
+      <attribute name="utsettKode"/> 
+      <codingScheme name="Utsettelseskode"/> 
+      <codingScheme OID="8446"/> 
+      <simpleT name="utsettelseskode"/> 
+         <code value="1" text="Institusjonen/sykehuset har bestemt utsettelsen av kapasitetsgrunner" comment=""/>
+         <code value="21" text="Pasienten har ikke møtt opp" comment=""/>
+         <code value="22" text="Pasienten har selv bestemt utsettelsen av velferdsgrunner" comment=""/>
+         <code value="3" text="Medisinske årsaker hos pasienten til utsettelsen" comment=""/>
+         <code value="4" text="Oppstart av helsehjelp er utsatt grunnet manglende kapasitet ved påfølgende behandlingssted" comment="For eksempel for avrusning før døgnbehandling rus"/>
+         <code value="5" text="Pasienten har takket nei til tilbud fra HF om helsehjelp ved annet behandlingssted enn sitt primære ønske" comment=""/>
+         <code value="6" text="Pasienten har takket nei til tilbud fra Helfo om helsehjelp ved annet behandlingssted enn sitt primære ønske" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Tiltak -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Tiltak' --> 
+<simpleType name="type_tiltak">
+   <restriction base="string"/>  <!-- Kodeverk: 8465 Type tiltak -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Tiltak' --> 
+<annotation>
+   <appinfo>
+      <class name="Tiltak"/> 
+      <attribute name="typeTiltak"/> 
+      <codingScheme name="Type tiltak"/> 
+      <codingScheme OID="8465"/> 
+      <simpleT name="type_tiltak"/> 
+         <code value="1" text="Medisinske og kirurgiske tiltak" comment=""/>
+         <code value="2" text="Bildediagnogstikk" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Fremmøte -->
+   
+   <!--     A P P I N F O     -->
+   
+<!-- LEVEL 7 -->
+<!-- Class: Prosedyre -->
+   
+   <!--     A P P I N F O     -->
+   
+<!-- Class: Undersøkelse -->
+   
+   <!--     A P P I N F O     -->
+   
+<!-- LEVEL 8 -->
+<!-- Class: Kode -->
+   
+   <!--     A P P I N F O     -->
+   
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Kode' --> 
+<simpleType name="medisinske_kodeverk">
+   <restriction base="string"/>  <!-- Kodeverk: 8410 Medisinske kodeverk -->
+</simpleType>
+ <!-- Appinfo for Coding schemes in the class: 'Kode' --> 
+<annotation>
+   <appinfo>
+      <class name="Kode"/> 
+      <attribute name="Kodeverk"/> 
+      <codingScheme name="Medisinske kodeverk"/> 
+      <codingScheme OID="8410"/> 
+      <simpleT name="medisinske_kodeverk"/> 
+         <code value="F" text="ATC" comment="7180 Anatomisk Terapeutisk Kjemisk legemiddelregister"/>
+         <code value="D" text="ICD-10" comment="7110 Den internasjonale statistiske klassifikasjonen av sykdommer og beslektede helseproblemer"/>
+         <code value="K" text="NCSP-N" comment="7210 NOMESCO Classification of Surgical Procedures, Norsk utgave"/>
+         <code value="H" text="ICPC" comment="7170 International Classification of Primary Care"/>
+         <code value="M" text="NCMP" comment="7220 Norsk klassifikasjon av medisinske prosedyrer"/>
+         <code value="R" text="NCRP" comment="Norsk klassifikasjon av radiologiske prosedyrer"/>
+         <code value="N" text="Intervensjon rus" comment="8740 Vil bli avløst av 7260"/>
+         <code value="A" text="Utredning kartlegging rusmisbruk" comment="8741 Vil bli avløst av 7260"/>
+         <code value="S" text="Midlertidige nasjonale særkoder" comment="7020 Kodene benyttes som et grunnlag for finansieringsordninger"/>
+         <code value="X" text="NORAKO" comment="7240 Kodeverk for røntgenundersøkelser"/>
+         <code value="B" text="Aksene 5 og 6 i BUP klassifikasjon" comment=""/>
+         <code value="P" text="Pakkeforløp kreft prosedyrekoder" comment=""/>
+         <code value="Q" text="NCSP/NCMP/NCRP" comment="Kode fra en av kodeverkene"/>
+         <code value="T" text="Pakkeforløp psykisk helse og rus prosedyrekoder" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Class: Parameter -->
+   
+   <!--     A P P I N F O     -->
+   
+</schema>

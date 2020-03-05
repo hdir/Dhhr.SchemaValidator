@@ -1,0 +1,1494 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generated on 11-27-2018  11:02:06 at NPR -->
+<!-- Avdeling helseregistres meldinger -->
+<!-- Modul str  -->
+<!-- Skjema for Innrapportering av data fra stråleterapi  -->
+<!-- XML-Schema level supported is specified by W3C -->
+<!-- http://www.w3.org/2001/XMLSchema -->
+<schema 
+       xmlns="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
+    xmlns:kith="http://www.kith.no/xmlstds" 
+    xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" 
+    xmlns:npr = "http://www.npr.no/xmlstds/53_1_3_str"
+    targetNamespace = "http://www.npr.no/xmlstds/53_1_3_str"
+    elementFormDefault = "qualified"
+    attributeFormDefault="unqualified">
+   <import namespace="http://www.npr.no/xmlstds/53_1_3" schemaLocation="NPR.xsd"/>
+
+
+
+<!-- LEVEL 1 -->
+
+<!-- Class: Melding -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Melding' --> 
+<simpleType name="meldingstype">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Melding' --> 
+<annotation>
+   <appinfo>
+      <class name="Melding"/> 
+      <attribute name="meldingstype"/> 
+      <codingScheme name="Meldingstype"/> 
+      <codingScheme OID="7371"/> 
+      <simpleT name="meldingstype"/> 
+         <code value="E" text="Endringsmelding" comment=""/>
+         <code value="B" text="Satsvis melding" comment=""/>
+   </appinfo>
+</annotation>
+
+
+<!-- LEVEL 2 -->
+
+<!-- Class: Kontaktperson -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Kontaktperson' --> 
+<simpleType name="kontaktperson_type">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Kontaktperson' --> 
+<annotation>
+   <appinfo>
+      <class name="Kontaktperson"/> 
+      <attribute name="typeKontaktperson"/> 
+      <codingScheme name="Kontaktperson type"/> 
+      <codingScheme OID="8471"/> 
+      <simpleT name="kontaktperson_type"/> 
+         <code value="1" text="Teknisk produksjon" comment=""/>
+         <code value="2" text="Somatisk spesialisthelsetjeneste" comment=""/>
+         <code value="3" text="Psykisk helsevern voksne" comment=""/>
+         <code value="4" text="Barne og ungdomspsykiatri" comment=""/>
+         <code value="5" text="Tverrfaglig spesialisert rusbehandling" comment=""/>
+         <code value="6" text="Personskadestatistikk" comment=""/>
+         <code value="7" text="Ventelistestatistikk" comment=""/>
+         <code value="8" text="Ident-meldingen" comment=""/>
+         <code value="9" text="RESH" comment=""/>
+         <code value="10" text="Radiologi" comment="Unntatt stråleterapi"/>
+         <code value="11" text="Stråleterapi" comment=""/>
+         <code value="12" text="Pakkeforløp kreft" comment=""/>
+         <code value="13" text="Vedtak etter psykisk helsevernloven" comment=""/>
+         <code value="14" text="Organisasjonsoppsett i EPJ" comment=""/>
+         <code value="15" text="EPJ-leverandør, meldingsvalidering" comment=""/>
+         <code value="16" text="IPLOS kontaktperson" comment=""/>
+         <code value="17" text="IPLOS innsendingsansvarlig" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Helseinstitusjon -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+<!-- LEVEL 3 -->
+
+<!-- Class: Enhet -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Enhet' --> 
+<simpleType name="ja_nei">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Enhet' --> 
+<annotation>
+   <appinfo>
+      <class name="Enhet"/> 
+      <attribute name="isfRefusjon"/> 
+      <codingScheme name="Ja, nei"/> 
+      <codingScheme OID="1101"/> 
+      <simpleT name="ja_nei"/> 
+         <code value="1" text="Ja" comment=""/>
+         <code value="2" text="Nei" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Slett -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Slett' --> 
+<simpleType name="objekttype">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Slett' --> 
+<annotation>
+   <appinfo>
+      <class name="Slett"/> 
+      <attribute name="objekttype"/> 
+      <codingScheme name="Objekttype"/> 
+      <codingScheme OID="7372"/> 
+      <simpleT name="objekttype"/> 
+         <code value="P" text="Pasient" comment=""/>
+         <code value="H" text="Henvisningsperiode" comment=""/>
+         <code value="E" text="Episode" comment=""/>
+         <code value="B" text="Behandlerkrav" comment=""/>
+         <code value="A" text="Prehospital/AMK" comment=""/>
+         <code value="R" text="Russituasjon" comment=""/>
+         <code value="S" text="Personskade" comment=""/>
+         <code value="M" text="Medisinsk stråling" comment=""/>
+         <code value="L" text="Pleie og omsorg" comment=""/>
+         <code value="V" text="Vedtak i psykisk helsevern" comment=""/>
+         <code value="F" text="Forløp" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Objektholder -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+<!-- LEVEL 4 -->
+
+<!-- Class: Utstyr -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Utstyr' --> 
+<simpleType name="status_for_medisinsk_teknisk_utstyr">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Utstyr' --> 
+<annotation>
+   <appinfo>
+      <class name="Utstyr"/> 
+      <attribute name="statusUtstyr"/> 
+      <codingScheme name="Status for medisinsk teknisk utstyr"/> 
+      <codingScheme OID="9185"/> 
+      <simpleT name="status_for_medisinsk_teknisk_utstyr"/> 
+         <code value="1" text="Planlagt anskaffet" comment=""/>
+         <code value="2" text="Under installasjon" comment=""/>
+         <code value="3" text="I drift" comment=""/>
+         <code value="4" text="Tatt ut av drift" comment=""/>
+         <code value="5" text="Kassert" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Pasient -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Pasient' --> 
+<simpleType name="kjonn">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Pasient' --> 
+<annotation>
+   <appinfo>
+      <class name="Pasient"/> 
+      <attribute name="kjonn"/> 
+      <codingScheme name="Kjønn"/> 
+      <codingScheme OID="3101"/> 
+      <simpleT name="kjonn"/> 
+         <code value="0" text="Ikke kjent" comment=""/>
+         <code value="1" text="Mann" comment=""/>
+         <code value="2" text="Kvinne" comment=""/>
+         <code value="9" text="Ikke spesifisert" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Episode -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Episode' --> 
+<simpleType name="sted">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="kommunale_tjenester">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="debitor">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="fagomrade">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="delytelser_i_rehabilitering">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="tjenester_i_godkjenningsordningen_innen_Fritt_behandlingsvalg">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="inntilstand">
+   <restriction base="string" />
+</simpleType>
+<!-- simpleType for  ja_nei written before    -->
+<simpleType name="innmate_hastegrad">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="omsorgsniva">
+   <restriction base="string" />
+</simpleType>
+<!-- simpleType for  ja_nei written before    -->
+<simpleType name="uttilstand">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="avslutningsmate_rus">
+   <restriction base="string" />
+</simpleType>
+<!-- simpleType for  sted written before    -->
+<simpleType name="status_for_innhenting_av_pasientens_samtykke">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Episode' --> 
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="fraSted"/> 
+      <codingScheme name="Sted"/> 
+      <codingScheme OID="8408"/> 
+      <simpleT name="sted"/> 
+         <code value="1" text="Bosted/arbeidssted" comment="Inklusive sykehjem langtidsplasser og kommunal omsorgsbolig"/>
+         <code value="2" text="Skade- eller funnsted" comment="Utenfor hjemmet"/>
+         <code value="11" text="Sykehjem/aldershjem/helsehus" comment=""/>
+         <code value="21" text="Kommunal akutt døgnenhet (KAD)" comment=""/>
+         <code value="99" text="Sted identifisert ved rapportering av attributt Til/Fra institusjon" comment="Bruk av denne koden forutsetter at Institusjon er identifisert ved hjelp av nisifret bedriftsnummer"/>
+         <code value="7" text="Annen (somatisk) enhet ved egen helseinstitusjon" comment="Har betydning for finansieringsordningen ISF"/>
+         <code value="8" text="Annen enhet (ikke somatikk) ved egen helseinstitusjon" comment="Har betydning for finansieringsordningen ISF"/>
+         <code value="3" text="Annen helseinstitusjon innen spesialisthelsetjenesten" comment="Har betydning for finansieringsordningen ISF"/>
+         <code value="10" text="Pasienthotell" comment="Har betydning for finansieringsordningen ISF. Hotell som er godkjent som sykehus iht. spesialisthelsetjenesteloven (eller sykehusloven)"/>
+         <code value="5" text="Institusjon i utlandet" comment="Har betydning for finansieringsordningen ISF"/>
+         <code value="88" text="Annet" comment=""/>
+         <code value="98" text="Ukjent" comment="Inkluderer personer uten fast bopel"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="kommTjeneste"/> 
+      <codingScheme name="Kommunale tjenester"/> 
+      <codingScheme OID="8481"/> 
+      <simpleT name="kommunale_tjenester"/> 
+         <code value="1" text="Kommunale hjemmetjenester" comment=""/>
+         <code value="2" text="Kommunal omsorgsbolig" comment=""/>
+         <code value="3" text="Sykehjem korttidsplass" comment=""/>
+         <code value="4" text="Sykehjem langtidsplass" comment=""/>
+         <code value="5" text="Kommunal ø-hjelp enhet" comment=""/>
+         <code value="6" text="Andre kommunale tjenester" comment=""/>
+         <code value="9" text="Ukjent" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="debitor"/> 
+      <codingScheme name="Debitor"/> 
+      <codingScheme OID="8426"/> 
+      <simpleT name="debitor"/> 
+         <code value="1" text="Ordinær pasient. Opphold finansiert gjennom ISF, HELFO, og ordinær finansiering innen psykisk helse og TSB" comment="Kun organisatoriske enheter innen RHF-systemet skal benytte denne koden."/>
+         <code value="11" text="Konvensjonspasient behandlet ved ø-hjelp" comment=""/>
+         <code value="12" text="Pasient  fra land uten konvensjonsavtale (selvbetalende)" comment=""/>
+         <code value="13" text="Folketrygdfinansiert behandling via Helfo for pasienter bosatt i utlandet, men med medlemskap i folketrygden" comment="Folketrygden skal dekke behandlings- og forpleiningsutgiftene her i landet for personer som ikke har bosted i Norge, men som er medlem i folketrygden med rett til stønad til helsetjenester. Dette følger av spesialisthelsetjenesteloven § 5-3 andre ledd. Regningen skal sendes Helfo (jf. rundskriv I-3/2017)"/>
+         <code value="20" text="Sykepengeprosjekt, Raskere tilbake" comment="Identifikasjon av behandling innenfor Raskere tilbake-ordningen"/>
+         <code value="22" text="Forskningsprogram" comment=""/>
+         <code value="24" text="Finansiert (betalt) av kommunen" comment=""/>
+         <code value="30" text="Selvbetalende norsk pasient og selvbetalende konvensjonspasient" comment=""/>
+         <code value="32" text="Selvbetalende pasient etter Eus pasientrettighetsdirektiv" comment=""/>
+         <code value="43" text="Anbudspasient på avtalen for Helse Vest RHF" comment=""/>
+         <code value="44" text="Anbudspasient på avtalen for Helse Midt-Norge RHF" comment=""/>
+         <code value="45" text="Anbudspasient på avtalen for Helse Nord RHF" comment=""/>
+         <code value="47" text="Anbudspasient på avtalen for Helse Sør-Øst RHF" comment=""/>
+         <code value="50" text="Opphold hos avtalespesialist finansiert via ISF" comment=""/>
+         <code value="51" text="Regional kurdøgnfinansiering" comment="Pasientbehandling som er forutsatt rammefinansiert fra statens side, og kurdøgnfinansiert i forholdet mellom RHF og utøvende virksomhet"/>
+         <code value="60" text="Forsikringsfinansiert opphold" comment="Pasientbehandling finansiert av forsikringsselskaper via private helseforsikringer"/>
+         <code value="70" text="HELFO formidlet opphold ved fristbrudd" comment="Pasientbehandling formidlet av HELFO ved brudd på frist for nødvendig helsehjelp"/>
+         <code value="80" text="Opphold på avtale med HF/RHF. Ikke anbudsavtale" comment="Pasientbehandling på avtale med helseforetak eller regionalt helseforetak"/>
+         <code value="90" text="Godkjent fritt behandlingsvalg (FBV)" comment="Pasientbehandling refunderes av HELFO gjennom godkjenningsordningen Fritt behandlingsvalg (FBV)"/>
+         <code value="99" text="Annet" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="episodeFag"/> 
+      <codingScheme name="Fagområde"/> 
+      <codingScheme OID="8451"/> 
+      <simpleT name="fagomrade"/> 
+         <code value="010" text="Generell kirurgi" comment=""/>
+         <code value="020" text="Barnekirurgi (under 15 år)" comment=""/>
+         <code value="030" text="Gastroenterologisk kirurgi" comment=""/>
+         <code value="040" text="Karkirurgi" comment=""/>
+         <code value="050" text="Ortopedisk kirurgi (inklusiv revmakirurgi)" comment=""/>
+         <code value="060" text="Thoraxkirurgi (inklusiv hjertekirurgi)" comment=""/>
+         <code value="070" text="Urologi" comment=""/>
+         <code value="080" text="Kjevekirurgi og munnhulesykdom" comment=""/>
+         <code value="090" text="Plastikk-kirurgi" comment=""/>
+         <code value="100" text="Nevrokirurgi" comment=""/>
+         <code value="105" text="Mamma- og para-/tyreoideakirurgi" comment="Ny kode fra 2008"/>
+         <code value="110" text="Generell indremedisin" comment=""/>
+         <code value="120" text="Blodsykdommer (hematologi)" comment=""/>
+         <code value="130" text="Endokrinologi" comment=""/>
+         <code value="140" text="Fordøyelsessykdommer" comment=""/>
+         <code value="150" text="Hjertesykdommer" comment=""/>
+         <code value="160" text="Infeksjonssykdommer" comment=""/>
+         <code value="170" text="Lungesykdommer" comment=""/>
+         <code value="180" text="Nyresykdommer" comment=""/>
+         <code value="190" text="Revmatiske sykdommer (revmatologi)" comment=""/>
+         <code value="200" text="Kvinnesykdommer og elektiv fødselshjelp" comment=""/>
+         <code value="210" text="Anestesiologi" comment=""/>
+         <code value="220" text="Barnesykdommer" comment=""/>
+         <code value="230" text="Fysikalsk medisin og rehabilitering" comment=""/>
+         <code value="233" text="Habilitering barn og unge" comment="Ny kode fra 2012. Delmengde av 232"/>
+         <code value="234" text="Habilitering voksne" comment="Ny kode fra 2012. Delmengde av 232"/>
+         <code value="240" text="Hud og veneriske sykdommer" comment=""/>
+         <code value="250" text="Nevrologi" comment=""/>
+         <code value="260" text="Klinisk nevrofysiologi" comment=""/>
+         <code value="290" text="Øre-nese-hals sykdommer" comment=""/>
+         <code value="300" text="Øyesykdommer" comment=""/>
+         <code value="310" text="Psykisk helsevern barn og unge" comment=""/>
+         <code value="320" text="Psykisk helsevern voksne" comment=""/>
+         <code value="330" text="Yrkes- og arbeidsmedisin" comment=""/>
+         <code value="340" text="Transplantasjon, utredning og kirurgi" comment=""/>
+         <code value="350" text="Geriatri" comment="Ny kode fra 2004"/>
+         <code value="360" text="Rus" comment="Ny kode fra 2005"/>
+         <code value="365" text="LAR - Legemiddelassistert rehabilitering" comment="Ny kode fra 2008"/>
+         <code value="370" text="Spillavhengighet" comment="Ny kode fra 2009"/>
+         <code value="380" text="Palliativ medisin" comment="Ny kode fra 2016"/>
+         <code value="410" text="Allergologi" comment="Ny kode fra 2017"/>
+         <code value="420" text="Sykelig overvekt" comment="Ny kode fra 2017"/>
+         <code value="430" text="Smertetilstander" comment="Ny kode fra 2017"/>
+         <code value="821" text="Klinisk farmakologi" comment="Ny kode fra 2004"/>
+         <code value="822" text="Medisinsk biokjemi" comment="Ny kode fra 2004"/>
+         <code value="823" text="Medisinsk mikrobiologi" comment="Ny kode fra 2004"/>
+         <code value="830" text="Immunologi og transfusjonsmedisin" comment="Ny kode fra 2004"/>
+         <code value="840" text="Medisinsk genetikk" comment="Ny kode fra 2004"/>
+         <code value="851" text="Nukleærmedisin" comment="Ny kode fra 2004"/>
+         <code value="852" text="Radiologi" comment="Ny kode fra 2004"/>
+         <code value="853" text="Onkologi" comment="Endret tekst i 2011"/>
+         <code value="860" text="Patologi" comment="Ny kode fra 2004"/>
+         <code value="900" text="Annet" comment="Ny kode fra 2004"/>
+         <code value="999" text="Ukjent" comment="Ny kode fra 2004"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="delytelse"/> 
+      <codingScheme name="Delytelser i rehabilitering"/> 
+      <codingScheme OID="8472"/> 
+      <simpleT name="delytelser_i_rehabilitering"/> 
+         <code value="A1.1" text="Brudd og slitasjeskader i skjelett, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="A1.2" text="Brudd og slitasjeskader i skjelett, Unge voksne 18-30 år,voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="A1.3" text="Brudd og slitasjeskader i skjelett, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="A1.4" text="Brudd og slitasjeskader i skjelett, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="B1.1" text="Reumatologiske sykdommer (inflammatoriske), Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="B1.2" text="Reumatologiske sykdommer (inflammatoriske), Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="B1.3" text="Reumatologiske sykdommer (inflammatoriske), Unge voksne 18-30 år, voksne over 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="B1.4" text="Reumatologiske sykdommer (inflammatoriske), Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="C1.1" text="Amputasjoner underekstremiteter, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="C1.2" text="Amputasjoner underekstremiteter, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="D1.1" text="CFS/ ME (diagnostisert), Barn og ungdom under 18 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="D1.2" text="CFS/ ME (diagnostisert), Barn og ungdom under 18 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="D1.3" text="CFS/ ME (diagnostisert), Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="D1.4" text="CFS/ ME (diagnostisert), Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="D1.5" text="CFS/ ME (diagnostisert), Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="D1.6" text="CFS/ ME (diagnostisert), Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="D1.7" text="CFS/ ME (diagnostisert), Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="D1.8" text="CFS/ ME (diagnostisert), Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="E1.1" text="Kreft, Barn og ungdom under 18 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="E1.2" text="Kreft, Barn og ungdom under 18 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="E1.3" text="Kreft, Unge voksne 18-30 år, voksne over 30 år,iIndividuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="E1.4" text="Kreft, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="E1.5" text="Kreft, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="E1.6" text="Kreft, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="E1.7" text="Kreft, Unge voksne 18-30 år og voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="E1.8" text="Kreft, Unge voksne 18-30 år og voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="F1.1" text="Hjerneslag og traumatiske hjerneskader, Barn og ungdom under 18 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="F1.2" text="Hjerneslag og traumatiske hjerneskader, Unge voksne 18-30 år, voksne over 30 år, Individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="F1.3" text="Hjerneslag og traumatiske hjerneskader, Unge voksne 18-30 år, voksne over 30 år, Individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="F1.4" text="Hjerneslag og traumatiske hjerneskader, Intensiv trening av spesifikke funksjoner: Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="F1.5" text="Hjerneslag og traumatiske hjerneskader, Intensiv trening av spesifikke funksjoner: Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="G1.1" text="Nevrologiske og nevromuskulære sykdommer, Barn og ungdom under 18 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="G1.2" text="Nevrologiske og nevromuskulære sykdommer, Barn og ungdom under 18 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="G1.3" text="Nevrologiske og nevromuskulære sykdommer, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="G1.4" text="Nevrologiske og nevromuskulære sykdommer, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="G1.5" text="Nevrologiske og nevromuskulære sykdommer, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="G1.6" text="Nevrologiske og nevromuskulære sykdommer, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="G1.7" text="Nevrologiske og nevromuskulære sykdommer, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="G1.8" text="Nevrologiske og nevromuskulære sykdommer, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="H1.1" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - dagtilbud" comment=""/>
+         <code value="H1.2" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - døgntilbud" comment=""/>
+         <code value="H1.3" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="H1.4" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="H1.5" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="H1.6" text="Hjertesykdommer , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="I1.1" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - dagtilbud" comment=""/>
+         <code value="I1.2" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - døgntilbud" comment=""/>
+         <code value="I1.3" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="I1.4" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="I1.5" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="I1.6" text="Lungesykdommer , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="J1.1" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - dagtilbud" comment=""/>
+         <code value="J1.2" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - døgntilbud" comment=""/>
+         <code value="J1.3" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="J1.4" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="J1.5" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="J1.6" text="Kronisk muskel- og bløtdelssmerte , Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="K1.1" text="Sykelig overvekt, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="K1.2" text="Sykelig overvekt, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="K1.3" text="Sykelig overvekt, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="K1.4" text="Sykelig overvekt, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="L1.1" text="Diabetes type 1, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="L1.2" text="Diabetes type 1, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="M1.1" text="Alvorlig grad av sanseforstyrrelser, Barn og ungdom under 18 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="M1.2" text="Alvorlig grad av sanseforstyrrelser, Barn og ungdom under 18 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="M1.3" text="Alvorlig grad av sanseforstyrrelser, Unge voksne 18-30 år, voksne over 30 år, Individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="M1.4" text="Alvorlig grad av sanseforstyrrelser, Unge voksne 18-30 år, voksne over 30 år, Individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="M1.5" text="Alvorlig grad av sanseforstyrrelser, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="M1.6" text="Alvorlig grad av sanseforstyrrelser, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="M1.7" text="Alvorlig grad av sanseforstyrrelser, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="M1.8" text="Alvorlig grad av sanseforstyrrelser, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="N1.1" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Barn og ungdom under 18 år, Individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="N1.2" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Barn og ungdom under 18 år, Individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="N1.3" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Unge voksne 18-30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="N1.4" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Unge voksne 18-30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="N1.5" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="N1.6" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Barn og ungdom under 18 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="N1.7" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Unge voksne 18-30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="N1.8" text="Tilbud til barn, ungdom og unge voksne med vekt på tilpasset fysisk aktivitet, familie og utdanning, Unge voksne 18-30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="O1.1" text="Pasienter med komplekst sykdomsbilde med behov for sømløs rehabilitering etter sykehusbehandling , Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="R1.1" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - dagtilbud" comment=""/>
+         <code value="R1.2" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, kartleggings- og vurderingstilbud - døgntilbud" comment=""/>
+         <code value="R1.3" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - dagtilbud" comment=""/>
+         <code value="R1.4" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, individuelt tilpassede tilbud - døgntilbud" comment=""/>
+         <code value="R1.5" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - dagtilbud" comment=""/>
+         <code value="R1.6" text="Arbeidsrettet rehabilitering, Unge voksne 18-30 år, voksne over 30 år, gruppebasert tilbud med individuell oppfølging - døgntilbud" comment=""/>
+         <code value="R1.8" text="Voksne over 18 år. Individuelt tilpassede tilbud- døgntilbud. Helse – og arbeid." comment=""/>
+         <code value="R1.9" text="Voksne over 18 år. Individuelt tilpassede tilbud – dagtilbud. Helse – og arbeid." comment=""/>
+         <code value="R1.10" text="Voksne over 18 år. Individuelt tilpassede tilbud – ambulant. Helse – og arbeid." comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="fbvTjenesteEpisode"/> 
+      <codingScheme name="Tjenester i godkjenningsordningen innen Fritt behandlingsvalg"/> 
+      <codingScheme OID="8486"/> 
+      <simpleT name="tjenester_i_godkjenningsordningen_innen_Fritt_behandlingsvalg"/> 
+         <code value="V" text="Psykisk helsevern for voksne, døgnbehandling" comment=""/>
+         <code value="VA" text="Alvorlig angst, alvorlig depresjon og alvorlige traumelidelser" comment=""/>
+         <code value="VA01" text="Alvorlig angst" comment=""/>
+         <code value="VA02" text="Alvorlig depresjon" comment=""/>
+         <code value="VA03" text="Alvorlige traumelidelser" comment=""/>
+         <code value="VB" text="Alvorlige psykoselidelser, alvorlige bipolare lidelser, alvorlige personlighetsforstyrrelser, alvorlige spiseforstyrrelser, komplekse traumer og alderspsykiatri, samt alvorlige psykiske lidelser og samtidig omfattende rusproblemer (ROP-pasienter)." comment=""/>
+         <code value="VB01" text="Alvorlige psykoselidelser" comment=""/>
+         <code value="VB02" text="Alvorlige bipolare lidelser" comment=""/>
+         <code value="VB03" text="Alvorlige personlighetsforstyrrelser" comment=""/>
+         <code value="VB04" text="Alvorlige spiseforstyrrelser" comment=""/>
+         <code value="VB05" text="Komplekse traumer" comment=""/>
+         <code value="VB06" text="Alderspsykiatri" comment=""/>
+         <code value="VB07" text="Alvorlige psykiske lidelser og samtidig omfattende rusproblemer (ROP-pasienter)" comment=""/>
+         <code value="B" text="Psykisk helsevern for barn og unge, døgnbehandling" comment=""/>
+         <code value="BA" text="Alvorlig (alv.) depresjon eller bipolar lidelse, alv. Atferds- og følelsesmessige forstyrrelser med samtidig alv. Tilleggsproblematikk (se forskrift), alv. Psykoselidelse, samtidige alv. Psykiske lidelser og rusmiddelproblem, spiseforstyrrelser" comment=""/>
+         <code value="BA01" text="Alvorlig depresjon eller bipolar lidelse" comment=""/>
+         <code value="BA02" text="Alvorlig atferds- og følelsesmessige forstyrrelser med samtidig alvorlig tilleggsproblematikk aggresjon/vold/utagering/selvskading" comment=""/>
+         <code value="BA03" text="Alvorlig psykoselidelse" comment=""/>
+         <code value="BA04" text="Samtidige alvorlige psykiske lidelser og rusmiddelproblemer" comment=""/>
+         <code value="BA05" text="Spiseforstyrrelser" comment=""/>
+         <code value="R" text="Tverrfaglig spesialisert rusbehandling (TSB), døgnbehandling" comment=""/>
+         <code value="RA01" text="Planlagt avgiftning som del av et behandlingsforløp" comment=""/>
+         <code value="RA02" text="Behandling av pasienter med rus og samtidig psykisk lidelse (ROP-pasienter)" comment=""/>
+         <code value="RB" text="Ordinær døgnbehandling TSB (mappes til RB01)" comment="Utgått"/>
+         <code value="RB01" text="Ordinær døgnbehandling TSB" comment="Tidligere kode RB"/>
+         <code value="S" text="Somatiske tjenester" comment=""/>
+         <code value="SA01" text="Hjerteutredning hos spesialist inkludert arbeids-EKG" comment=""/>
+         <code value="SA02" text="Hjerteutredning hos spesialist inkludert ultralyd hjerte" comment=""/>
+         <code value="SA03" text="Hjerteutredning hos spesialist (inkludert andre undersøkelser enn arbeids-EKG og ultralyd hjerte som er indisert)" comment=""/>
+         <code value="SA04" text="Ultralyd halskar" comment=""/>
+         <code value="SA91" text="Hjerteutredning hos spesialist inkludert arbeids-EKG og ultralyd" comment=""/>
+         <code value="SA95" text="Kontroll hos spesialist inkludert arbeids-EKG eller ultralyd hjerte" comment=""/>
+         <code value="SA96" text="Kontroll hos spesialist inkludert arbeids-EKG og ultralyd hjerte" comment=""/>
+         <code value="SA97" text="Kontroll hos spesialist (inkludert andre undersøkelser enn arbeids-EKG og ultralyd hjerte som er indisert)" comment=""/>
+         <code value="SB01" text="Operasjon av genitalt fremfall" comment=""/>
+         <code value="SB02" text="Urinlekkasje" comment=""/>
+         <code value="SC01" text="Grå stær" comment=""/>
+         <code value="SD01" text="Hofteartrose behandling med totalprotese" comment=""/>
+         <code value="SD02" text="Kneleddsartrose behandling med protese" comment=""/>
+         <code value="SD03" text="Ganglion hånd" comment=""/>
+         <code value="SD04" text="Ganglion fot" comment=""/>
+         <code value="SD05" text="Fjerning av metall (ikke i nakke og rygg)" comment=""/>
+         <code value="SD07" text="Hallux valgus" comment=""/>
+         <code value="SD08" text="Hammertå" comment=""/>
+         <code value="SD09" text="Carpal tunnel syndrom" comment=""/>
+         <code value="SD10" text="Triggerfinger" comment=""/>
+         <code value="SD11" text="Inngrodd negl" comment=""/>
+         <code value="SD12" text="Slitasje i tommelens rotledd" comment=""/>
+         <code value="SD13" text="Interdigitalt nevrom i fot (inkl. Mortons matatarsalgi)" comment=""/>
+         <code value="SE05" text="Åpen enkeltsidig brokkoperasjon hos voksne, lår og lyske" comment=""/>
+         <code value="SE06" text="Åpen dobbeltsidig brokkoperasjon hos voksne, lår og lyske" comment=""/>
+         <code value="SE07" text="Laparaskopisk enkeltsidig brokkoperasjon hos voksne, lår og lyske" comment=""/>
+         <code value="SE08" text="Laparaskopisk dobbeltsidig brokkoperasjon hos voksne, lår og lyske" comment=""/>
+         <code value="SE91" text="Mage-tarm undersøkelse, gastroskopi" comment=""/>
+         <code value="SE92" text="Mage-tarm undersøkelse, koloskopi" comment=""/>
+         <code value="SE93" text="Mage-tarm undersøkelse, sigmoidoskop" comment=""/>
+         <code value="SE94" text="Mage-tarm undersøkelse, rektoskopi" comment=""/>
+         <code value="SF01" text="Godartet forstørret prostata" comment=""/>
+         <code value="SF02" text="Trang forhud, voksne >15 år" comment=""/>
+         <code value="SF03" text="Cystoskopi" comment=""/>
+         <code value="SG" text="Forundersøkelse tilknyttet somatisk tjeneste som ikke leder til behandling (mappes til SZ00)" comment="Utgått"/>
+         <code value="SG01" text="Brystreduserende operasjon kvinne" comment=""/>
+         <code value="SG02" text="Brystreduserende operasjon mann (gynekomasti)" comment=""/>
+         <code value="SZ00" text="Forundersøkelse tilknyttet somatisk tjeneste som ikke leder til behandling" comment="Tidligere kode SG"/>
+         <code value="HA01" text="Intensiv habilitering av barn opp til og med 16 år med vesentlig nedsatt funksjonsevne som skyldes medfødt eller tidlig ervervet hjerneskade – pol. beh." comment=""/>
+         <code value="ED01" text="Døgnrehabilitering for benamputasjon, nyamputerte 5-7 ukers varighet." comment=""/>
+         <code value="EG02" text="Dagrehabilitering for pasienter med Parkinsons sykdom" comment=""/>
+         <code value="ED02" text="Døgnrehabilitering for pasienter med Parkinsons sykdom 4-6 ukers varighet" comment=""/>
+         <code value="ED03" text="Døgnrehabilitering for kompleks epilepsi 6-8 uker" comment=""/>
+         <code value="ED04" text="Døgnrehabilitering for Multippel sklerose 4 uker" comment=""/>
+         <code value="EG04" text="Dagrehabilitering for Multippel sklerose" comment=""/>
+         <code value="ED05" text="Døgnrehabilitering for KOLS 2-3 uker" comment=""/>
+         <code value="ED06" text="Døgnrehabilitering for pasienter med hjerte/kar-sykdommer" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="inntilstand"/> 
+      <codingScheme name="Inntilstand"/> 
+      <codingScheme OID="8427"/> 
+      <simpleT name="inntilstand"/> 
+         <code value="1" text="Levende ved ankomst til institusjon" comment=""/>
+         <code value="2" text="Død ved ankomst" comment=""/>
+         <code value="3" text="Levende født i sykehus" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Ja, nei written before    -->
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="innmateHast"/> 
+      <codingScheme name="Innmåte hastegrad"/> 
+      <codingScheme OID="8428"/> 
+      <simpleT name="innmate_hastegrad"/> 
+         <code value="1" text="Akutt = uten opphold eller innen 24 timer" comment=""/>
+         <code value="4" text="Planlagt" comment=""/>
+         <code value="5" text="Hastegrad ikke satt - tilbakeføring av pasient fra annet sykehus" comment="Skal benyttes der pasienten returnerer etter behandling i annet sykehus"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="omsorgsniva"/> 
+      <codingScheme name="Omsorgsnivå"/> 
+      <codingScheme OID="8406"/> 
+      <simpleT name="omsorgsniva"/> 
+         <code value="1" text="Døgnopphold" comment="Opphold hvor tjenestemottakeren normalt overnatter."/>
+         <code value="2" text="Dagbehandling" comment="Utredning eller behandling som er mer omfattende enn poliklinisk konsultasjon, men hvor pasienten ikke overnatter. Dagbehandling kan utføres poliklinisk eller ved Dagopphold."/>
+         <code value="3" text="Poliklinisk konsultasjon/kontakt" comment=""/>
+         <code value="8" text="Poliklinisk kontakt for inneliggende pasient for stråleterapi" comment="Dersom en poliklinikk utfører helsehjelp for en pasient som er innlagt. Gjelder kun for pasienter som mottar stråleterapi. For andre skal kode 3 benyttes."/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Ja, nei written before    -->
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="utTilstand"/> 
+      <codingScheme name="Uttilstand"/> 
+      <codingScheme OID="8431"/> 
+      <simpleT name="uttilstand"/> 
+         <code value="1" text="Som levende" comment=""/>
+         <code value="2" text="Som død" comment=""/>
+         <code value="3" text="Suicid" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="sluttKode"/> 
+      <codingScheme name="Avslutningsmåte rus"/> 
+      <codingScheme OID="8466"/> 
+      <simpleT name="avslutningsmate_rus"/> 
+         <code value="1" text="Etter gjensidig avtale mellom pasient og helseinstitusjon/behandler i henhold til behandlingsplan eller avtalt forløp" comment="Koden brukes når avslutningen foregår ved at både behandlende instans og pasient er enige om å avslutte behandlingsrelasjonen i henhold til behandlingsplan eller avtalt forløp. Koden gjelder også der behandlingsplanen eller forløpet har endret målsetninger underveis, og avslutning skjer i henhold til gjensidig avtale."/>
+         <code value="2" text="Behandlingsavbrudd initiert fra behandler/institusjon uten gjensidig avtale." comment="Koden brukes når behandlingen avsluttes fra behandlende instans uten pasientens medvirkning eller enighet. Dette kan for eksempel være når behandlingen avsluttes på grunn av kontraktsbrudd fra pasienten, eller hvis behandlingsstedet ikke anser behandlingen som nyttig for pasienten. "/>
+         <code value="3" text="Behandlingsavbrudd initiert fra pasientens side (beskjed gitt)" comment="Koden brukes hvis tidspunktet for behandlingsavslutningen ble bestemt ved at pasienten brøt behandlingen ved å gi melding/beskjed om dette, enten ved oppmøte, på telefon, eller ved annen kommunikasjon."/>
+         <code value="4" text="Behandlingsavbrudd hvor pasienten uteblir (beskjed ikke gitt)" comment="Hvis behandlingen ble avsluttet på grunn av uteblivelse, fastslått etter de rutiner tiltaket har for dette."/>
+         <code value="5" text="Overført til annen heiseinstitusjon med hjemmel i lovparagraf om tvang" comment="Koden brukes når slik overføring skjer, uavhengig av om behandlingen på de to tiltakene er hjemlet i samme tvangsparagraf, i forskjellige tvangsparagrafer, eller hjemmelen for tvang starter ved overføringen."/>
+         <code value="6" text="Dødsfall" comment="Dersom pasienten har avgått ved døden før behandlingsrelasjonen var avsluttet."/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Sted written before    -->
+<annotation>
+   <appinfo>
+      <class name="Episode"/> 
+      <attribute name="epikriseSamtykke"/> 
+      <codingScheme name="Status for innhenting av pasientens samtykke"/> 
+      <codingScheme OID="9064"/> 
+      <simpleT name="status_for_innhenting_av_pasientens_samtykke"/> 
+         <code value="1" text="Ja, samtykke er innhentet" comment=""/>
+         <code value="2" text="Pasientens samtykke er ikke påkrevet i dette tilfellet" comment=""/>
+         <code value="3" text="Svar på forespørsel e.l. som pasienten har gitt samtykke til" comment="Overføringen er svar på en forespørsel e.l. som pasienten har gitt samtykke til tidligere"/>
+         <code value="4" text="Nei, pasienten har ikke gitt sitt samtykke" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Medisinsk stråling -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+<!-- LEVEL 5 -->
+
+<!-- Class: Utstyrselementer -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Utstyrselementer' --> 
+<!-- simpleType for  ja_nei written before    -->
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Utstyrselementer' --> 
+<!-- Appinfo for  Ja, nei written before    -->
+
+<!-- Class: Utstyrsegenskaper -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+<!-- Class: Kontakt -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Kontakt' --> 
+<simpleType name="kontakttype">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="initiativtaker">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="sted_for_aktivitet">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="aktivitetstype">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="indirekte_aktiviteter">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Kontakt' --> 
+<annotation>
+   <appinfo>
+      <class name="Kontakt"/> 
+      <attribute name="kontaktType"/> 
+      <codingScheme name="Kontakttype"/> 
+      <codingScheme OID="8432"/> 
+      <simpleT name="kontakttype"/> 
+         <code value="1" text="Utredning" comment=""/>
+         <code value="2" text="Behandling" comment=""/>
+         <code value="3" text="Kontroll" comment=""/>
+         <code value="5" text="Indirekte pasientkontakt" comment="Arbeid eller aktivitet knyttet til helsehjelpen som gis til en pasient uten at pasienten deltar."/>
+         <code value="12" text="Pasientadministrert behandling" comment=""/>
+         <code value="13" text="Opplæring" comment="Opplæring av pasienter og/eller pårørende. Inkludert lærings- og mestringsaktiviteter."/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Kontakt"/> 
+      <attribute name="initiativtaker"/> 
+      <codingScheme name="Initiativtaker"/> 
+      <codingScheme OID="8433"/> 
+      <simpleT name="initiativtaker"/> 
+         <code value="1" text="Pasienten" comment=""/>
+         <code value="2" text="Familie" comment=""/>
+         <code value="3" text="Andre" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Kontakt"/> 
+      <attribute name="stedAktivitet"/> 
+      <codingScheme name="Sted for aktivitet"/> 
+      <codingScheme OID="8434"/> 
+      <simpleT name="sted_for_aktivitet"/> 
+         <code value="1" text="På egen helseinstitusjon" comment=""/>
+         <code value="2" text="Hos ekstern instans" comment=""/>
+         <code value="3" text="Telemedisinsk behandling (der behandlende lege er)" comment="Det ene sted i en telemedisinsk seanse"/>
+         <code value="5" text="Annet ambulant sted" comment="Kode 5 anvendes i ISF-sammenheng"/>
+         <code value="6" text="Telemedisinsk behandling (der pasienten er)" comment="Det andre sted i en telemedisinsk seanse"/>
+         <code value="4" text="Hjemme hos pasienten" comment="Inkludert hjemmebehandling som for eksempel hjemmedialyse"/>
+         <code value="9" text="Annet sted" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Kontakt"/> 
+      <attribute name="polkonAktivitet"/> 
+      <codingScheme name="Aktivitetstype"/> 
+      <codingScheme OID="8452"/> 
+      <simpleT name="aktivitetstype"/> 
+         <code value="1" text="Individualbehandling" comment=""/>
+         <code value="2" text="Parbehandling" comment=""/>
+         <code value="3" text="Familiebehandling" comment=""/>
+         <code value="4" text="Gruppebehandling" comment=""/>
+         <code value="5" text="Annet" comment=""/>
+         <code value="6" text="Miljøterapi" comment=""/>
+         <code value="7" text="Nettverksterapi" comment=""/>
+         <code value="8" text="Fysisk trening" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Kontakt"/> 
+      <attribute name="polIndir"/> 
+      <codingScheme name="Indirekte aktiviteter"/> 
+      <codingScheme OID="8454"/> 
+      <simpleT name="indirekte_aktiviteter"/> 
+         <code value="1" text="Erklæring/uttalelse/melding" comment=""/>
+         <code value="2" text="Møte. Samarbeid (om pasient) med annet helsepersonell" comment="Spesialisthelsetjeneste"/>
+         <code value="22" text="Samarbeidsmøte (om pasient) med førstelinjetjenesten" comment=""/>
+         <code value="23" text="Samarbeidsmøte (om pasient) med annen tjeneste" comment=""/>
+         <code value="3" text="Aktivitetsgruppe" comment=""/>
+         <code value="5" text="Brev" comment=""/>
+         <code value="6" text="e-post" comment=""/>
+         <code value="7" text="Telefon" comment="Uten pasientens deltakelse"/>
+         <code value="71" text="Telefonmøte (om pasient) med førstelinjetjenesten" comment=""/>
+         <code value="8" text="Tele-/videokonferanse" comment="Uten pasientens deltakelse"/>
+         <code value="11" text="Telemedisin" comment="Med pasientens deltakelse"/>
+         <code value="12" text="Telefonsamtale med pasient" comment="Samtale med pasient"/>
+         <code value="21" text="Teknisk Episode" comment="Skal brukes dersom det må opprettes en teknisk Epsisode for registrering av prosedyrer Pakkeforløp kreft"/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Referanse til enhet -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Referanse til enhet' --> 
+<simpleType name="type_enhet">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Referanse til enhet' --> 
+<annotation>
+   <appinfo>
+      <class name="Referanse til enhet"/> 
+      <attribute name="typeEnhet"/> 
+      <codingScheme name="Type enhet"/> 
+      <codingScheme OID="8476"/> 
+      <simpleT name="type_enhet"/> 
+         <code value="1" text="Behandlingssted" comment=""/>
+         <code value="2" text="Fagenhet" comment=""/>
+         <code value="3" text="Tjenesteenhet" comment=""/>
+         <code value="4" text="Klinikk" comment=""/>
+         <code value="5" text="Poliklinikk" comment=""/>
+         <code value="6" text="Post" comment=""/>
+         <code value="7" text="Avdeling" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Tilstand -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Tilstand' --> 
+<simpleType name="akse">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Tilstand' --> 
+<annotation>
+   <appinfo>
+      <class name="Tilstand"/> 
+      <attribute name="akse"/> 
+      <codingScheme name="Akse"/> 
+      <codingScheme OID="8409"/> 
+      <simpleT name="akse"/> 
+         <code value="1" text="Akse I    Klinisk psykiatrisk syndrom" comment="ICD-10 F00-F99"/>
+         <code value="2" text="Akse II   Spesifikke utviklingsforstyrrelser" comment="ICD-10 F80-F89"/>
+         <code value="3" text="Akse III   Psykisk utviklingshemming" comment="ICD-10 F70-F79"/>
+         <code value="4" text="Akse IV   Somatiske tilstander" comment="ICD-10"/>
+         <code value="5" text="Akse V   Avvikende psykososiale forhold" comment=""/>
+         <code value="6" text="Akse VI   Global vurdering av funksjonsnivå" comment="CGAS"/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Tjeneste -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Tjeneste' --> 
+<!-- simpleType for  fagomrade written before    -->
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Tjeneste' --> 
+<!-- Appinfo for  Fagområde written before    -->
+
+<!-- Class: Behandlingsserie -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Behandlingsserie' --> 
+<!-- simpleType for  ja_nei written before    -->
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Behandlingsserie' --> 
+<!-- Appinfo for  Ja, nei written before    -->
+
+<!-- Class: Referansevolum stråleterapi -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Referansevolum stråleterapi' --> 
+<simpleType name="anatomisk_region_angitt_for_straleterapi">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Referansevolum stråleterapi' --> 
+<annotation>
+   <appinfo>
+      <class name="Referansevolum stråleterapi"/> 
+      <attribute name="regionkode"/> 
+      <codingScheme name="Anatomisk region angitt for stråleterapi"/> 
+      <codingScheme OID="9184"/> 
+      <simpleT name="anatomisk_region_angitt_for_straleterapi"/> 
+         <code value="-1" text="INGEN MARKERING" comment=""/>
+         <code value="1" text="HODE/HALS, INS.      OVERFL." comment=""/>
+         <code value="2" text="HODE/HALS, MULT.LOK.  OVERFL." comment=""/>
+         <code value="3" text="ANSIKT, INS.         OVERFL." comment=""/>
+         <code value="4" text="ANSIKT, MULT. LOK.   OVERFL." comment=""/>
+         <code value="5" text="HODEBUNN             OVERFL." comment=""/>
+         <code value="6" text="PANNE                OVERFL." comment=""/>
+         <code value="7" text="TINNING, V.S.           OVERFL." comment=""/>
+         <code value="8" text="TINNING, H.S.            OVERFL." comment=""/>
+         <code value="9" text="ØYELOKK, ØVRE V.S.   OVERFL." comment=""/>
+         <code value="10" text="ØYELOKK,ØVRE H.S.   OVERFL." comment=""/>
+         <code value="11" text="ØYELOKK, NEDRE V.S.  OVERFL." comment=""/>
+         <code value="12" text="ØYELOKK, NEDRE H.S.  OVERFL." comment=""/>
+         <code value="13" text="ØYE, NÆR V.S.           OVERFL." comment=""/>
+         <code value="14" text="ØYE, NÆR H.S.           OVERFL." comment=""/>
+         <code value="15" text="ØYNE, MELLOM          OVERFL." comment=""/>
+         <code value="16" text="NESE                 OVERFL." comment=""/>
+         <code value="17" text="ØRE, V.S.                OVERFL." comment=""/>
+         <code value="18" text="ØRE, H.S.                OVERFL." comment=""/>
+         <code value="19" text="KINN, V.S.               OVERFL." comment=""/>
+         <code value="20" text="KINN, H.S.               OVERFL." comment=""/>
+         <code value="21" text="MANDIBULARREG.,V.S.  OVERFL." comment=""/>
+         <code value="22" text="MANDIBULARREG.,H.S.  OVERFL." comment=""/>
+         <code value="23" text="HAKE                 OVERFL." comment=""/>
+         <code value="24" text="HALS                 OVERFL." comment=""/>
+         <code value="25" text="HALS, V.S.           OVERFL." comment=""/>
+         <code value="26" text="HALS, H.S.           OVERFL." comment=""/>
+         <code value="27" text="NAKKE, V.S.          OVERFL." comment=""/>
+         <code value="28" text="NAKKE, H.S.          OVERFL." comment=""/>
+         <code value="29" text="NAKKE                OVERFL." comment=""/>
+         <code value="30" text="OVERKROPP, INS.      OVERFL." comment=""/>
+         <code value="31" text="OVERKROPP, MULT.LOK.  OVERFL." comment=""/>
+         <code value="32" text="SUPRACLAV, H.S.      OVERFL." comment=""/>
+         <code value="33" text="SUPRACLAV, V.S.      OVERFL." comment=""/>
+         <code value="34" text="THORAX, MED. FORAN   OVERFL." comment=""/>
+         <code value="35" text="THORAX, V.S. FORAN   OVERFL." comment=""/>
+         <code value="36" text="THORAX, H.S. FORAN   OVERFL." comment=""/>
+         <code value="37" text="THORAX, V.S. BAK     OVERFL." comment=""/>
+         <code value="38" text="THORAX, H.S. BAK     OVERFL." comment=""/>
+         <code value="39" text="THORAX, MED. BAK     OVERFL." comment=""/>
+         <code value="40" text="THORAX, H. SIDE      OVERFL." comment=""/>
+         <code value="41" text="THORAX, V. SIDE      OVERFL." comment=""/>
+         <code value="42" text="AXILLE, H.S.             OVERFL." comment=""/>
+         <code value="43" text="AXILLE, V.S.             OVERFL." comment=""/>
+         <code value="44" text="SKULDER, H.S.            OVERFL." comment=""/>
+         <code value="45" text="SKULDER, V.S.            OVERFL." comment=""/>
+         <code value="46" text="OVEREKSTR., INS. H.S.   OVERFL." comment=""/>
+         <code value="47" text="OVEREKSTR., INS. V.S.   OVERFL." comment=""/>
+         <code value="48" text="OVEREKSTR., M.LOK. H.S.  OVERFL." comment=""/>
+         <code value="49" text="OVEREKSTR., M.LOK. V.S.  OVERFL." comment=""/>
+         <code value="50" text="OVERARM, H.S.            OVERFL." comment=""/>
+         <code value="51" text="OVERARM, V.S.            OVERFL." comment=""/>
+         <code value="52" text="ALBU, H.S.               OVERFL." comment=""/>
+         <code value="53" text="ALBU, V.S.               OVERFL." comment=""/>
+         <code value="54" text="UNDERARM, H.S.           OVERFL." comment=""/>
+         <code value="55" text="UNDERARM, V.S.           OVERFL." comment=""/>
+         <code value="56" text="HAND, H.S.              OVERFL." comment=""/>
+         <code value="57" text="HAND, V.S.               OVERFL." comment=""/>
+         <code value="60" text="UNDERKROPP, INS.     OVERFL." comment=""/>
+         <code value="61" text="UNDERKROPP, MULT.LOK. OVERFL." comment=""/>
+         <code value="62" text="ABDOMEN              OVERFL." comment=""/>
+         <code value="63" text="ABDOMEN, V.S.        OVERFL." comment=""/>
+         <code value="64" text="ABDOMEN, H.S.        OVERFL." comment=""/>
+         <code value="65" text="FLANKE, V.S.            OVERFL." comment=""/>
+         <code value="66" text="FLANKE, H.S.             OVERFL." comment=""/>
+         <code value="67" text="LUMBALREG. V.S.      OVERFL." comment=""/>
+         <code value="68" text="LUMBALREG. H.S.      OVERFL." comment=""/>
+         <code value="69" text="LUMBALREG.           OVERFL." comment=""/>
+         <code value="70" text="LYSKE, H.S.              OVERFL." comment=""/>
+         <code value="71" text="LYSKE, V.S.              OVERFL." comment=""/>
+         <code value="72" text="KJØNNSORGAN, YTRE    OVERFL." comment=""/>
+         <code value="73" text="PERINEUM             OVERFL." comment=""/>
+         <code value="74" text="ANALREG.             OVERFL." comment=""/>
+         <code value="75" text="CRENA ANI            OVERFL." comment=""/>
+         <code value="76" text="SETE, H.S.           OVERFL." comment=""/>
+         <code value="77" text="SETE, V.S.           OVERFL." comment=""/>
+         <code value="78" text="HOFTE, H.S.          OVERFL." comment=""/>
+         <code value="79" text="HOFTE, V.S.          OVERFL." comment=""/>
+         <code value="80" text="UNDEREKSTR., H.S. INS.  OVERFL." comment=""/>
+         <code value="81" text="UNDEREKSTR., V.S. INS.  OVERFL." comment=""/>
+         <code value="82" text="UNDEREKSTR., H.S. M.LOK. OVERFL." comment=""/>
+         <code value="83" text="UNDEREKSTR., V.S. M.LOK. OVERFL." comment=""/>
+         <code value="84" text="LÅR, H.S.                OVERFL." comment=""/>
+         <code value="85" text="LÅR, V.S.                OVERFL." comment=""/>
+         <code value="86" text="KNE, H.S.                OVERFL." comment=""/>
+         <code value="87" text="KNE, V.S.                OVERFL." comment=""/>
+         <code value="88" text="LEGG, H.S.               OVERFL." comment=""/>
+         <code value="89" text="LEGG, V.S.               OVERFL." comment=""/>
+         <code value="90" text="FOT, H.S.                OVERFL." comment=""/>
+         <code value="91" text="FOT, V.S.                OVERFL." comment=""/>
+         <code value="99" text="KROPPEN, HELE          OVERFL." comment=""/>
+         <code value="100" text="HODE/HALS INS.       BLØTVEV" comment=""/>
+         <code value="101" text="ANSIKTSHALVDEL, V.S.     BLØTVEV" comment=""/>
+         <code value="102" text="ANSIKTSHALVDEL, H.S.     BLØTVEV" comment=""/>
+         <code value="110" text="SELLA TURCICA        BLØTVEV" comment=""/>
+         <code value="111" text="ORBITA, V.S.             BLØTVEV" comment=""/>
+         <code value="112" text="ORBITA, BILAT.       BLØTVEV" comment=""/>
+         <code value="114" text="ORBITA, H.S.             BLØTVEV" comment=""/>
+         <code value="116" text="MAXILLE, BILAT.      BLØTVEV" comment=""/>
+         <code value="117" text="MAXILLE, V.S.            BLØTVEV" comment=""/>
+         <code value="118" text="MAXILLE, H.S.            BLØTVEV" comment=""/>
+         <code value="120" text="EPIPHARYNX           BLØTVEV" comment=""/>
+         <code value="121" text="NESEKAV./EPIPHARYNX  BLØTVEV" comment=""/>
+         <code value="122" text="PAROTIS, BILAT.        BLØTVEV" comment=""/>
+         <code value="123" text="PAROTIS, V.S.            BLØTVEV" comment=""/>
+         <code value="124" text="PAROTIS, H.S.            BLØTVEV" comment=""/>
+         <code value="125" text="ØRE, V.S.                BLØTVEV" comment=""/>
+         <code value="126" text="ØRE, H.S.                BLØTVEV" comment=""/>
+         <code value="128" text="TONSILLE, BILAT.     BLØTVEV" comment=""/>
+         <code value="129" text="TONSILLE, V.S.           BLØTVEV" comment=""/>
+         <code value="130" text="TONSILLE, H.S.           BLØTVEV" comment=""/>
+         <code value="140" text="ORIS, BILAT.         BLØTVEV" comment=""/>
+         <code value="141" text="ORIS, V.S.               BLØTVEV" comment=""/>
+         <code value="142" text="ORIS, H.S.               BLØTVEV" comment=""/>
+         <code value="144" text="GINGIVA, BILAT.      BLØTVEV" comment=""/>
+         <code value="145" text="GINGIVA, V.S.            BLØTVEV" comment=""/>
+         <code value="146" text="GINGIVA, H.S.            BLØTVEV" comment=""/>
+         <code value="148" text="GANE                 BLØTVEV" comment=""/>
+         <code value="150" text="MUNNGOLV             BLØTVEV" comment=""/>
+         <code value="151" text="BUCCA, V.S.              BLØTVEV" comment=""/>
+         <code value="152" text="BUCCA, H.S.              BLØTVEV" comment=""/>
+         <code value="154" text="TUNGE                BLØTVEV" comment=""/>
+         <code value="155" text="TUNGE, V.S            BLØTVEV" comment=""/>
+         <code value="156" text="TUNGE, H.S            BLØTVEV" comment=""/>
+         <code value="158" text="UNDERLEPPE           BLØTVEV" comment=""/>
+         <code value="160" text="OVERLEPPE            BLØTVEV" comment=""/>
+         <code value="162" text="HYPOPHARYNX          BLØTVEV" comment=""/>
+         <code value="164" text="LARYNX               BLØTVEV" comment=""/>
+         <code value="166" text="OROPHARYNX            BLØTVEV" comment=""/>
+         <code value="170" text="MANDIBULA/Ø.HALS,BILAT BLØTVEV" comment=""/>
+         <code value="171" text="MANDIBULA/Ø.HALS, V.S BLØTVEV" comment=""/>
+         <code value="172" text="MANDIBULA/Ø.HALS, H.S BLØTVEV" comment=""/>
+         <code value="174" text="HALS, BILAT.         BLØTVEV" comment=""/>
+         <code value="175" text="HALS, V.S.            BLØTVEV" comment=""/>
+         <code value="176" text="HALS, H.S.            BLØTVEV" comment=""/>
+         <code value="178" text="HALS/SUPRACL., BILAT. BLØTVEV" comment=""/>
+         <code value="179" text="HALS/SUPRACLAV, V.S.  BLØTVEV" comment=""/>
+         <code value="180" text="HALS/SUPRACLAV, H.S.  BLØTVEV" comment=""/>
+         <code value="200" text="OVERKROPP, INS.    BLØTVEV" comment=""/>
+         <code value="201" text="OVERKROPP, MULT.LOK.   BLØTVEV" comment=""/>
+         <code value="202" text="OVERKROPP (HELE)     BLØTVEV" comment=""/>
+         <code value="203" text="SUPRACLAV, V.S.       BLØTVEV" comment=""/>
+         <code value="204" text="SUPRACLAV, H.S.       BLØTVEV" comment=""/>
+         <code value="205" text="SUPRACLAV, BILAT.    BLØTVEV" comment=""/>
+         <code value="206" text="SUPRA-/INFRACL, BILAT BLØTVEV" comment=""/>
+         <code value="207" text="SUPRACL/INFRACL., V.S. BLØTVEV" comment=""/>
+         <code value="208" text="SUPRACL/INFRACL., H.S. BLØTVEV" comment=""/>
+         <code value="209" text="SUPRACL/PARAST., V.S. BLØTVEV" comment=""/>
+         <code value="210" text="SUPRACL/PARAST., H.S. BLØTVEV" comment=""/>
+         <code value="211" text="SUPRACL/PARAST, BILAT BLØTVEV" comment=""/>
+         <code value="212" text="SUPRACL/AXILLE, BILAT BLØTVEV" comment=""/>
+         <code value="213" text="SUPRACL/AXILLE, V.S.  BLØTVEV" comment=""/>
+         <code value="214" text="SUPRACL/AXILLE, H.S.  BLØTVEV" comment=""/>
+         <code value="215" text="REG. LYMFEKN., V.S.   BLØTVEV" comment=""/>
+         <code value="216" text="REG. LYMFEKN., H.S.   BLØTVEV" comment=""/>
+         <code value="217" text="REG. LYMFEKN., BILAT. BLØTVEV" comment=""/>
+         <code value="218" text="MEDIAST/SUPRACL, BILAT BLØTVEV" comment=""/>
+         <code value="219" text="MEDIAST/SUPRACL., V.S. BLØTVEV" comment=""/>
+         <code value="220" text="MEDIAST/SUPRACL., H.S. BLØTVEV" comment=""/>
+         <code value="221" text="PARASTERNAL, V.S.      BLØTVEV" comment=""/>
+         <code value="222" text="PARASTERNAL, H.S.      BLØTVEV" comment=""/>
+         <code value="223" text="PARASTERNAL, BILAT.   BLØTVEV" comment=""/>
+         <code value="224" text="HILUS/MEDIAST., BILAT. BLØTVEV" comment=""/>
+         <code value="225" text="HILUS/MEDIAST., V.S.  BLØTVEV" comment=""/>
+         <code value="226" text="HILUS/MEDIAST., H.S.  BLØTVEV" comment=""/>
+         <code value="227" text="KAPPEFELT            BLØTVEV" comment=""/>
+         <code value="228" text="MEDIASTINUM          BLØTVEV" comment=""/>
+         <code value="229" text="HALVSID.KAPPEF., V.S.  BLØTVEV" comment=""/>
+         <code value="230" text="HALVSID.KAPPEF., H.S.  BLØTVEV" comment=""/>
+         <code value="231" text="THORAX, FORAN V.S.   BLØTVEV" comment=""/>
+         <code value="232" text="THORAX, FORAN H.S.   BLØTVEV" comment=""/>
+         <code value="233" text="THORAX, FORAN BILAT.  BLØTVEV" comment=""/>
+         <code value="234" text="THORAX, BAK BILAT.  BLØTVEV" comment=""/>
+         <code value="235" text="THORAX, BAK V.S.     BLØTVEV" comment=""/>
+         <code value="236" text="THORAX, BAK H.S.     BLØTVEV" comment=""/>
+         <code value="237" text="THORAX, PÅ SIDA V.S.  BLØTVEV" comment=""/>
+         <code value="238" text="THORAX, PÅ SIDA H.S.  BLØTVEV" comment=""/>
+         <code value="239" text="MAMMA/THORAXVEGG, V.S.   BLØTVEV" comment=""/>
+         <code value="240" text="MAMMA/THORAXVEGG, H.S.   BLØTVEV" comment=""/>
+         <code value="241" text="THORAXV/REG.LYMFKN., V.S. BLØTVEV" comment=""/>
+         <code value="242" text="THORAXV/REG.LYMFKN., H.S. BLØTVEV" comment=""/>
+         <code value="243" text="MAMMA/REG.LYMFEKN., V.S. BLØTVEV" comment=""/>
+         <code value="244" text="MAMMA/REG.LYMFEKN., H.S. BLØTVEV" comment=""/>
+         <code value="245" text="LUNGER, BEGGE /MEDIAST BLØTVEV" comment=""/>
+         <code value="246" text="LUNGER, BEGGE          BLØTVEV" comment=""/>
+         <code value="247" text="LUNGE, V.S.             BLØTVEV" comment=""/>
+         <code value="248" text="LUNGE, H.S.              BLØTVEV" comment=""/>
+         <code value="249" text="LUNGE, DEL AV  V.S.    BLØTVEV" comment=""/>
+         <code value="250" text="LUNGE, DEL AV  H.S.    BLØTVEV" comment=""/>
+         <code value="251" text="AXILLE, V.S.             BLØTVEV" comment=""/>
+         <code value="252" text="AXILLE, H.S.             BLØTVEV" comment=""/>
+         <code value="253" text="SKULDER, V.S           BLØTVEV" comment=""/>
+         <code value="254" text="SKULDER, H.S         BLØTVEV" comment=""/>
+         <code value="255" text="OESOPHAGUS           BLØTVEV" comment=""/>
+         <code value="256" text="MAMILLE, V.S.          BLØTVEV" comment=""/>
+         <code value="257" text="MAMILLE, H.S            BLØTVEV" comment=""/>
+         <code value="258" text="THYMUS           BLØTVEV" comment=""/>
+         <code value="259" text="VENTRIKKEL        BLØTVEV" comment=""/>
+         <code value="260" text="PANKREAS         BLØTVEV" comment=""/>
+         <code value="261" text="OVEREKSTR., V.S.  INS.   BLØTVEV" comment=""/>
+         <code value="262" text="OVEREKSTR., H.S.  INS.   BLØTVEV" comment=""/>
+         <code value="263" text="OVEREKSTR., MULT. LOK. V.S. BLØTVEV" comment=""/>
+         <code value="264" text="OVEREKSTR., MULT. LOK. H.S. BLØTVEV" comment=""/>
+         <code value="265" text="OVERARM, V.S.           BLØTVEV" comment=""/>
+         <code value="266" text="OVERARM, H.S.           BLØTVEV" comment=""/>
+         <code value="267" text="ALBU, V.S.               BLØTVEV" comment=""/>
+         <code value="268" text="ALBU, H.S.             BLØTVEV" comment=""/>
+         <code value="269" text="UNDERARM, V.S.          BLØTVEV" comment=""/>
+         <code value="270" text="UNDERARM, H.S.         BLØTVEV" comment=""/>
+         <code value="271" text="HAND, V.S.                 BLØTVEV" comment=""/>
+         <code value="272" text="HAND, H.S.                 BLØTVEV" comment=""/>
+         <code value="300" text="UNDERKROPP, INS." comment=""/>
+         <code value="301" text="UNDERKROPP,MULT.LOK." comment=""/>
+         <code value="302" text="UNDERKROPP (HELE)" comment=""/>
+         <code value="303" text="SKORSTEIN            BLØTVEV" comment=""/>
+         <code value="304" text="ABDOMEN              BLØTVEV" comment=""/>
+         <code value="305" text="ABDOMEN, V.S.         BLØTVEV" comment=""/>
+         <code value="306" text="ABDOMEN, H.S.         BLØTVEV" comment=""/>
+         <code value="307" text="LEVER                BLØTVEV" comment=""/>
+         <code value="308" text="NYRE, H.S.             BLØTVEV" comment=""/>
+         <code value="309" text="NYRE, V.S.             BLØTVEV" comment=""/>
+         <code value="310" text="MILT                 BLØTVEV" comment=""/>
+         <code value="311" text="OVARIA               BLØTVEV" comment=""/>
+         <code value="312" text="BEKKEN               BLØTVEV" comment=""/>
+         <code value="313" text="BEKKEN, V.S.          BLØTVEV" comment=""/>
+         <code value="314" text="BEKKEN, H.S.          BLØTVEV" comment=""/>
+         <code value="315" text="FLANKE, V.S.            BLØTVEV" comment=""/>
+         <code value="316" text="FLANKE, H.S.            BLØTVEV" comment=""/>
+         <code value="318" text="LUMBAL               BLØTVEV" comment=""/>
+         <code value="320" text="LUMBAL/ILIACAL,BILAT BLØTVEV" comment=""/>
+         <code value="321" text="LUMBAL/ILIACAL V.S.  BLØTVEV" comment=""/>
+         <code value="322" text="LUMBAL/ILIACAL H.S.  BLØTVEV" comment=""/>
+         <code value="324" text="LUMB/ILIAC/LYSKE     BLØTVEV" comment=""/>
+         <code value="325" text="LUMB/ILIAC/LYSKE V.S. BLØTVEV" comment=""/>
+         <code value="326" text="LUMB/ILIAC/LYSKE H.S. BLØTVEV" comment=""/>
+         <code value="328" text="ILIACAL              BLØTVEV" comment=""/>
+         <code value="329" text="ILIACAL, V.S.           BLØTVEV" comment=""/>
+         <code value="330" text="ILIACAL, H.S.           BLØTVEV" comment=""/>
+         <code value="332" text="ILIACAL/LYSKE        BLØTVEV" comment=""/>
+         <code value="333" text="ILIACAL/LYSKE, V.S.     BLØTVEV" comment=""/>
+         <code value="334" text="ILIACAL/LYSKE, H.S.     BLØTVEV" comment=""/>
+         <code value="335" text="LYSKE, V.S.             BLØTVEV" comment=""/>
+         <code value="336" text="LYSKE, H.S.             BLØTVEV" comment=""/>
+         <code value="338" text="YTRE KJØNNSORGAN     BLØTVEV" comment=""/>
+         <code value="340" text="ANUS/RECTUM          BLØTVEV" comment=""/>
+         <code value="341" text="VESICA               BLØTVEV" comment=""/>
+         <code value="342" text="PROSTATA             BLØTVEV" comment=""/>
+         <code value="343" text="PROSTATA OG VESICLER   BLØTVEV" comment=""/>
+         <code value="344" text="VAGINA               BLØTVEV" comment=""/>
+         <code value="345" text="UTERUS               BLØTVEV" comment=""/>
+         <code value="346" text="VAGINA/UTERUS        BLØTVEV" comment=""/>
+         <code value="347" text="CERVIX               BLØTVEV" comment=""/>
+         <code value="348" text="PROSTATASENG,         BLØTVEV" comment=""/>
+         <code value="349" text="URETHRA            BLØTVEV" comment=""/>
+         <code value="351" text="BINYRE, V.S.       BLØTVEV" comment=""/>
+         <code value="352" text="BINYRE, H.S.       BLØTVEV" comment=""/>
+         <code value="353" text="SETE, V.S.            BLØTVEV" comment=""/>
+         <code value="354" text="SETE, H.S.            BLØTVEV" comment=""/>
+         <code value="373" text="HOFTE, V.S.             BLØTVEV" comment=""/>
+         <code value="374" text="HOFTE, H.S.             BLØTVEV" comment=""/>
+         <code value="375" text="UNDEREKSTR., INS. V.S.   BLØTVEV" comment=""/>
+         <code value="376" text="UNDEREKSTR., INS. H.S.   BLØTVEV" comment=""/>
+         <code value="377" text="UNDEREKSTR.MUL.LOK., V.S. BLØTVEV" comment=""/>
+         <code value="378" text="UNDEREKSTR.MUL.LOK., H.S. BLØTVEV" comment=""/>
+         <code value="385" text="LÅR, V.S.              BLØTVEV" comment=""/>
+         <code value="386" text="LÅR, H.S.              BLØTVEV" comment=""/>
+         <code value="387" text="KNE, V.S.               BLØTVEV" comment=""/>
+         <code value="388" text="KNE, H.S.               BLØTVEV" comment=""/>
+         <code value="389" text="LEGG, V.S.              BLØTVEV" comment=""/>
+         <code value="390" text="LEGG, H.S.              BLØTVEV" comment=""/>
+         <code value="393" text="FOT, V.S.               BLØTVEV" comment=""/>
+         <code value="394" text="FOT, H.S.               BLØTVEV" comment=""/>
+         <code value="400" text="HELE SENTRALNERVESYS CNS" comment=""/>
+         <code value="401" text="HELE HJERNEN         CNS" comment=""/>
+         <code value="402" text="HJERNEN,Ø.CERV.MED.  CNS" comment=""/>
+         <code value="403" text="HJERNEHALVDEL, V.S.     CNS" comment=""/>
+         <code value="404" text="HJERNEHALVDEL, H.S.     CNS" comment=""/>
+         <code value="405" text="FRONTALREG., V.S.       CNS" comment=""/>
+         <code value="406" text="FRONTALREG.,  H.S.     CNS" comment=""/>
+         <code value="407" text="TEMPORALREG.,  V.S.     CNS" comment=""/>
+         <code value="408" text="TEMPORALREG.,  H.S.     CNS" comment=""/>
+         <code value="409" text="PARIETALREG.,  V.S.     CNS" comment=""/>
+         <code value="410" text="PARIETALREG.,  H.S.     CNS" comment=""/>
+         <code value="411" text="OCCIPITALREG.,  V.S.    CNS" comment=""/>
+         <code value="412" text="OCCIPITALREG.,  H.S.    CNS" comment=""/>
+         <code value="413" text="HJERNESTAMMEN        CNS" comment=""/>
+         <code value="414" text="CEREBELLUM           CNS" comment=""/>
+         <code value="415" text="HJERNEN,BEGRENSA DEL CNS" comment=""/>
+         <code value="416" text="CERVICALMEDULLA      CNS" comment=""/>
+         <code value="417" text="CERVICAL/THORACALMED CNS" comment=""/>
+         <code value="418" text="THORACALMEDULLA      CNS" comment=""/>
+         <code value="419" text="HELE MEDULLA         CNS" comment=""/>
+         <code value="501" text="NEUROCRANIUM         SKJELETT" comment=""/>
+         <code value="502" text="SKALLEBASIS          SKJELETT" comment=""/>
+         <code value="503" text="TINNINGSBENPYR. V.S.   SKJELETT" comment=""/>
+         <code value="504" text="TINNINGSBENPYR. H.S.   SKJELETT" comment=""/>
+         <code value="505" text="ANSIKTSSKJELETT      SKJELETT" comment=""/>
+         <code value="506" text="MANDIBULA            SKJELETT" comment=""/>
+         <code value="512" text="HELE BEKKENET        SKJELETT" comment=""/>
+         <code value="513" text="BEKKEN,  V.S.          SKJELETT" comment=""/>
+         <code value="514" text="BEKKEN,  H.S.          SKJELETT" comment=""/>
+         <code value="517" text="CERVICALCOLUMNA      SKJELETT" comment=""/>
+         <code value="518" text="CERVICAL/THORACALCOL SKJELETT" comment=""/>
+         <code value="519" text="ØVRE THORACALCOLUMNA SKJELETT" comment=""/>
+         <code value="520" text="THORACALCOLUMNA      SKJELETT" comment=""/>
+         <code value="521" text="NEDRE THORACALCOL.   SKJELETT" comment=""/>
+         <code value="522" text="THORACAL/LUMBALCOL.  SKJELETT" comment=""/>
+         <code value="523" text="LUMBALCOLUMNA        SKJELETT" comment=""/>
+         <code value="524" text="LUMBALCOLUMNA/SACRUM SKJELETT" comment=""/>
+         <code value="525" text="SACRUM               SKJELETT" comment=""/>
+         <code value="526" text="HELE COLUMNA         SKJELETT" comment=""/>
+         <code value="527" text="COCCYX               SKJELETT" comment=""/>
+         <code value="530" text="STERNUM              SKJELETT" comment=""/>
+         <code value="531" text="COSTA, FORAN  V.S.     SKJELETT" comment=""/>
+         <code value="532" text="COSTA, FORAN  H.S.     SKJELETT" comment=""/>
+         <code value="533" text="CLAVICULA,  V.S.        SKJELETT" comment=""/>
+         <code value="534" text="CLAVICULA,  H.S.        SKJELETT" comment=""/>
+         <code value="535" text="COSTA, BAK  V.S.       SKJELETT" comment=""/>
+         <code value="536" text="COSTA, BAK  H.S.       SKJELETT" comment=""/>
+         <code value="537" text="COSTA, PÅ SIDA  V.S.   SKJELETT" comment=""/>
+         <code value="538" text="COSTA, PÅ SIDA  H.S.   SKJELETT" comment=""/>
+         <code value="541" text="OS ILIUM,  V.S.        SKJELETT" comment=""/>
+         <code value="542" text="OS ILIUM,  H.S.        SKJELETT" comment=""/>
+         <code value="543" text="OS PUBIS, V.S.        SKJELETT" comment=""/>
+         <code value="544" text="OS PUBIS, H.S.        SKJELETT" comment=""/>
+         <code value="545" text="OS ISCHIE, V.S.       SKJELETT" comment=""/>
+         <code value="546" text="OS ISCHIE, H.S.       SKJELETT" comment=""/>
+         <code value="549" text="SCAPULA, V.S.        SKJELETT" comment=""/>
+         <code value="550" text="SCAPULA, H.S.        SKJELETT" comment=""/>
+         <code value="553" text="SKULDER,  V.S.         SKJELETT" comment=""/>
+         <code value="554" text="SKULDER,  H.S.         SKJELETT" comment=""/>
+         <code value="561" text="OVEREKSTR., INS. V.S.   SKJELETT" comment=""/>
+         <code value="562" text="OVEREKSTR., INS. H.S.   SKJELETT" comment=""/>
+         <code value="563" text="OVEREKSTR., M.LOK. V.S.  SKJELETT" comment=""/>
+         <code value="564" text="OVEREKSTR., M.LOK. H.S.  SKJELETT" comment=""/>
+         <code value="565" text="OVERARM,   V.S.         SKJELETT" comment=""/>
+         <code value="566" text="OVERARM,  H.S.          SKJELETT" comment=""/>
+         <code value="567" text="ALBU,   V.S.            SKJELETT" comment=""/>
+         <code value="568" text="ALBU,   H.S.            SKJELETT" comment=""/>
+         <code value="569" text="UNDERARM,  V.S.         SKJELETT" comment=""/>
+         <code value="570" text="UNDERARM,  H.S.         SKJELETT" comment=""/>
+         <code value="571" text="HAND,  V.S.             SKJELETT" comment=""/>
+         <code value="572" text="HAND,  H.S.             SKJELETT" comment=""/>
+         <code value="573" text="HOFTE,  V.S.            SKJELETT" comment=""/>
+         <code value="574" text="HOFTE,  H.S.            SKJELETT" comment=""/>
+         <code value="575" text="UNDEREKSTR., INS. V.S.   SKJELETT" comment=""/>
+         <code value="576" text="UNDEREKSTR., INS. H.S.   SKJELETT" comment=""/>
+         <code value="577" text="UNDEREKSTR., M.LOK. V.S.  SKJELETT" comment=""/>
+         <code value="578" text="UNDEREKSTR., M.LOK. H.S.  SKJELETT" comment=""/>
+         <code value="585" text="LÅR,  V.S.              SKJELETT" comment=""/>
+         <code value="586" text="LÅR,  H.S.              SKJELETT" comment=""/>
+         <code value="587" text="KNE,  V.S.              SKJELETT" comment=""/>
+         <code value="588" text="KNE,  H.S.              SKJELETT" comment=""/>
+         <code value="589" text="LEGG,  V.S.             SKJELETT" comment=""/>
+         <code value="590" text="LEGG,  H.S.             SKJELETT" comment=""/>
+         <code value="593" text="FOT,   V.S.             SKJELETT" comment=""/>
+         <code value="594" text="FOT,   H.S.             SKJELETT" comment=""/>
+         <code value="900" text="HELE KROPPEN         BLØTVEV" comment=""/>
+   </appinfo>
+</annotation>
+
+
+<!-- LEVEL 6 -->
+
+<!-- Class: Tiltak -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Tiltak' --> 
+<simpleType name="type_tiltak">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Tiltak' --> 
+<annotation>
+   <appinfo>
+      <class name="Tiltak"/> 
+      <attribute name="typeTiltak"/> 
+      <codingScheme name="Type tiltak"/> 
+      <codingScheme OID="8465"/> 
+      <simpleT name="type_tiltak"/> 
+         <code value="1" text="Medisinske og kirurgiske tiltak" comment=""/>
+         <code value="2" text="Bildediagnogstikk" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Apparat- fremmøte -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+<!-- LEVEL 7 -->
+
+<!-- Class: Helseperson -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Helseperson' --> 
+<simpleType name="utforende_helsepersonell">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="ja_nei_ukjent">
+   <restriction base="string" />
+</simpleType>
+<simpleType name="rolle">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Helseperson' --> 
+<annotation>
+   <appinfo>
+      <class name="Helseperson"/> 
+      <attribute name="polUtforende"/> 
+      <codingScheme name="Utførende helsepersonell"/> 
+      <codingScheme OID="8401"/> 
+      <simpleT name="utforende_helsepersonell"/> 
+         <code value="1" text="Lege" comment=""/>
+         <code value="2" text="Sykepleier" comment=""/>
+         <code value="3" text="Pedagog" comment=""/>
+         <code value="4" text="Psykolog" comment=""/>
+         <code value="5" text="Sosionom" comment=""/>
+         <code value="6" text="Barnevernpedagog" comment=""/>
+         <code value="7" text="Vernepleier" comment=""/>
+         <code value="8" text="Jordmor" comment=""/>
+         <code value="11" text="Audiograf" comment=""/>
+         <code value="12" text="Bioingeniør" comment=""/>
+         <code value="13" text="Ergoterapeut" comment=""/>
+         <code value="14" text="Fysioterapeut" comment=""/>
+         <code value="15" text="Klinisk ernæringsfysiolog" comment=""/>
+         <code value="16" text="Radiograf" comment=""/>
+         <code value="17" text="Tannlege" comment=""/>
+         <code value="18" text="Ortoptist" comment="Fra 2017"/>
+         <code value="19" text="Ortopediingeniør" comment="Fra 2017"/>
+         <code value="20" text="Farmasøyt" comment="Fra 2017"/>
+         <code value="21" text="Fotterapeut" comment="Fra 2017"/>
+         <code value="22" text="Genetiker" comment="Fra 2018"/>
+         <code value="23" text="Logoped" comment="Fra 2018"/>
+         <code value="24" text="Perfusjonist" comment="Fra 2018"/>
+         <code value="25" text="Optiker" comment="Fra 2018"/>
+         <code value="26" text="Audiofysiker" comment="Fra 2019"/>
+         <code value="9" text="Annet helsepersonell" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Helseperson"/> 
+      <attribute name="spesialist"/> 
+      <codingScheme name="Ja, nei, ukjent"/> 
+      <codingScheme OID="1103"/> 
+      <simpleT name="ja_nei_ukjent"/> 
+         <code value="1" text="Ja" comment=""/>
+         <code value="2" text="Nei" comment=""/>
+         <code value="9" text="Ukjent" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Helseperson"/> 
+      <attribute name="rolle"/> 
+      <codingScheme name="Rolle"/> 
+      <codingScheme OID="8456"/> 
+      <simpleT name="rolle"/> 
+         <code value="1" text="Ansvarlig" comment=""/>
+         <code value="2" text="Ko-terapeut" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Prosedyre -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+<!-- Class: Dosebidrag -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+<!-- LEVEL 8 -->
+
+<!-- Class: Kode -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes with enumerations in the class: 'Kode' --> 
+<simpleType name="medisinske_kodeverk">
+   <restriction base="string" />
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Kode' --> 
+<annotation>
+   <appinfo>
+      <class name="Kode"/> 
+      <attribute name="Kodeverk"/> 
+      <codingScheme name="Medisinske kodeverk"/> 
+      <codingScheme OID="8410"/> 
+      <simpleT name="medisinske_kodeverk"/> 
+         <code value="F" text="ATC" comment="7180 Anatomisk Terapeutisk Kjemisk legemiddelregister"/>
+         <code value="D" text="ICD-10" comment="7110 Den internasjonale statistiske klassifikasjonen av sykdommer og beslektede helseproblemer"/>
+         <code value="K" text="NCSP-N" comment="7210 NOMESCO Classification of Surgical Procedures, Norsk utgave"/>
+         <code value="H" text="ICPC" comment="7170 International Classification of Primary Care"/>
+         <code value="M" text="NCMP" comment="7220 Norsk klassifikasjon av medisinske prosedyrer"/>
+         <code value="R" text="NCRP" comment="Norsk klassifikasjon av radiologiske prosedyrer"/>
+         <code value="N" text="Intervensjon rus" comment="8740 Vil bli avløst av 7260"/>
+         <code value="A" text="Utredning kartlegging rusmisbruk" comment="8741 Vil bli avløst av 7260"/>
+         <code value="S" text="Midlertidige nasjonale særkoder" comment="7020 Kodene benyttes som et grunnlag for finansieringsordninger"/>
+         <code value="X" text="NORAKO" comment="7240 Kodeverk for røntgenundersøkelser"/>
+         <code value="B" text="Aksene 5 og 6 i BUP klassifikasjon" comment=""/>
+         <code value="P" text="Pakkeforløp kreft prosedyrekoder" comment=""/>
+         <code value="Q" text="NCSP/NCMP/NCRP" comment="Kode fra en av kodeverkene"/>
+         <code value="T" text="Pakkeforløp psykisk helse og rus prosedyrekoder" comment=""/>
+   </appinfo>
+</annotation>
+</schema>

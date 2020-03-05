@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generated on 11-27-2018  11:18:04 at NPR -->
+<!-- Avdeling helseregistres meldinger -->
+<!-- Modul pre  -->
+<!-- Skjema for Innrapportering av data fra Prehospitale tjenester/Ambulanse  -->
+<!-- XML-Schema level supported is specified by W3C -->
+<!-- http://www.w3.org/2001/XMLSchema -->
+<schema 
+       xmlns="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
+    xmlns:kith="http://www.kith.no/xmlstds" 
+    xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" 
+    xmlns:npr = "http://www.npr.no/xmlstds/53_1_3_pre"
+    targetNamespace = "http://www.npr.no/xmlstds/53_1_3_pre"
+    elementFormDefault = "qualified"
+    attributeFormDefault="unqualified">
+   <import namespace="http://www.npr.no/xmlstds/53_1_3" schemaLocation="NPR.xsd"/>
+
+<include schemaLocation="XPR(pre)_CodingSchemes.xsd"/>
+
+
+<!-- LEVEL 1 -->
+
+<!-- Class: Melding -->
+<element name = "Melding">
+   <annotation>
+       <documentation>
+         Opplysninger som leverandører av helsetjenester i kommuner, helsevirksomheter eller helsepersonell etter bestemmelser i lov eller i medhold av lov i gitte situasjoner er pliktig til å rapportere.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Institusjon" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "versjon" type = "string"  use = "required" fixed = "53.1.3" />
+      <attribute name = "meldingstype" type = "npr:meldingstype"  use = "required" />
+      <attribute name = "fraDatoPeriode" type = "date"  use = "required" />
+      <attribute name = "uttakDato" type = "date"  use = "required" />
+      <attribute name = "leverandor" type = "string"  use = "required" />
+      <attribute name = "navnEPJ" type = "string"  use = "required" />
+      <attribute name = "versjonEPJ" type = "string"  use = "required" />
+      <attribute name = "versjonUt" type = "string"  use = "required" />
+      <attribute name = "lopenr" type = "string"  use = "required" />
+      <attribute name = "tilDatoPeriode" type = "date"  use = "required" />
+      <attribute name = "lokalident" type = "string"  use = "optional" />
+   </complexType>
+      <unique name= "InstitusjonP_ID">
+         <selector xpath = "npr:Institusjon"/>
+         <field xpath = "@institusjonID"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 2 -->
+
+<!-- Class: Helseinstitusjon -->
+<element name = "Institusjon">
+   <annotation>
+       <documentation>
+         Institusjon som hører under lov om spesialisthelsetjenesten.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Slett" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Hendelse" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "institusjonID" type = "string"  use = "required" />
+   </complexType>
+      <unique name= "HendelseP_ID">
+         <selector xpath = "npr:Hendelse"/>
+         <field xpath = "@hendelseID"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 3 -->
+
+<!-- Class: Slett -->
+<element name = "Slett">
+   <annotation>
+       <documentation>
+         Brukes for å angi informasjon om hvilke objekter som skal slettes.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "objekttype" type = "npr:objekttype"  use = "required" />
+      <attribute name = "slettGUID" type = "nprx:guid"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Hendelse -->
+<element name = "Hendelse">
+   <complexType >
+      <sequence>
+         <element ref = "npr:Henvendelse" minOccurs = "1" maxOccurs = "unbounded" />
+         <element ref = "npr:Pasientkontakt" minOccurs = "1" maxOccurs = "unbounded" />
+         <element ref = "npr:Tiltak_amk" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "hendelseGUID" type = "nprx:guid"  use = "optional" />
+      <attribute name = "hendelseID" type = "integer"  use = "required" />
+      <attribute name = "hendelseType" type = "npr:hendelsestype"  use = "optional" />
+      <attribute name = "hendelseRisiko" type = "npr:risiko_Risikotype"  use = "optional" />
+      <attribute name = "opprettetDatoTid" type = "dateTime"  use = "required" />
+      <attribute name = "klarDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "utforesDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "hentestedType" type = "npr:gruppering_av_hentesteder_og_leveringssteder"  use = "optional" />
+      <attribute name = "forsteAnkomstHentestedDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "hastegradHoyeste" type = "npr:hastegrad_AMK"  use = "optional" />
+      <attribute name = "hendelseAvvik" type = "npr:avvikshandtering_i_AMK_sentraler"  use = "optional" />
+   </complexType>
+      <unique name= "HenvendelseP_ID">
+         <selector xpath = "npr:Henvendelse"/>
+         <field xpath = "@henvendelseID"/>
+      </unique>
+      <unique name= "Tiltak_amkP_ID">
+         <selector xpath = "npr:Tiltak_amk"/>
+         <field xpath = "@tiltakID"/>
+      </unique>
+      <unique name= "PasientkontaktP_ID">
+         <selector xpath = "npr:Pasientkontakt"/>
+         <field xpath = "@pasientkontaktNr"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 4 -->
+
+<!-- Class: Henvendelse -->
+<element name = "Henvendelse">
+   <annotation>
+       <documentation>
+         Henvendelse til AMK-sentral som resultat av den  situasjon som er skapt på grunn av en inntruffet situasjon.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "henvendelseID" type = "integer"  use = "required" />
+      <attribute name = "henvendelseNr" type = "integer"  use = "required" />
+      <attribute name = "henvendelseDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "innringerType" type = "npr:innringer_type"  use = "optional" />
+      <attribute name = "sambandsveiType" type = "npr:sambandsvei"  use = "optional" />
+      <attribute name = "henvendelseAvvik" type = "npr:avvikshandtering_ved_henvendelser_til_AMK_sentraler"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Pasientkontakt -->
+<element name = "Pasientkontakt">
+   <annotation>
+       <documentation>
+         Må defineres.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "pasientkontaktNr" type = "integer"  use = "required" />
+      <attribute name = "pasientID" type = "string"  use = "required" />
+      <attribute name = "bevissthetType" type = "npr:bevissthet"  use = "optional" />
+      <attribute name = "respirasjonsType" type = "npr:respirasjon"  use = "optional" />
+      <attribute name = "kriterieType" type = "string"  use = "optional" />
+      <attribute name = "kriterieVersjon" type = "string"  use = "optional" />
+      <attribute name = "alder" type = "integer"  use = "optional" />
+      <attribute name = "kjonn" type = "npr:kjonn"  use = "optional" />
+      <attribute name = "bostedKommune" type = "string"  use = "optional" />
+      <attribute name = "hastegrad_A" type = "npr:hastegrad_AMK"  use = "optional" />
+      <attribute name = "hastegrad_B" type = "npr:hastegrad_AMK"  use = "optional" />
+      <attribute name = "hastegrad_C" type = "npr:hastegrad_AMK"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Tiltak_amk -->
+<element name = "Tiltak_amk">
+   <annotation>
+       <documentation>
+         Samordnede tiltak som iverksettes/oppfølges av  AMK-/LV-sentral for å yte nødvendig hjelp ved akutt  oppstått sykdom eller skade.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:AmbJournal" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Oppdrag" minOccurs = "0" maxOccurs = "1" />
+      </sequence>
+      <attribute name = "tiltakID" type = "integer"  use = "required" />
+      <attribute name = "tiltakNr" type = "integer"  use = "required" />
+      <attribute name = "pasientkontaktNr" type = "integer"  use = "required" />
+      <attribute name = "tiltakType" type = "npr:tiltakstype_Respons"  use = "required" />
+      <attribute name = "tiltakKategori" type = "npr:tiltak_kategori"  use = "optional" />
+      <attribute name = "opprettetDatoTid" type = "dateTime"  use = "required" />
+      <attribute name = "varsletDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "kvittertDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "tiltakAvvik" type = "npr:avvikshandtering_ved_tiltak_i_AMK_sentraler"  use = "optional" />
+   </complexType>
+      <unique name= "OppdragP_ID">
+         <selector xpath = "npr:Oppdrag"/>
+         <field xpath = "@oppdragID"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 5 -->
+
+<!-- Class: Ambulansejournal -->
+<element name = "AmbJournal">
+   <annotation>
+       <documentation>
+         Dokumentasjon av ambulanseoppdrag.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Medikament" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Observasjon" minOccurs = "0" maxOccurs = "unbounded" />
+         <element ref = "npr:Behandlingstiltak" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "opprettetDatoTid" type = "dateTime"  use = "required" />
+      <attribute name = "tentativTilstand" type = "string"  use = "optional" />
+      <attribute name = "skadeDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "prioritet" type = "npr:prioritet_ved_triageannet"  use = "optional" />
+      <attribute name = "symptom" type = "npr:symptom"  use = "optional" />
+   </complexType>
+</element>
+
+<!-- Class: Oppdrag -->
+<element name = "Oppdrag">
+   <annotation>
+       <documentation>
+         Bruk av ambulanse, som en del av respons på en  henvendelse, eller som forhåndsbestilt.  Ambulanse betyr: Bakke-, luft- eller sjøfartøy/-kjøretøy som er  konstruert/innredet for og brukt til transport av syke  eller skadde personer, med personell, fasiliteter og  utstyr for behandling før og under transport..
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "oppdragID" type = "integer"  use = "required" />
+      <attribute name = "oppdragType" type = "npr:oppdrag_type"  use = "required" />
+      <attribute name = "vaktID" type = "string"  use = "optional" />
+      <attribute name = "rykkerUtDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "ankomstHentestedDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "avreiseHentestedDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "tettsted" type = "npr:ja_nei"  use = "optional" />
+      <attribute name = "kommunenrHentested" type = "string"  use = "required" />
+      <attribute name = "bydelnrHentested" type = "string"  use = "optional" />
+      <attribute name = "x_koordinatHentested" type = "string"  use = "optional" />
+      <attribute name = "y_koordinatHentested" type = "string"  use = "optional" />
+      <attribute name = "kommunenrLeveringssted" type = "string"  use = "optional" />
+      <attribute name = "leveringsstedType" type = "npr:gruppering_av_hentesteder_og_leveringssteder"  use = "optional" />
+      <attribute name = "leveringsstedNavn" type = "string"  use = "optional" />
+      <attribute name = "hastegradTilbake" type = "npr:hastegrad_AMK"  use = "optional" />
+      <attribute name = "onsketLevertDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "ankomstLeveringsstedDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "ledigDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "ledigStasjonDatoTid" type = "dateTime"  use = "optional" />
+      <attribute name = "oppdragAvvik" type = "npr:avvikshandtering_ved_oppdrag_i_AMK_sentraler"  use = "optional" />
+   </complexType>
+</element>
+
+
+<!-- LEVEL 6 -->
+
+<!-- Class: Medikament -->
+<element name = "Medikament">
+   <complexType >
+      <attribute name = "medikamentType" type = "string"  use = "required" />
+      <attribute name = "doseDatoTid" type = "dateTime"  use = "required" />
+      <attribute name = "dosering" type = "string"  use = "required" />
+      <attribute name = "administrasjonsmate" type = "string"  use = "required" />
+      <attribute name = "enhetMedikament" type = "string"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Observasjon -->
+<element name = "Observasjon">
+   <complexType >
+      <attribute name = "typeObservasjon" type = "npr:type_observasjon"  use = "required" />
+      <attribute name = "observasjonDatoTid" type = "dateTime"  use = "required" />
+      <attribute name = "verdi" type = "string"  use = "required" />
+      <attribute name = "enhet" type = "string"  use = "required" />
+   </complexType>
+</element>
+
+<!-- Class: Behandlingstiltak -->
+<element name = "Behandlingstiltak">
+   <annotation>
+       <documentation>
+         Ulike typer tiltak i forhold til pasienten.
+      </documentation>
+   </annotation>
+   <complexType >
+      <attribute name = "typeBehandling" type = "npr:type_behandling"  use = "required" />
+      <attribute name = "behandlingDatoTid" type = "dateTime"  use = "required" />
+   </complexType>
+</element>
+</schema>

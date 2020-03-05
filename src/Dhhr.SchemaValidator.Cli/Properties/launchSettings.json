@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Dhhr.SchemaValidator.Cli": {
+      "commandName": "Project",
+      "commandLineArgs": "-f c:/temp/Dhhr.MessageGenerator/output/1.xml"
+    }
+  }
+}

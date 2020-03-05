@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generated on 11-18-2018  22:19:31 at NPR -->
+<!-- Avdeling helsergistres meldinger -->
+<!-- Modul ipl  -->
+<!-- Skjema for Kravspesifikasjon - IPLOS i KPR  -->
+<!-- XML-Schema level supported is specified by W3C -->
+<!-- http://www.w3.org/2001/XMLSchema -->
+<schema 
+       xmlns="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
+    xmlns:kith="http://www.kith.no/xmlstds" 
+    xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" 
+    xmlns:npr = "http://www.npr.no/xmlstds/53_1_3_ipl"
+    targetNamespace = "http://www.npr.no/xmlstds/53_1_3_ipl"
+    elementFormDefault = "qualified"
+    attributeFormDefault="unqualified">
+   <import namespace="http://www.npr.no/xmlstds/53_1_3" schemaLocation="NPR.xsd"/>
+
+
+
+<!-- LEVEL 1 -->
+
+<!-- Class: Melding -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Melding' --> 
+<simpleType name="meldingstype">
+   <restriction base="string"/>  <!-- Kodeverk: 7371 Meldingstype -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Melding' --> 
+<annotation>
+   <appinfo>
+      <class name="Melding"/> 
+      <attribute name="meldingstype"/> 
+      <codingScheme name="Meldingstype"/> 
+      <codingScheme OID="7371"/> 
+      <simpleT name="meldingstype"/> 
+         <code value="E" text="Endringsmelding" comment=""/>
+         <code value="B" text="Satsvis melding" comment=""/>
+   </appinfo>
+</annotation>
+
+
+<!-- LEVEL 2 -->
+
+<!-- Class: Kontaktperson -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Kontaktperson' --> 
+<simpleType name="kontaktperson_type">
+   <restriction base="string"/>  <!-- Kodeverk: 8471 Kontaktperson type -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Kontaktperson' --> 
+<annotation>
+   <appinfo>
+      <class name="Kontaktperson"/> 
+      <attribute name="typeKontaktperson"/> 
+      <codingScheme name="Kontaktperson type"/> 
+      <codingScheme OID="8471"/> 
+      <simpleT name="kontaktperson_type"/> 
+         <code value="1" text="Teknisk produksjon" comment=""/>
+         <code value="2" text="Somatisk spesialisthelsetjeneste" comment=""/>
+         <code value="3" text="Psykisk helsevern voksne" comment=""/>
+         <code value="4" text="Barne og ungdomspsykiatri" comment=""/>
+         <code value="5" text="Tverrfaglig spesialisert rusbehandling" comment=""/>
+         <code value="6" text="Personskadestatistikk" comment=""/>
+         <code value="7" text="Ventelistestatistikk" comment=""/>
+         <code value="8" text="Ident-meldingen" comment=""/>
+         <code value="9" text="RESH" comment=""/>
+         <code value="10" text="Radiologi" comment="Unntatt stråleterapi"/>
+         <code value="11" text="Stråleterapi" comment=""/>
+         <code value="12" text="Pakkeforløp kreft" comment=""/>
+         <code value="13" text="Vedtak etter psykisk helsevernloven" comment=""/>
+         <code value="14" text="Organisasjonsoppsett i EPJ" comment=""/>
+         <code value="15" text="EPJ-leverandør, meldingsvalidering" comment=""/>
+         <code value="16" text="IPLOS kontaktperson" comment=""/>
+         <code value="17" text="IPLOS innsendingsansvarlig" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Kommunale helse- og omsorgstjenester -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+<!-- LEVEL 3 -->
+
+<!-- Class: Objektholder -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+<!-- LEVEL 4 -->
+
+<!-- Class: Bruker/pasient -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Bruker/pasient' --> 
+<simpleType name="kjonn">
+   <restriction base="string"/>  <!-- Kodeverk: 3101 Kjønn -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Bruker/pasient' --> 
+<annotation>
+   <appinfo>
+      <class name="Bruker/pasient"/> 
+      <attribute name="kjonn"/> 
+      <codingScheme name="Kjønn"/> 
+      <codingScheme OID="3101"/> 
+      <simpleT name="kjonn"/> 
+         <code value="0" text="Ikke kjent" comment=""/>
+         <code value="1" text="Mann" comment=""/>
+         <code value="2" text="Kvinne" comment=""/>
+         <code value="9" text="Ikke spesifisert" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: IPLOS sak -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+<!-- LEVEL 5 -->
+
+<!-- Class: Ernæring -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Ernæring' --> 
+<simpleType name="vurderinger_kartlegginger_og_hendelser">
+   <restriction base="string"/>  <!-- Kodeverk: 9162 Vurderinger, kartlegginger og hendelser -->
+
+</simpleType>
+<simpleType name="ja_nei">
+   <restriction base="string"/>  <!-- Kodeverk: 1101 Ja, nei -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Ernæring' --> 
+<annotation>
+   <appinfo>
+      <class name="Ernæring"/> 
+      <attribute name="typeKartlegging"/> 
+      <codingScheme name="Vurderinger, kartlegginger og hendelser"/> 
+      <codingScheme OID="9162"/> 
+      <simpleT name="vurderinger_kartlegginger_og_hendelser"/> 
+         <code value="1" text="Kartlegging av risiko for underernæring" comment=""/>
+         <code value="2" text="Er personen i risiko for underernæring" comment=""/>
+         <code value="3" text="Er det utarbeidet ernæringsplan" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Ernæring"/> 
+      <attribute name="resultat"/> 
+      <codingScheme name="Ja, nei"/> 
+      <codingScheme OID="1101"/> 
+      <simpleT name="ja_nei"/> 
+         <code value="1" text="Ja" comment=""/>
+         <code value="2" text="Nei" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Bistand til samfunnsdeltakelse -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Bistand til samfunnsdeltakelse' --> 
+<simpleType name="type_bistand">
+   <restriction base="string"/>  <!-- Kodeverk: 9163 Type bistand -->
+
+</simpleType>
+<simpleType name="status_for_gitt_bistand">
+   <restriction base="string"/>  <!-- Kodeverk: 9164 Status for gitt bistand -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Bistand til samfunnsdeltakelse' --> 
+<annotation>
+   <appinfo>
+      <class name="Bistand til samfunnsdeltakelse"/> 
+      <attribute name="typeBistand"/> 
+      <codingScheme name="Type bistand"/> 
+      <codingScheme OID="9163"/> 
+      <simpleT name="type_bistand"/> 
+         <code value="1" text="Bistand til deltakelse i arbeid og/eller utdanning (uspesifisert)" comment=""/>
+         <code value="2" text="Transport til arbeid og/eller utdanning" comment=""/>
+         <code value="3" text="Bistand til deltakelse i organisasjons-, kultur- og fritidsaktiviteter (uspesifisert)" comment=""/>
+         <code value="4" text="Transport til organisasjons-, kultur- og fritidsaktiviteter" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Bistand til samfunnsdeltakelse"/> 
+      <attribute name="statusBistand"/> 
+      <codingScheme name="Status for gitt bistand"/> 
+      <codingScheme OID="9164"/> 
+      <simpleT name="status_for_gitt_bistand"/> 
+         <code value="1" text="Har ikke behov for bistand" comment=""/>
+         <code value="2" text="Har behov, men mottar ikke bistand" comment=""/>
+         <code value="3" text="Mottar bistand, men har udekkede behov" comment=""/>
+         <code value="4" text="Har dekket behovet for bistand" comment=""/>
+         <code value="5" text="Ikke relevant" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Mottar privat ikke-betalt hjelp -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Mottar privat ikke-betalt hjelp' --> 
+<simpleType name="grad_av_mottatt_privat_hjelp">
+   <restriction base="string"/>  <!-- Kodeverk: 9168 Grad av mottatt privat hjelp -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Mottar privat ikke-betalt hjelp' --> 
+<annotation>
+   <appinfo>
+      <class name="Mottar privat ikke-betalt hjelp"/> 
+      <attribute name="privatHjelp"/> 
+      <codingScheme name="Grad av mottatt privat hjelp"/> 
+      <codingScheme OID="9168"/> 
+      <simpleT name="grad_av_mottatt_privat_hjelp"/> 
+         <code value="1" text="Ja, inntil 3 timer/uke" comment=""/>
+         <code value="2" text="Ja, 3 inntil 9 timer/uke" comment=""/>
+         <code value="3" text="Ja, 9 inntil 15 timer/uke" comment=""/>
+         <code value="4" text="Ja, 15 timer/uke eller mer" comment=""/>
+         <code value="5" text="Ja, ukjent omfang" comment=""/>
+         <code value="6" text="Nei" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Opplysninger om boforhold -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Opplysninger om boforhold' --> 
+<simpleType name="bosituasjon">
+   <restriction base="string"/>  <!-- Kodeverk: 3104 Bosituasjon -->
+
+</simpleType>
+<!-- simpleType for  ja_nei written before    -->
+<!-- simpleType for  ja_nei written before    -->
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Opplysninger om boforhold' --> 
+<annotation>
+   <appinfo>
+      <class name="Opplysninger om boforhold"/> 
+      <attribute name="husstand"/> 
+      <codingScheme name="Bosituasjon"/> 
+      <codingScheme OID="3104"/> 
+      <simpleT name="bosituasjon"/> 
+         <code value="1" text="Bor alene" comment="Personen disponerer bolig for seg selv."/>
+         <code value="2" text="Samboende med barn" comment="Personen bor sammen med et annet voksent menneske i kjærlighetsrelasjon, der minst en av partene har foreldreansvar for et eller flere barn som bor fast eller pendler til denne forelderen."/>
+         <code value="3" text="Samboende uten barn" comment="Personen bor sammen med et annet voksent menneske i kjærlighetsrelasjon, ingen barn."/>
+         <code value="4" text="Alene med barn" comment="Personen har eneansvaret til daglig for et eller flere barn."/>
+         <code value="5" text="Sammen med foreldre/foresatte" comment="Personen bor sammen med en eller to foreldre eller foresatte."/>
+         <code value="6" text="Sammen med annen familie" comment="Personen bor sammen med familie utenom foreldre, for eksempel søsken eller besteforeldre."/>
+         <code value="7" text="Bofellesskap" comment="Personen disponerer bolig sammen med en eller flere personer han/hun ikke er i familie med eller har definert kjærlighetsrelasjon med."/>
+         <code value="8" text="Institusjon" comment="Personen bor på offentlig eller privat instituasjon"/>
+         <code value="9" text="Annet" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Ja, nei written before    -->
+<!-- Appinfo for  Ja, nei written before    -->
+
+<!-- Class: Funksjonsvurdering -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Funksjonsvurdering' --> 
+<simpleType name="iPLOS_funksjonsvariabel">
+   <restriction base="string"/>  <!-- Kodeverk: 9111 IPLOS funksjonsvariabel -->
+
+</simpleType>
+<simpleType name="oid_9165_9166_9167">
+   <union memberTypes= "   npr:funskjonsverdi    npr:funskjonsverdi_syn    npr:funksjonsverdi_horsel"/>
+</simpleType><simpleType name="funskjonsverdi">
+   <restriction base="string"/>  <!-- Kodeverk: 9165 Funskjonsverdi -->
+
+</simpleType>
+<simpleType name="funskjonsverdi_syn">
+   <restriction base="string"/>  <!-- Kodeverk: 9166 Funskjonsverdi syn -->
+
+</simpleType>
+<simpleType name="funksjonsverdi_horsel">
+   <restriction base="string"/>  <!-- Kodeverk: 9167 Funksjonsverdi hørsel -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Funksjonsvurdering' --> 
+<annotation>
+   <appinfo>
+      <class name="Funksjonsvurdering"/> 
+      <attribute name="funksjonstype"/> 
+      <codingScheme name="IPLOS funksjonsvariabel"/> 
+      <codingScheme OID="9111"/> 
+      <simpleT name="iPLOS_funksjonsvariabel"/> 
+         <code value="1" text="Sosial deltakelse" comment=""/>
+         <code value="2" text="Skaffe seg varer og tjenester" comment=""/>
+         <code value="3" text="Beslutninger i dagliglivet" comment=""/>
+         <code value="4" text="Ivareta egen helse" comment=""/>
+         <code value="5" text="Bevege seg innendørs" comment=""/>
+         <code value="6" text="Alminnelig husarbeid" comment=""/>
+         <code value="7" text="Personlig hygiene" comment=""/>
+         <code value="8" text="På- og avkledning" comment=""/>
+         <code value="9" text="Lage mat" comment=""/>
+         <code value="10" text="Spise" comment=""/>
+         <code value="11" text="Toalett" comment=""/>
+         <code value="12" text="Bevege seg utendørs" comment=""/>
+         <code value="13" text="Syn" comment=""/>
+         <code value="14" text="Hørsel" comment=""/>
+         <code value="15" text="Hukommelse" comment=""/>
+         <code value="16" text="Kommunikasjon" comment=""/>
+         <code value="17" text="Styre atferd" comment=""/>
+         <code value="18" text="Ivareta egen økonomi" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Funksjonsvurdering"/> 
+      <attribute name="funksjonsverdi"/> 
+      <codingScheme name="Funskjonsverdi"/> 
+      <codingScheme OID="9165"/> 
+      <simpleT name="funskjonsverdi"/> 
+         <code value="1" text="Utgjør ingen problem/utfordring" comment=""/>
+         <code value="2" text="Ikke behov for bistand/assistanse/helsehjelp" comment=""/>
+         <code value="3" text="Middels behov for bistand/assistanse/helsehjelp" comment=""/>
+         <code value="4" text="Store behov for bistand/assistanse/helsehjelp" comment=""/>
+         <code value="5" text="Fullt bistands-/assistansebehov/helsehjelp" comment=""/>
+         <code value="9" text="Ikke relevant" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Funksjonsvurdering"/> 
+      <attribute name="funksjonsverdi"/> 
+      <codingScheme name="Funskjonsverdi syn"/> 
+      <codingScheme OID="9166"/> 
+      <simpleT name="funskjonsverdi_syn"/> 
+         <code value="1" text="Godt/ingen problemer" comment=""/>
+         <code value="2" text="Noe redusert" comment=""/>
+         <code value="3" text="Dårlig" comment=""/>
+         <code value="4" text="Svært dårlig" comment=""/>
+         <code value="5" text="Blind" comment=""/>
+         <code value="9" text="Ikke relevant" comment=""/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Funksjonsvurdering"/> 
+      <attribute name="funksjonsverdi"/> 
+      <codingScheme name="Funksjonsverdi hørsel"/> 
+      <codingScheme OID="9167"/> 
+      <simpleT name="funksjonsverdi_horsel"/> 
+         <code value="1" text="Godt/ingen problemer" comment=""/>
+         <code value="2" text="Noe redusert" comment=""/>
+         <code value="3" text="Dårlig" comment=""/>
+         <code value="4" text="Svært dårlig" comment=""/>
+         <code value="5" text="Døv" comment=""/>
+         <code value="9" text="Ikke relevant" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Individuell plan -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Individuell plan' --> 
+<simpleType name="individuell_plan_foreligger">
+   <restriction base="string"/>  <!-- Kodeverk: 8705 Individuell plan foreligger -->
+
+</simpleType>
+<simpleType name="rolle_i_arbeidet_med_individuell_plan">
+   <restriction base="string"/>  <!-- Kodeverk: 8473 Rolle i arbeidet med individuell plan -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Individuell plan' --> 
+<annotation>
+   <appinfo>
+      <class name="Individuell plan"/> 
+      <attribute name="individuellPlan"/> 
+      <codingScheme name="Individuell plan foreligger"/> 
+      <codingScheme OID="8705"/> 
+      <simpleT name="individuell_plan_foreligger"/> 
+         <code value="101" text="	Ja, virksom plan" comment="Registreringen viser om pasient har fått utarbeidet individuell plan eller at planprosessen er igangsatt. Dette er en rettighet pasienter med behov for langvarige og koordinerte tjenester har, for å sikre et koordinert tjenestetilbud. Som ledd i arbeidet skal pasient få oppnevnt koordinator som skal sørge for nødvendig oppfølging av den enkelte pasient, samt sikre samordning av tjenestetilbudet og fremdrift i arbeidet med individuell plan."/>
+         <code value="102" text="	Nei, individuell plan er ikke utarbeidet/planprosess ikke igangsatt" comment="Her angis det ikke hvilken årsak det er til at arbeidet ikke er i gang. Så lenge pasient ikke har svart nei, er det tjenestens ansvar å følge opp og sikre avklaring av eventuell oppstart av prosess."/>
+         <code value="103" text="	Nei, ønsker ikke individuell plan" comment="Her forutsettes det at det er gitt tilstrekkelig informasjon."/>
+         <code value="104" text="	Nei, oppfyller ikke retten til individuell plan" comment="Her forutsettes det at tjenesten har gjort en vurdering."/>
+         <code value="105" text="Melding om behov for individuell plan er sendt kommunen" comment="Særlig for spesialisthelsetjenesten"/>
+         <code value="106" text="Ukjent med status" comment="Skal ikke settes som default verdi"/>
+   </appinfo>
+</annotation>
+<annotation>
+   <appinfo>
+      <class name="Individuell plan"/> 
+      <attribute name="rolleIP"/> 
+      <codingScheme name="Rolle i arbeidet med individuell plan"/> 
+      <codingScheme OID="8473"/> 
+      <simpleT name="rolle_i_arbeidet_med_individuell_plan"/> 
+         <code value="1" text="Ansvarlig for utarbeidelse av individuell plan" comment=""/>
+         <code value="21" text="Ansvarlig for å gi informasjon til pasient om retten til IP" comment=""/>
+         <code value="22" text="Den som melder behov for IP til kommunen" comment=""/>
+         <code value="23" text="Deltar i utarbeidelse av IP, eventuelt i samarbeid med kommunen" comment=""/>
+         <code value="3" text="Er ikke involvert i arbeidet med individuell plan" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Koordinator -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Koordinator' --> 
+<simpleType name="koordinator_individuell_plan">
+   <restriction base="string"/>  <!-- Kodeverk: 9188 Koordinator individuell plan -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Koordinator' --> 
+<annotation>
+   <appinfo>
+      <class name="Koordinator"/> 
+      <attribute name="koordinatorIP"/> 
+      <codingScheme name="Koordinator individuell plan"/> 
+      <codingScheme OID="9188"/> 
+      <simpleT name="koordinator_individuell_plan"/> 
+         <code value="1" text="Ja, oppnevnt koordinator" comment=""/>
+         <code value="2" text="Nei, koordinator er ikke oppnevnt" comment=""/>
+         <code value="3" text="Nei, ønsker ikke koordinator" comment=""/>
+         <code value="4" text="Nei, oppfyller ikke retten til koordinator" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Diagnose -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+<!-- Class: Legemiddelgjennomgang -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Legemiddelgjennomgang' --> 
+<simpleType name="legemiddelgjennomgang_gjennomfort">
+   <restriction base="string"/>  <!-- Kodeverk: 9159 Legemiddelgjennomgang gjennomført -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Legemiddelgjennomgang' --> 
+<annotation>
+   <appinfo>
+      <class name="Legemiddelgjennomgang"/> 
+      <attribute name="resultatKartlegging"/> 
+      <codingScheme name="Legemiddelgjennomgang gjennomført"/> 
+      <codingScheme OID="9159"/> 
+      <simpleT name="legemiddelgjennomgang_gjennomfort"/> 
+         <code value="1" text="Ja" comment=""/>
+         <code value="2" text="Nei" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Bruk av tvang i omsorgstjenesten -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Bruk av tvang i omsorgstjenesten' --> 
+<simpleType name="type_tvang">
+   <restriction base="string"/>  <!-- Kodeverk: 9157 Type tvang -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Bruk av tvang i omsorgstjenesten' --> 
+<annotation>
+   <appinfo>
+      <class name="Bruk av tvang i omsorgstjenesten"/> 
+      <attribute name="typeTvang"/> 
+      <codingScheme name="Type tvang"/> 
+      <codingScheme OID="9157"/> 
+      <simpleT name="type_tvang"/> 
+         <code value="23" text="Skadeavvergende tiltak i nødssituasjoner" comment="Helse- og omsorgstjenesteloven kap. 9, § 9-5, tredje ledd bokstav a"/>
+         <code value="14" text="Planlagte tiltak" comment="Helse- og omsorgstjenesteloven kap. 9, § 9-5, tredje ledd bokstav b og c"/>
+         <code value="24" text="Helsehjelp med tvang" comment="Pasientrettighetsloven kapittel 4 A"/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Henvendelse om behov/behov oppdaget -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+<!-- Class: Vedtak/beslutning om tjeneste -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Vedtak/beslutning om tjeneste' --> 
+<simpleType name="vedtak">
+   <restriction base="string"/>  <!-- Kodeverk: 9171 Vedtak -->
+
+</simpleType>
+<!-- simpleType for  ja_nei written before    -->
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Vedtak/beslutning om tjeneste' --> 
+<annotation>
+   <appinfo>
+      <class name="Vedtak/beslutning om tjeneste"/> 
+      <attribute name="beslutning"/> 
+      <codingScheme name="Vedtak"/> 
+      <codingScheme OID="9171"/> 
+      <simpleT name="vedtak"/> 
+         <code value="1" text="Avslag" comment=""/>
+         <code value="2" text="Innvilget" comment=""/>
+   </appinfo>
+</annotation>
+<!-- Appinfo for  Ja, nei written before    -->
+
+<!-- Class: Klage på vedtak om tjeneste -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+<!-- Class: Iverksatt -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Iverksatt' --> 
+<!-- simpleType for  ja_nei written before    -->
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Iverksatt' --> 
+<!-- Appinfo for  Ja, nei written before    -->
+
+
+<!-- LEVEL 6 -->
+
+<!-- Class: Kode -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Kode' --> 
+<simpleType name="medisinske_kodeverk">
+   <restriction base="string"/>  <!-- Kodeverk: 8410 Medisinske kodeverk -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Kode' --> 
+<annotation>
+   <appinfo>
+      <class name="Kode"/> 
+      <attribute name="Kodeverk"/> 
+      <codingScheme name="Medisinske kodeverk"/> 
+      <codingScheme OID="8410"/> 
+      <simpleT name="medisinske_kodeverk"/> 
+         <code value="F" text="ATC" comment="7180 Anatomisk Terapeutisk Kjemisk legemiddelregister"/>
+         <code value="D" text="ICD-10" comment="7110 Den internasjonale statistiske klassifikasjonen av sykdommer og beslektede helseproblemer"/>
+         <code value="K" text="NCSP-N" comment="7210 NOMESCO Classification of Surgical Procedures, Norsk utgave"/>
+         <code value="H" text="ICPC" comment="7170 International Classification of Primary Care"/>
+         <code value="M" text="NCMP" comment="7220 Norsk klassifikasjon av medisinske prosedyrer"/>
+         <code value="R" text="NCRP" comment="Norsk klassifikasjon av radiologiske prosedyrer"/>
+         <code value="N" text="Intervensjon rus" comment="8740 Vil bli avløst av 7260"/>
+         <code value="A" text="Utredning kartlegging rusmisbruk" comment="8741 Vil bli avløst av 7260"/>
+         <code value="S" text="Midlertidige nasjonale særkoder" comment="7020 Kodene benyttes som et grunnlag for finansieringsordninger"/>
+         <code value="X" text="NORAKO" comment="7240 Kodeverk for røntgenundersøkelser"/>
+         <code value="B" text="Aksene 5 og 6 i BUP klassifikasjon" comment=""/>
+         <code value="P" text="Pakkeforløp kreft prosedyrekoder" comment=""/>
+         <code value="Q" text="NCSP/NCMP/NCRP" comment="Kode fra en av kodeverkene"/>
+         <code value="T" text="Pakkeforløp psykisk helse og rus prosedyrekoder" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Behov for tjeneste -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Behov for tjeneste' --> 
+<simpleType name="iPLOS_tjenestetype">
+   <restriction base="string"/>  <!-- Kodeverk: 9151 IPLOS tjenestetype -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Behov for tjeneste' --> 
+<annotation>
+   <appinfo>
+      <class name="Behov for tjeneste"/> 
+      <attribute name="tjenestetype"/> 
+      <codingScheme name="IPLOS tjenestetype"/> 
+      <codingScheme OID="9151"/> 
+      <simpleT name="iPLOS_tjenestetype"/> 
+         <code value="1" text="[Hjemmetjenester:] Praktisk bistand: daglige gjøremål" comment=""/>
+         <code value="2" text="[Hjemmetjenester:] Praktisk bistand - opplæring - daglige gjøremål" comment=""/>
+         <code value="3" text="[Hjemmetjenester:] Praktisk bistand: brukerstyrt - personlig assistanse" comment=""/>
+         <code value="4" text="[Hjemmetjenester:] Dagaktivitetstilbud" comment=""/>
+         <code value="5" text="[Hjemmetjenester:] Matombringing" comment=""/>
+         <code value="6" text="[Hjemmetjenester:] Trygghetsalarm" comment=""/>
+         <code value="15" text="[Hjemmetjenester:] Helsetjenester i hjemmet" comment=""/>
+         <code value="7" text="[Hjemmetjenester:] Avlastning - utenfor institusjon" comment=""/>
+         <code value="9" text="[Hjemmetjenester:] Støttekontakt" comment=""/>
+         <code value="11" text="[Hjemmetjenester:] Omsorgslønn" comment=""/>
+         <code value="16" text="[Hjemmetjenester:] Re-/habilitering utenfor institusjon" comment=""/>
+         <code value="26" text="[Hjemmetjenester:] Varslings- og lokaliseringsteknologi (GPS)" comment=""/>
+         <code value="12" text="[Bolig:] Omsorgsbolig" comment=""/>
+         <code value="13" text="[Bolig:] Annen bolig" comment=""/>
+         <code value="18" text="[Institusjonstjenester:] Tidsbegrenset opphold - utredning/behandling" comment=""/>
+         <code value="19" text="[Institusjonstjenester:] Tidsbegrenset opphold - habilitering/rehabilitering" comment=""/>
+         <code value="20" text="[Institusjonstjenester:] Tidsbegrenset opphold - annet" comment=""/>
+         <code value="8" text="[Institusjonstjenester:] Avlastning - i institusjon" comment=""/>
+         <code value="17" text="[Institusjonstjenester:] Dagopphold i institusjon" comment=""/>
+         <code value="22" text="[Institusjonstjenester:] Nattopphold i institusjon" comment=""/>
+         <code value="21" text="[Institusjonstjenester:] Langtidsopphold i institusjon" comment=""/>
+         <code value="25" text="[Institusjonstjenester:]Kommunal øyeblikkelig hjelp - døgnopphold" comment=""/>
+         <code value="23" text="[Bruk av tvang:] Skadeavvergende tiltak i nødssituasjoner" comment="Vedtak/avgjørelse fattet etter helse- og omsorgstjenesteloven kap. 9, § 9-5, tredje ledd bokstav a."/>
+         <code value="14" text="[Bruk av tvang:] Planlagte tiltak" comment="Vedtak om bruk av tvang og makt
+(helse- og omsorgstjenesteloven kap. 9, § 9-5, tredje ledd bokstav b og c)."/>
+         <code value="24" text="[Bruk av tvang:] Helsehjelp med tvang" comment="Pasientrettighetsloven (kapittel 4 A)"/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Vedtak tjeneste -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Vedtak tjeneste' --> 
+<!-- simpleType for  iPLOS_tjenestetype written before    -->
+<!-- simpleType for  vedtak written before    -->
+<simpleType name="ja_nei_ukjent">
+   <restriction base="string"/>  <!-- Kodeverk: 1103 Ja, nei, ukjent -->
+
+</simpleType>
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Vedtak tjeneste' --> 
+<!-- Appinfo for  IPLOS tjenestetype written before    -->
+<!-- Appinfo for  Vedtak written before    -->
+<annotation>
+   <appinfo>
+      <class name="Vedtak tjeneste"/> 
+      <attribute name="rullerende"/> 
+      <codingScheme name="Ja, nei, ukjent"/> 
+      <codingScheme OID="1103"/> 
+      <simpleT name="ja_nei_ukjent"/> 
+         <code value="1" text="Ja" comment=""/>
+         <code value="2" text="Nei" comment=""/>
+         <code value="9" text="Ukjent" comment=""/>
+   </appinfo>
+</annotation>
+
+<!-- Class: Iverksatt tjeneste -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+
+
+ <!-- Coding schemes as simpleTypes without enumerations in the class: 'Iverksatt tjeneste' --> 
+<!-- simpleType for  iPLOS_tjenestetype written before    -->
+
+
+ <!-- Appinfo for Coding schemes in the class: 'Iverksatt tjeneste' --> 
+<!-- Appinfo for  IPLOS tjenestetype written before    -->
+
+
+<!-- LEVEL 7 -->
+
+<!-- Class: Tiltak utført av -->
+   
+
+
+   <!--     A P P I N F O     -->
+   
+
+   <!-- dataType 'Kodet' -->
+   <simpleType name='Kodet' >
+      <restriction base= 'string'> 
+      </restriction> 
+   </simpleType>
+</schema>
